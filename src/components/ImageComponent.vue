@@ -24,7 +24,7 @@ function toggleEditMode() {
             <img
                 @click="toggleEditMode()"
                 :src="imageSrc"
-                class="object-contain">
+                class="object-cover">
         </div>
         <input v-else
             ref="input"

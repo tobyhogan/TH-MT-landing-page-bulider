@@ -7,9 +7,22 @@ import ImageComponent from "@/components/ImageComponent.vue";
 
 <template>
   <main>
-    <header-component></header-component>
-    <text-component></text-component>
-    <button-component></button-component>
-    <image-component></image-component>
+    <div class="container flex flex-wrap p-8 mx-auto xl:px-0 max-width">
+        <div class="flex items-center w-full lg:w-1/2">
+          <div class="max-w-2xl mb-8">
+            <HeaderComponent></HeaderComponent>
+            <p>
+              <TextComponent></TextComponent>
+            </p>
+
+            <div class="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
+              <ButtonComponent></ButtonComponent>              
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-center w-full lg:w-1/2">
+          <ImageComponent></ImageComponent>
+        </div>
+      </div>     
   </main>
 </template>

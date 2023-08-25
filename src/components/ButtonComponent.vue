@@ -20,7 +20,7 @@ function toggleEditMode() {
 <template>
     <div class="group relative">
         <button v-if="!editMode"
-                class="button relative"
+                class="button relative px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-md"
                 @click="toggleEditMode()">
             {{ buttonText }}
             <edit-button @toggleEditMode="toggleEditMode()"></edit-button>
