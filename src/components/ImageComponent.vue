@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { nextTick, ref } from 'vue';
+import EditButton from './EditButton.vue';
 
 const imageSrc = ref("https://picsum.photos/200");
 const editMode = ref(false);
@@ -17,13 +18,18 @@ function toggleEditMode() {
 </script>
 
 <template>
-    <div>
-        <img v-if="!editMode"
-            @click="toggleEditMode()"
-            :src="imageSrc">
+    <div class="group relative">
+        <div v-if="!editMode">
+            <edit-button @toggleEditMode="toggleEditMode()"></edit-button>
+            <img
+                @click="toggleEditMode()"
+                :src="imageSrc"
+                class="object-contain">
+        </div>
         <input v-else
             ref="input"
             type="text"
+            class="text-black"
             v-model="imageSrc"
             @blur="toggleEditMode()"
             @keyup.enter="toggleEditMode()">

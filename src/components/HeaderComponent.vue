@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { nextTick, ref } from 'vue';
+import EditButton from './EditButton.vue';
 
 const headerText = ref("Header");
 const editMode = ref(false);
@@ -17,14 +18,17 @@ function toggleEditMode() {
 </script>
 
 <template>
-    <div>
+    <div class="group">        
         <h1 v-if="!editMode"
+            class="relative"
             @click="toggleEditMode()">
             {{ headerText }}
+            <edit-button @toggleEditMode="toggleEditMode()"></edit-button>
         </h1>
         <input v-else
             ref="input"
             type="text"
+            class="text-black"
             v-model="headerText"
             @blur="toggleEditMode()"
             @keyup.enter="toggleEditMode()">

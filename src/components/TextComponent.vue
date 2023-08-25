@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { nextTick, ref } from 'vue';
+import EditButton from './EditButton.vue';
 
 const text = ref("This is my glorious SaaS product! Please buy it!");
 const editMode = ref(false);
@@ -17,14 +18,16 @@ function toggleEditMode() {
 </script>
 
 <template>
-    <div>
+    <div class="group relative">
         <div v-if="!editMode"
-            @click="toggleEditMode()">
+                @click="toggleEditMode()">
             {{ text }}
+            <edit-button @toggleEditMode="toggleEditMode()"></edit-button>
         </div>
         <input v-else
             ref="input"
             type="text"
+            class="text-black"
             v-model="text"
             @blur="toggleEditMode()"
             @keyup.enter="toggleEditMode()">
