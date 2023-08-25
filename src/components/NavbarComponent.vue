@@ -10,7 +10,7 @@ const menuItems = [
   <nav class="container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-0">
     <div class="flex flex-wrap items-center justify-between w-full lg:w-auto">
         <a href="/">
-            <span class="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
+            <span class="flex items-center space-x-2 text-2xl font-medium text-indigo-500">
                 <span>
                     <img alt="N" loading="lazy" width="32" height="32" decoding="async" data-nimg="1" class="w-8" style="color:transparent" src="/img/logo.svg">
                 </span>
@@ -18,7 +18,7 @@ const menuItems = [
             </span>
         </a>
         <button aria-label="Toggle Menu"
-                class="px-2 py-1 ml-auto text-gray-500 rounded-md lg:hidden hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700" id="headlessui-disclosure-button-:R956:"
+                class="px-2 py-1 ml-auto text-gray-500 rounded-md lg:hidden hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none" id="headlessui-disclosure-button-:R956:"
                 type="button"
                 aria-expanded="false"
                 data-headlessui-state="">
@@ -31,7 +31,7 @@ const menuItems = [
         <ul class="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
             <li v-for="menuItem in menuItems"
                 class="mr-3 nav__item">
-                    <a class="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+                    <a class="inline-block px-4 py-2 text-lg font-normal text-gray-200 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none"
                     href="/">
                     {{ menuItem }}
                 </a>
@@ -39,7 +39,7 @@ const menuItems = [
         </ul>
     </div>
     <div class="hidden mr-3 space-x-4 lg:flex nav__item">
-        <a class="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5" href="/">Get Started</a>
+        <a class="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5 hover:text-indigo-500 hover:bg-white" href="/">Get Started</a>
     </div>
   </nav>
 </template>
