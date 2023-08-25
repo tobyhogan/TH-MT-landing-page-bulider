@@ -6,6 +6,13 @@ import { RouterView } from 'vue-router'
   <RouterView />
 </template>
 
-<style scoped lang="postcss">
+<style lang="postcss">
+#app {
+    @apply text-gray-100 subpixel-antialiased w-screen h-screen;
+}
 
+html,
+body {
+    @apply bg-gray-900 w-screen h-screen overflow-hidden;
+}
 </style>
