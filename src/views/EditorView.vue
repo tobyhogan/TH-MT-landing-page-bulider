@@ -3,9 +3,11 @@ import HeaderComponent from "@/components/HeaderComponent.vue";
 import TextComponent from "@/components/TextComponent.vue";
 import ButtonComponent from "@/components/ButtonComponent.vue";
 import ImageComponent from "@/components/ImageComponent.vue";
+import NavbarComponent from "@/components/NavbarComponent.vue";
 </script>
 
 <template>
+  <NavbarComponent></NavbarComponent>
   <main>
     <div class="container flex flex-wrap p-8 mx-auto xl:px-0 max-width">
         <div class="flex items-center w-full lg:w-1/2">
