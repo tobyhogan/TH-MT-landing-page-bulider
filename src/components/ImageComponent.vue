@@ -1,38 +1,33 @@
 <script setup lang="ts">
-import { nextTick, ref } from 'vue';
+import { ref } from 'vue';
 import EditButton from './EditButton.vue';
+import ImageSelectorModal from './modals/ImageSelectorModal.vue';
 
 const imageSrc = ref("https://picsum.photos/200");
-const editMode = ref(false);
-const input = ref<HTMLElement | null>(null);
+const isImageSelectorOpen = ref(false);
 
-function toggleEditMode() {
-    editMode.value = !editMode.value;
+function openImageSelector() {
+    isImageSelectorOpen.value = true;
+}
 
-    if (editMode.value) {
-        nextTick(() => {
-            input.value?.focus();
-        })
-    }
+function accept(imageUrl: string) {
+    imageSrc.value = imageUrl;
+    isImageSelectorOpen.value = false;
 }
 </script>
 
 <template>
-    <div class="group relative">
-        <div v-if="!editMode">
-            <edit-button @toggleEditMode="toggleEditMode()"></edit-button>
+    <div class="group relative cursor-pointer">
+        <div>
+            <edit-button @toggleEditMode="openImageSelector()"></edit-button>
             <img
-                @click="toggleEditMode()"
+                @click="openImageSelector()"
                 :src="imageSrc"
                 class="object-cover">
         </div>
-        <input v-else
-            ref="input"
-            type="text"
-            class="text-black"
-            v-model="imageSrc"
-            @blur="toggleEditMode()"
-            @keyup.enter="toggleEditMode()">
+        <ImageSelectorModal v-if="isImageSelectorOpen"
+                            @accept="accept"
+                            @close="isImageSelectorOpen = false"></ImageSelectorModal>
     </div>
 </template>
 

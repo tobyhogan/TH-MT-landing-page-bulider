@@ -1,4 +1,5 @@
 import './assets/tailwind.css'
+import 'whatwg-fetch'; // polyfill for fetch, needed for unsplash-js
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
