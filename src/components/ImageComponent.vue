@@ -17,13 +17,13 @@ function accept(imageUrl: string) {
 </script>
 
 <template>
-    <div class="group relative cursor-pointer">
-        <div>
+    <div class="group relative cursor-pointer h-full w-full">
+        <div class="h-full w-full flex justify-center items-center">
             <edit-button @toggleEditMode="openImageSelector()"></edit-button>
             <img
                 @click="openImageSelector()"
                 :src="imageSrc"
-                class="object-cover">
+                class="object-cover max-h-full max-w-full">
         </div>
         <ImageSelectorModal v-if="isImageSelectorOpen"
                             @accept="accept"

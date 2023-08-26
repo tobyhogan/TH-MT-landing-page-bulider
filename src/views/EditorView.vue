@@ -9,7 +9,7 @@ import NavbarComponent from "@/components/NavbarComponent.vue";
 <template>
   <NavbarComponent></NavbarComponent>
   <main>
-    <div class="container flex flex-wrap p-8 mx-auto xl:px-0 max-width">
+    <div class="container flex flex-wrap p-8 mx-auto xl:px-0">
         <div class="flex items-center w-full lg:w-1/2">
           <div class="max-w-2xl mb-8">
             <HeaderComponent></HeaderComponent>
@@ -22,7 +22,7 @@ import NavbarComponent from "@/components/NavbarComponent.vue";
             </div>
           </div>
         </div>
-        <div class="flex items-center justify-center w-full lg:w-1/2">
+        <div class="flex items-center justify-center w-full lg:w-1/2 h-[500px]">
           <ImageComponent></ImageComponent>
         </div>
       </div>     
