@@ -45,31 +45,37 @@ const closeModal = () => {
 
 <template>
   <Teleport to="#app">
-    <div @click.self="closeModal" class="fixed inset-0 flex items-center justify-center z-50 bg-opacity-50 bg-gray-900">
-      <div @click.stop class="bg-gray-400 p-6 rounded-lg shadow-md text-gray-900">
-        <div v-if="!showSearchResults">
-          <h2 class="text-lg font-semibold mb-4">Image Uploader</h2>
+    <div @mousedown="closeModal" class="fixed inset-0 flex items-center justify-center z-50 bg-opacity-50 bg-gray-900">
+      <div @mousedown.stop class="bg-gray-400 p-6 rounded-lg shadow-md text-gray-900 m-10"
+           :class="showSearchResults ? 'h-[95%]' : ''">
+        <div v-if="!showSearchResults"
+             class="flex flex-col space-y-4">
+          <h2 class="text-xl font-bold mb-4">Image Uploader</h2>
           
           <!-- Enter Image URL -->
-          <div class="mb-4">
-              <label class="block font-medium mb-1">Enter Image URL:</label>
+          <div>
+              <label class="block font-medium mb-1">Enter Image URL</label>
               <input v-model="imageUrl" type="text" class="border rounded-md p-2 w-full">
           </div>
+          
           <h3 class="text-xl font-semibold mb-2">OR</h3>
           
           <!-- Upload Image from PC -->
-          <div class="mb-4">
-              <label class="block font-medium mb-1">Upload Image from PC:</label>
+          <div>
+              <label class="block font-medium mb-1">Upload Image</label>
               <input @change="handleFileUpload" type="file" class="border rounded-md p-2 w-full">
           </div>
+
           <h3 class="text-xl font-semibold mb-2">OR</h3>
           
           <!-- Search Unsplash -->
           <div class="mb-4">
-              <label class="block font-medium mb-1">Search Unsplash:</label>
-              <input v-model="searchQuery" type="text" class="border rounded-md p-2 w-full">
-              <button @click="search" class="mt-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Search</button>
-          </div>
+            <label class="block font-medium mb-1">Search Unsplash</label>
+            <div class="flex flex-row space-x-4">
+                <input v-model="searchQuery" type="text" class="border rounded-md p-2 w-full" @keydown.enter="search">
+                <button @click="search" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Search</button>
+            </div>
+        </div>
           
           <!-- Footer -->
           <div class="flex flex-row justify-between">
@@ -77,8 +83,10 @@ const closeModal = () => {
             <button @click="accept" class="mt-4 bg-indigo-500 text-white px-4 py-2 rounded-md">Accept</button>
           </div>
         </div>
+        
         <ImageSearchResults v-else
             :searchResults="searchResults"
+            :searchQuery="searchQuery"
             @selectResult="selectResult"
             @back="searchResults = []">
         </ImageSearchResults>
