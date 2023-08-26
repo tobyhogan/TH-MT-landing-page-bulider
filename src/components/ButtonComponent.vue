@@ -10,7 +10,7 @@ const button = ref<HTMLButtonElement | null>(null);
 const popoverPosition = computed(() => {
     return {
         left: button.value?.getBoundingClientRect().left ?? 0,
-        top: button.value?.getBoundingClientRect().bottom ?? 0 + 12
+        top: (button.value?.getBoundingClientRect().bottom ?? 0) + 12
     };
 });
 
