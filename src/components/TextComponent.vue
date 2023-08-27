@@ -26,7 +26,7 @@ function edit() {
 
 <template>
     <div class="group relative py-5 text-xl leading-normal text-gray-400 lg:text-xl xl:text-2xl">
-        <edit-button @toggleEditMode="edit()"></edit-button>
+        <EditButton @toggleEditMode="edit()"></EditButton>
         <div ref="input"
              contentEditable="true"
              class="pr-1"

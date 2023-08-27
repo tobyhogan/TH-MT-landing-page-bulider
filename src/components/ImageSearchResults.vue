@@ -17,7 +17,6 @@ watch(() => propSearchResults, (newValue) => {
 });
 
 watch(() => propSearchQuery, (newValue) => {
-    debugger;
     searchQuery.value = newValue;
 });
 
