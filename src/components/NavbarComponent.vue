@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { downloadPageAsHtml } from "@/services/exportPage";
+
 const menuItems = [
     "Product",
     "Features",
@@ -39,7 +41,8 @@ const menuItems = [
         </ul>
     </div>
     <div class="hidden mr-3 space-x-4 lg:flex nav__item">
-        <a class="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5 hover:text-indigo-500 hover:bg-white" href="/">Get Started</a>
+        <button class="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5 hover:text-indigo-500 hover:bg-white"
+                @click="downloadPageAsHtml">Get Started</button>
     </div>
   </nav>
 </template>

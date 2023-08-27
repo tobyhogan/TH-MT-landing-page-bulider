@@ -30,7 +30,7 @@ function edit() {
         <div ref="input"
              contentEditable="true"
              class="pr-1"
-             @click="edit()">
+             data-remove-before-export>
             {{ text }}
         </div>
     </div>

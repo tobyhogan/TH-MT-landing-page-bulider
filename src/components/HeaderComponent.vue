@@ -30,7 +30,7 @@ function edit() {
         <h1 class="py-1 text-4xl font-bold leading-snug tracking-tight text-gray-200 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight"
             ref="input"
             contentEditable="true"
-            @click="edit()">
+            data-remove-before-export>
             {{ headerText }}
         </h1>
     </div>
