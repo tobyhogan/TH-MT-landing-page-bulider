@@ -27,7 +27,9 @@ const closePopover = () => {
 </script>
 
 <template>
-    <div @mousedown="closePopover" class="fixed inset-0 flex items-center justify-center z-50">
+    <div @mousedown="closePopover"
+         class="fixed inset-0 flex items-center justify-center z-50"
+         data-dont-export>
       <div @mousedown.stop
            class="absolute bg-gray-400 p-6 rounded-lg shadow-md text-gray-900"
            :style="positionStyle">

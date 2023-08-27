@@ -9,7 +9,7 @@ function toggleEditMode() {
 <template>
     <button
         class="button p-1 absolute text-white z-10 right-0 top-0 hidden group-hover:block"
-        data-dont-export="true"
+        data-dont-export
         @click="toggleEditMode()">
         <img src="https://api.iconify.design/mdi:pencil.svg?color=%23ffffff">
     </button>
