@@ -1,4 +1,11 @@
+<script>
 
+import { collection, query, where, doc, getDoc } from "firebase/firestore";
+
+const db = getFirestore();
+
+
+</script>
 
 <template>
     <div class="about">
@@ -10,6 +17,10 @@
     </div>
   </template>
   
-  <style>
-  </style>
+
+
+
+<style>
+
+</style>
   

@@ -9,6 +9,7 @@ import router from './router'
 
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from 'firebase/firestore';
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
 
 
@@ -26,6 +27,11 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 
 const app = createApp(App)
+//const app = initializeApp(firebaseConfig);
+
+//export const auth = getAuth(app);
+//export const provider = new GoogleAuthProvider();
+//export const db = getFirestore(app);
 
 app.use(createPinia())
 app.use(router)

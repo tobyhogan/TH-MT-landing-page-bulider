@@ -39,6 +39,11 @@ const signInWithGoogle = () => {
 
     });
 };
+
+console.log("The value of isLoggedIn: ");
+console.log(isLoggedIn);
+
+
 </script>
 
 <template>
