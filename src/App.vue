@@ -44,11 +44,13 @@ const signInWithGoogle = () => {
 <template>
   <nav>
     <a href="/home"><h1>Landing Page Builder</h1></a>
-      <div class="spacing"></div>
-      <a href="/my-account" v-if="isLoggedIn">My Account</a>
-      <a href="/dashboard" v-if="isLoggedIn">Dashboard</a>
-      <button @click="handleSignOut" v-if="isLoggedIn">Sign Out</button>
-      <button @click="signInWithGoogle" v-else>Login</button>
+    <a class="promotional" href="/pricing" v-if="!(isLoggedIn)">Pricing</a>
+    <a class="promotional" href="/showcase" v-if="!(isLoggedIn)">Showcase</a>
+    <div class="spacing"></div>
+    <a href="/my-account" v-if="isLoggedIn">My Account</a>
+    <a href="/dashboard" v-if="isLoggedIn">Dashboard</a>
+    <button @click="handleSignOut" v-if="isLoggedIn">Sign Out</button>
+    <button @click="signInWithGoogle" v-else>Login</button>
   </nav>
   <hr>
   <RouterView />
@@ -110,6 +112,11 @@ nav a{
 
 nav a:first-of-type {
   border: 0;
+}
+
+.promotional {
+  margin-top: 15px;
+  margin-left: 40px;
 }
 
 nav h1 {
