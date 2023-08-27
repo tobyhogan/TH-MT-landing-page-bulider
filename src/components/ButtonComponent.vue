@@ -33,7 +33,7 @@ function updateButton({ newButtonText, newButtonUrl }: { newButtonText: string, 
                class="button relative px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-md"
                @click="edit($event)"
                :href="buttonUrl"
-               data-remove-click-event>
+               data-remove-before-export>
                 <EditButton @toggleEditMode="edit()"></EditButton>
                 {{ buttonText }}
             </a>

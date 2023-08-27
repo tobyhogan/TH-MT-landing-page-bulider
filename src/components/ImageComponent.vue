@@ -24,7 +24,7 @@ function accept(imageUrl: string) {
                 @click="openImageSelector()"
                 :src="imageSrc"
                 class="object-cover max-h-full max-w-full cursor-pointer"
-                data-remove-click-event>
+                data-remove-before-export>
         </div>
         <ImageSelectorModal v-if="isImageSelectorOpen"
                             @accept="accept"

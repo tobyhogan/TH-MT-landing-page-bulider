@@ -45,7 +45,7 @@ function RemoveEditElements(clonedDocument: Document) {
 }
 
 function removeEditClickEvents(clonedDocument: Document) {
-    const editElements = clonedDocument.querySelectorAll('[data-remove-click-event]');
+    const editElements = clonedDocument.querySelectorAll('[data-remove-before-export]');
 
     editElements.forEach((element: Element) => {
         const clonedElement: HTMLElement = element.cloneNode(true) as HTMLElement;
