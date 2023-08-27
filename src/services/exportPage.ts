@@ -1,5 +1,10 @@
 export function downloadPageAsHtml() {
-    const htmlContent = cloneAndFilterDocument().body.innerHTML;
+    let clonedDocument = document.cloneNode(true) as Document;
+
+    clonedDocument = RemoveEditElements(clonedDocument);
+    clonedDocument = removeEditClickEvents(clonedDocument);
+
+    const htmlContent = clonedDocument.body.innerHTML;
     const cssContent = Array.from(document.styleSheets)
                 .filter(sheet => sheet.href?.includes("assets/") || (sheet.ownerNode instanceof HTMLElement && sheet.ownerNode.dataset.viteDevId)) // Exclude external stylesheets
                 .map(sheet => [...sheet.cssRules].map(rule => rule.cssText).join('\n'))
@@ -31,8 +36,7 @@ export function downloadPageAsHtml() {
     URL.revokeObjectURL(url);
 }
 
-function cloneAndFilterDocument() {
-    const clonedDocument = document.cloneNode(true) as Document; // Clone the whole body
+function RemoveEditElements(clonedDocument: Document) {
     const elementsToRemove = clonedDocument.querySelectorAll('[data-dont-export]');
 
     elementsToRemove.forEach((element: Element) => element.remove());
@@ -40,15 +44,20 @@ function cloneAndFilterDocument() {
     return clonedDocument;
 }
 
-function addClickEventsToButtons() {
-    const exportButton = document.querySelector('#export-button');
-    const downloadButton = document.querySelector('#download-button');
+function removeEditClickEvents(clonedDocument: Document) {
+    const editElements = clonedDocument.querySelectorAll('[data-remove-click-event]');
 
-    exportButton?.addEventListener('click', () => {
-        exportPageAsHtml();
+    editElements.forEach((element: Element) => {
+        const clonedElement: HTMLElement = element.cloneNode(true) as HTMLElement;
+
+        if ((clonedElement instanceof HTMLAnchorElement) === false) {
+            clonedElement.classList.remove('cursor-pointer');
+        }
+
+        clonedElement.removeAttribute('contentEditable');
+
+        element.parentNode?.replaceChild(clonedElement, element);
     });
 
-    downloadButton?.addEventListener('click', () => {
-        downloadPageAsHtml();
-    });
+    return clonedDocument;
 }

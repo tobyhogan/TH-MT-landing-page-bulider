@@ -14,7 +14,8 @@ const popoverPosition = computed(() => {
     };
 });
 
-function edit() {
+function edit(event?: MouseEvent) {
+    event?.preventDefault();
     isPopoverOpen.value = true;
 }
 
@@ -28,12 +29,14 @@ function updateButton({ newButtonText, newButtonUrl }: { newButtonText: string, 
 <template>
     <div>
         <div class="group">
-            <button ref="button"
-                    class="button relative px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-md"
-                    @click="edit()">
+            <a ref="button"
+               class="button relative px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-md"
+               @click="edit($event)"
+               :href="buttonUrl"
+               data-remove-click-event>
                 <EditButton @toggleEditMode="edit()"></EditButton>
                 {{ buttonText }}
-            </button>
+            </a>
         </div>
 
         <ButtonEditorPopover

@@ -17,13 +17,14 @@ function accept(imageUrl: string) {
 </script>
 
 <template>
-    <div class="group relative cursor-pointer h-full w-full">
+    <div class="group relative h-full w-full">
         <div class="h-full w-full flex justify-center items-center">
             <EditButton @toggleEditMode="openImageSelector()"></EditButton>
             <img
                 @click="openImageSelector()"
                 :src="imageSrc"
-                class="object-cover max-h-full max-w-full">
+                class="object-cover max-h-full max-w-full cursor-pointer"
+                data-remove-click-event>
         </div>
         <ImageSelectorModal v-if="isImageSelectorOpen"
                             @accept="accept"
