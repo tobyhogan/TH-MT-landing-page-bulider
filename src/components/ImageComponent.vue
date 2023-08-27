@@ -19,7 +19,7 @@ function accept(imageUrl: string) {
 <template>
     <div class="group relative cursor-pointer h-full w-full">
         <div class="h-full w-full flex justify-center items-center">
-            <edit-button @toggleEditMode="openImageSelector()"></edit-button>
+            <EditButton @toggleEditMode="openImageSelector()"></EditButton>
             <img
                 @click="openImageSelector()"
                 :src="imageSrc"
