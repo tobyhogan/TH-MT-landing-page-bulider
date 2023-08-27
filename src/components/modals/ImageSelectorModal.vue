@@ -47,7 +47,7 @@ const closeModal = () => {
   <Teleport to="#app">
     <div @mousedown="closeModal"
          class="fixed inset-0 flex items-center justify-center z-50 bg-opacity-50 bg-gray-900"
-         data-dont-export="true">
+         data-dont-export>
       <div @mousedown.stop class="bg-gray-400 p-6 rounded-lg shadow-md text-gray-900 m-10"
            :class="showSearchResults ? 'h-[95%]' : ''">
         <div v-if="!showSearchResults"
