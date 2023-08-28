@@ -1,0 +1,16 @@
+{
+    "folders": [
+        {
+            "name": "vue",
+            "path": "vue-version"
+        },
+        {
+            "name": "react",
+            "path": "react-version"
+        },
+        {
+            "name": "project-root",
+            "path": "./"
+        }
+    ]
+}
