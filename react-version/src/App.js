@@ -24,18 +24,21 @@ function App() {
 
   return (
     <Router>
-      <nav>
-        <Link to="/"> Home </Link>
-        <Link to="/editor"> Editor </Link>
-        {!isAuth ? (
-        <Link to="/login"> Login </Link>
-        ) : (
-          <>
-            <Link to="/createpost"> Create Post </Link>
-            <button onClick={signUserOut}> Log Out </button>
-          </>
-         )}
-      </nav>
+        <nav>
+          <div id='links-container'>
+            <Link to="/" className='nav-link'> Landing Page Builder </Link>
+            <div className='spacer'></div>
+            {!isAuth ? (
+            <Link to="/login" className='nav-link'> Login </Link>
+            ) : (
+              <>
+                <Link to="/editor" className='nav-link'> Editor </Link>
+                <Link to="/createpost" className='nav-link'> Create Post </Link>
+                <button onClick={signUserOut} className='nav-link'> Log Out </button>
+              </>
+            )}
+          </div>
+        </nav>
       <Routes>
         <Route path="/" element={ <Home isAuth={isAuth}/>} />
         <Route path="/editor" element={ <Editor isAuth={isAuth}/>} />
