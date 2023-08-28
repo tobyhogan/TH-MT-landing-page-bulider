@@ -9,6 +9,9 @@ function Editor({IsAuth}) {
     <div className='loginPage'>
         <p>
             This is the editor test1
+            This is the editor
+
+            test1234
         </p>
     </div>
   )
