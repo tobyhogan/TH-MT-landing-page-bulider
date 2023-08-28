@@ -26,7 +26,7 @@ function App() {
     <Router>
       <nav>
         <Link to="/"> Home </Link>
-        <Link to="/editor"> Editor </Link>
+        <Link to="/editor"> Edito 1234 r </Link>
         {!isAuth ? (
         <Link to="/login"> Login </Link>
         ) : (
