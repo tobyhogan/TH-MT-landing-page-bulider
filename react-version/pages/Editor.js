@@ -8,7 +8,7 @@ function Editor({IsAuth}) {
   return (
     <div className='loginPage'>
         <p>
-            This is the editor
+            This is the editor test1
         </p>
     </div>
   )
