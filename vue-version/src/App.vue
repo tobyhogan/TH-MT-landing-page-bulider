@@ -3,7 +3,9 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <RouterView />
+  <div class="w-screen h-screen overflow-auto">
+    <RouterView />
+  </div>
 </template>
 
 <style lang="postcss">
