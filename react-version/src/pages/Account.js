@@ -46,7 +46,7 @@ function Account({IsAuth}) {
 
   console.log(docSnap.data()); */
 
-  async function getUserInfo() {
+  /*async function getUserInfo() {
     const docRef = doc(db, "users", "OIb9JJhqv4AG2hKPS9HG");
     const docSnap = await getDoc(docRef);
 
@@ -56,7 +56,7 @@ function Account({IsAuth}) {
 
   const docSnap = getUserInfo();
 
-  console.log(docSnap);
+  console.log(docSnap); */
 
   return (
     <div className='loginPage'>
