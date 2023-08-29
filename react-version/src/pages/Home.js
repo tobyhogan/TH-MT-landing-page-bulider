@@ -1,58 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { getDocs, collection, deleteDoc, doc } from 'firebase/firestore';
-import { auth, db } from "../firebase-config";
-
 
 function Home( {isAuth} ) {
-  const [postLists, setPostList] = useState([]);
-  const postsCollectionRef = collection(db, "posts")
-
-  useEffect(() => {
-    const getPosts = async () => {
-      const data = await getDocs(postsCollectionRef);
-      setPostList(
-        data.docs.map((doc) => ({...doc.data(), id: doc.id })));
-    }
-
-    getPosts();
-
-
-  });
-
-  const deletePost = async (id) => {
-    const postDoc = doc(db, "posts", id);
-    await deleteDoc(postDoc);
-  }
-
-
 
   return (
     <div className='homePage'>
-      {postLists.map((post) => {
-        return (
-        <div className='post'>
-          <div className='postHeader'>
-            <div className='title'>
-              <h1>
-                {post.title}
-              </h1>
-            </div>
-            <div className='deletePost'>
-              {isAuth && post.author.id === auth.currentUser.uid &&
-              (<button onClick={() => {
-                deletePost(post.id)
-                }}>x</button>
-                )
-                }
-            </div>
-          </div>
-          <div className='postTextContainer'>
-            {post.postText}
-          </div>
-          <h3>@{post.author.name}</h3>
-        </div>
-        );
-      })}
+      <h2>Do you ever wish you could spend more time building your project instead of landing pages?</h2>
+      <p>With Landing Page Builder you can get your site up in 5 minutes ready to get user sign ups and validation!</p>
+      <button><b>Get Started!</b></button>
+
+      <h2><u>Testimonials:</u></h2>
+      <p><i>"Man landing page builder has helped me so much"</i></p>
+      <p><i>"Wheew I never knew I could build landing pages this quickly"</i></p>
+      <p><i>"I can't believe it! I managed to get validation within 20 minutes having my idea!"</i></p>
+      
     </div>
   )
 }
