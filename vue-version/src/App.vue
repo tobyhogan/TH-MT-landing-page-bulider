@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
+import { RouterView } from "vue-router";
+
+document.documentElement.style.setProperty("--color-primary", "#6366f1");
+document.documentElement.style.setProperty("--color-text", "#f3f4f6");
 </script>
 
 <template>

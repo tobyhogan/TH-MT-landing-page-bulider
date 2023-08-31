@@ -1,12 +1,20 @@
 <script setup lang="ts">
 import { downloadPageAsHtml, openPreviewInNewTab } from "@/services/exportPage";
+import PopoverComponent from "./modals/PopoverComponent.vue";
+import { ref } from "vue";
+import { setNewThemeColor } from "@/services/theme";
 
-function openColorPopup() {
-    window.open(window.location.href + "?colorPopup=true", "_blank");
-}
+const isPopoverOpen = ref(false);
+const currentAccentColor = ref(getComputedStyle(document.documentElement).getPropertyValue("--color-primary"))
 
 function openPreview() {
     openPreviewInNewTab();
+}
+
+function onColorChange(event: Event) {
+    const newColor = (event.target as HTMLInputElement).value;
+    setNewThemeColor(newColor);
+    currentAccentColor.value = newColor;
 }
 </script>
 
@@ -15,16 +23,25 @@ function openPreview() {
          data-dont-export>
         <div class="flex flex-row items-center justify-between space-x-2">
             <button class="button p-1.5 hover:bg-gray-400"
-                    @click="openColorPopup">
+                    @click="isPopoverOpen = true">
+                <PopoverComponent v-if="isPopoverOpen"
+                                  @close="isPopoverOpen = false">
+                    <label>
+                        <h4 class="text-lg font-semibold mb-2">Accent color</h4>
+                        <input type="color" id="colorPicker" name="colorPicker" :value="currentAccentColor"
+                               @input="onColorChange($event)"
+                               class="w-20 h-20 cursor-pointer rounded-lg border-0">                        
+                    </label>
+                </PopoverComponent>
                 <img class="h-6 w-6"
                      src="https://api.iconify.design/mdi:palette.svg?color=%23ffffff">
             </button>
         </div>
         <div class="flex flex-row items-center justify-between space-x-2">
             <button class="button hover:bg-gray-400"
-                    @click="openPreview">Preview</button>
+                    @click="openPreview()">Preview</button>
             <button class="button bg-indigo-600"
-                    @click="downloadPageAsHtml">Download</button>
+                    @click="downloadPageAsHtml()">Download</button>
         </div>
     </nav>
 </template>

@@ -31,7 +31,7 @@ const menuItems = [
         <ul class="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
             <li v-for="menuItem in menuItems"
                 class="mr-3 nav__item">
-                    <a class="inline-block px-4 py-2 text-lg font-normal text-gray-200 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none"
+                    <a class="inline-block px-4 py-2 text-lg font-normal text-gray-200 no-underline rounded-md hover:text-primary focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none"
                     href="/">
                     {{ menuItem }}
                 </a>
@@ -39,7 +39,7 @@ const menuItems = [
         </ul>
     </div>
     <div class="hidden mr-3 space-x-4 lg:flex nav__item">
-        <button class="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5 hover:text-indigo-500 hover:bg-white">
+        <button class="px-6 py-2 text-font bg-primary rounded-md md:ml-5 hover:opacity-80">
             Get Started
         </button>
     </div>
