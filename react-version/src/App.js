@@ -26,7 +26,7 @@ function App() {
     <Router>
         <nav>
           <div id='links-container'>
-            <Link to="/" className='nav-link'> <u><b>Landing Page Builder</b></u> </Link>
+            <Link to="/" className='nav-link'><p class="text-3xl text-gray-900 dark:text-white"><u>Landing Page Builder</u></p></Link>
             <div className='spacer'></div>
             {!isAuth ? (
             <Link to="/login" className='nav-link'> Login </Link>
@@ -40,7 +40,7 @@ function App() {
             )}
           </div>
         </nav>
-
+        <hr></hr>
       <Routes>
         <Route path="/" element={ <Home isAuth={isAuth}/>} />
         <Route path="/editor" element={ <Editor isAuth={isAuth}/>} />
@@ -51,8 +51,8 @@ function App() {
       <footer>
         <hr></hr>
         <div id='footerContainer'>
-          <a href='/'><u>Instagram</u></a>
-          <p>Contact: hello@landingpage.com</p>
+          <a href="#" class="font-medium text-white underline dark:white-blue-500 hover:no-underline">Instagram</a>
+          <p class="font-medium text-base text-blue-900 dark:text-white">Contact: hello@landingpage.com</p>
         </div>
           <h3>&copy; Landing Page Builder 2023</h3>
       </footer>

@@ -1,3 +1,10 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+
 .App {
   text-align: center;
 }
@@ -5,6 +12,8 @@ body {
   padding: 0%;
   margin: 0%;
   font-family: Arial, Helvetica, sans-serif;
+
+  background-color: black;
 }
 
 nav {
@@ -33,35 +42,27 @@ nav {
 
 }
 
+hr {
+  background-color: white;
+
+  height: 8px;
+}
+
 #footerContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
 
   justify-content: center;
-}
 
-footer a, footer p {
-  color: black;
-  font-size: large;
+  margin: 30px 0 0 0;
 }
 
 h3 {
   text-align: center;
 }
 
-
-
-
-h1 {
-  color: white;
-}
-
 a {
-  color: white;
-  text-decoration: none;
-
-  font-size: 25px;
 
   margin-right: 20px;
 }
@@ -81,9 +82,7 @@ a {
   width: 500px;
   height: auto;
   padding: 20px;
-  background-color: black;
-  border-radius: 12px;
-  color: white;
+
   display: flex;
   flex-direction: column;
 }
@@ -92,9 +91,7 @@ a {
   text-align: center;
 }
 
-.cpContainer label {
-  font-size: 25px;
-}
+
 .cpContainer .inputGp {
   margin-top: 30px;
   display: flex;
@@ -185,29 +182,32 @@ textarea {
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
+
+  padding: 30px 40px 50px 40px;
 }
 
 .homePage .post {
   width: 600px;
   height: auto;
   max-height: 600px;
-  background-color: rgb(250, 250, 250);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+
   margin: 20px;
   padding: 20px;
  
-  border-radius: 15px;
+
 }
 
-.homePage button {
-  width: 130px;
+/*.homePage button {
   height: 50px;
   font-size: medium;
-
+  
   border-radius: 10px;
-
+  
+  width: 130px;
   margin: 60px 0 60px 0;
 }
+*/
 
 
 .post .postHeader {
@@ -263,7 +263,7 @@ textarea {
   width: 140px;
   height: 30px;
 
-  font-size: medium;
+
 
   margin: 60px auto;
   display: block;
