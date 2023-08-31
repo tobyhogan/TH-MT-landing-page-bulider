@@ -29,7 +29,7 @@ const closePopover = () => {
     <input v-model="editedUrl" class="border rounded-md p-2 w-full mb-4">
     
     <div class=" h-full flex justify-center">
-      <button @click="saveChanges" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Save</button>
+      <button @click="saveChanges" class="bg-primary hover:opacity-80 text-font px-4 py-2 rounded-md">Save</button>
     </div>
   </PopoverComponent>
   </template>

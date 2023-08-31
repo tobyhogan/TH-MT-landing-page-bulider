@@ -40,7 +40,7 @@ function onColorChange(event: Event) {
         <div class="flex flex-row items-center justify-between space-x-2">
             <button class="button hover:bg-gray-400"
                     @click="openPreview()">Preview</button>
-            <button class="button bg-indigo-600"
+            <button class="button bg-primary hover:opacity-80 text-font"
                     @click="downloadPageAsHtml()">Download</button>
         </div>
     </nav>

@@ -75,14 +75,14 @@ const closeModal = () => {
             <label class="block font-medium mb-1">Search Unsplash</label>
             <div class="flex flex-row space-x-4">
                 <input v-model="searchQuery" type="text" class="border rounded-md p-2 w-full" @keydown.enter="search">
-                <button @click="search" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Search</button>
+                <button @click="search" class="bg-primary hover:opacity-80 text-font px-4 py-2 rounded-md">Search</button>
             </div>
         </div>
           
           <!-- Footer -->
           <div class="flex flex-row justify-between">
             <button @click="closeModal" class="mt-4 bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-md">Close</button>
-            <button @click="accept" class="mt-4 bg-indigo-500 text-white px-4 py-2 rounded-md">Accept</button>
+            <button @click="accept" class="mt-4 bg-primary hover:opacity-80 text-font px-4 py-2 rounded-md">Accept</button>
           </div>
         </div>
         

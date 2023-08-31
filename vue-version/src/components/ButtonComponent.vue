@@ -24,7 +24,7 @@ function updateButton({ newButtonText, newButtonUrl }: { newButtonText: string, 
     <div>
         <div class="group">
             <a ref="button"
-               class="button relative px-8 py-4 text-lg font-medium text-center text-font bg-primary rounded-md"
+               class="button relative px-8 py-4 text-lg font-medium text-center text-font bg-primary hover:opacity-80 rounded-md"
                @click="edit($event)"
                :href="buttonUrl"
                data-remove-before-export>
