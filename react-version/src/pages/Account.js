@@ -58,6 +58,8 @@ function Account({IsAuth}) {
 
   console.log(docSnap); */
 
+  //hello new world
+
   return (
     <div className='loginPage'>
       <p>Welcome to your account</p>
