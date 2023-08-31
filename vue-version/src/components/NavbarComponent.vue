@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { downloadPageAsHtml } from "@/services/exportPage";
-
 const menuItems = [
     "Product",
     "Features",
@@ -9,12 +7,12 @@ const menuItems = [
 </script>
 
 <template>
-  <nav class="container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-0">
+  <nav class="container relative flex flex-wrap items-center justify-between p-7 mx-auto lg:justify-between xl:px-0">
     <div class="flex flex-wrap items-center justify-between w-full lg:w-auto">
         <a href="/">
-            <span class="flex items-center space-x-2 text-2xl font-medium text-indigo-500">
+            <span class="flex items-center space-x-2 text-2xl font-medium text-primary">
                 <span>
-                    <img alt="N" loading="lazy" width="32" height="32" decoding="async" data-nimg="1" class="w-8" style="color:transparent" src="/img/logo.svg">
+                    <img alt="N" loading="lazy" width="56" height="56" decoding="async" data-nimg="1" class="w-14" style="color:transparent" src="/src/assets/images/logo.jpg">
                 </span>
                 <span>Cool Icon</span>
             </span>
@@ -33,7 +31,7 @@ const menuItems = [
         <ul class="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
             <li v-for="menuItem in menuItems"
                 class="mr-3 nav__item">
-                    <a class="inline-block px-4 py-2 text-lg font-normal text-gray-200 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none"
+                    <a class="inline-block px-4 py-2 text-lg font-normal text-gray-200 no-underline rounded-md hover:text-primary focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none"
                     href="/">
                     {{ menuItem }}
                 </a>
@@ -41,8 +39,9 @@ const menuItems = [
         </ul>
     </div>
     <div class="hidden mr-3 space-x-4 lg:flex nav__item">
-        <button class="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5 hover:text-indigo-500 hover:bg-white"
-                @click="downloadPageAsHtml">Get Started</button>
+        <button class="px-6 py-2 text-font bg-primary rounded-md md:ml-5 hover:opacity-80">
+            Get Started
+        </button>
     </div>
   </nav>
 </template>
