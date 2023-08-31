@@ -7,12 +7,6 @@ const isPopoverOpen = ref(false);
 const buttonText = ref("Header");
 const buttonUrl = ref("https://www.google.com");
 const button = ref<HTMLButtonElement | null>(null);
-const popoverPosition = computed(() => {
-    return {
-        left: button.value?.getBoundingClientRect().left ?? 0,
-        top: (button.value?.getBoundingClientRect().bottom ?? 0) + 12
-    };
-});
 
 function edit(event?: MouseEvent) {
     event?.preventDefault();
@@ -30,23 +24,21 @@ function updateButton({ newButtonText, newButtonUrl }: { newButtonText: string, 
     <div>
         <div class="group">
             <a ref="button"
-               class="button relative px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-md"
+               class="button relative px-8 py-4 text-lg font-medium text-center text-font bg-primary rounded-md"
                @click="edit($event)"
                :href="buttonUrl"
                data-remove-before-export>
-                <EditButton @toggleEditMode="edit()"></EditButton>
-                {{ buttonText }}
+               {{ buttonText }}
+               <EditButton @toggleEditMode="edit()"></EditButton>
+               <ButtonEditorPopover
+                    v-if="isPopoverOpen"
+                    :buttonText="buttonText"
+                    :buttonUrl="buttonUrl"
+                    @update="updateButton"
+                    @close="isPopoverOpen = false"
+                />
             </a>
-        </div>
-
-        <ButtonEditorPopover
-            v-if="isPopoverOpen"
-            :buttonText="buttonText"
-            :buttonUrl="buttonUrl"
-            :popoverPosition="popoverPosition"
-            @update="updateButton"
-            @close="isPopoverOpen = false"
-        />
+        </div>        
     </div>
 </template>
 
