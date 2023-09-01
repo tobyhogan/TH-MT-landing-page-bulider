@@ -5,6 +5,7 @@ import ButtonComponent from "@/components/ButtonComponent.vue";
 import ImageComponent from "@/components/ImageComponent.vue";
 import NavbarComponent from "@/components/NavbarComponent.vue";
 import EditorBar from "@/components/EditorBar.vue";
+import HeroSection from "@/components/sections/HeroSection.vue";
 </script>
 
 <template>
@@ -12,6 +13,7 @@ import EditorBar from "@/components/EditorBar.vue";
 <div class="h-[calc(100vh-48px)] w-full overflow-y-auto">
     <NavbarComponent />
     <main class="h-screen">
+        <HeroSection></HeroSection>
         <div class="container mx-auto flex flex-wrap p-8 xl:px-0">
             <div class="flex w-full items-center lg:w-1/2">
                 <div class="mb-8 max-w-2xl">
