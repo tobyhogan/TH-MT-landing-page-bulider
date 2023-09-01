@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import { useNavigate } from 'react-router-dom';
 
-import { addDoc, collection, getDocs, getDoc, deleteDoc, doc } from 'firebase/firestore';
+import { addDoc, collection, getDocs, getDoc, deleteDoc, doc, query, where } from 'firebase/firestore';
 import { db, auth } from '../firebase-config';
 
 function Account({IsAuth}) {
@@ -59,6 +59,19 @@ function Account({IsAuth}) {
   console.log(docSnap); */
 
   //hello new world
+
+  async function getData() {
+    const q = query(collection(db, "users"), where("uid", "==", auth.currentUser.uid));
+    
+    // doc.data() is never undefined for query doc snapshots
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      console.log(doc.id, " => ", doc.data());
+    });
+
+  }
 
   return (
     <div className='defaultPage'>
