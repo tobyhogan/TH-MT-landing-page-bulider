@@ -60,51 +60,37 @@ function Account({IsAuth}) {
 
   //hello new world
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
   async function getData() {
     const q = query(collection(db, "users"), where("uid", "==", auth.currentUser.uid));
     
-    // doc.data() is never undefined for query doc snapshots
     const querySnapshot = await getDocs(q);
-
-<<<<<<< Updated upstream
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, " => ", doc.data());
+      //console.log(doc.data());
+
+      var data = doc.data();
+
+      var Element = document.getElementById("yourPlanTag");
+
+      Element.innerHTML = "Your Plan: " + data.plan;
+
     });
 
   }
 
-=======
-    let data = querySnapshot.forEach((doc) => { (doc.id, " => ", doc.data()) }
+  getData();
 
-    return data;
-
-    
-    
-  }
+  //console.log("test5");
 
 
-  
 
-  var data = getData()
-
-  const plan = data;
-
-  console.log(plan);
-
-
->>>>>>> Stashed changes
   return (
-    <div className='defaultPage'>
-      <p>Welcome to your account</p>
+    <div className='accountPage'>
+      <h3 class="text-2xl font-bold dark:text-white">Welcome to Your Account</h3>
       <img src={auth.currentUser.photoURL} alt='hello world'/>
-      <h4>Your Name : {auth.currentUser.displayName}</h4>
+      <h4>Your Name: {auth.currentUser.displayName}</h4>
       <h4>Your Email Address: {auth.currentUser.email}</h4>
-      <h4>Your Plan: {"test"}</h4>
+      <h4 id='yourPlanTag'>Your Plan: {"404"}</h4>
     </div>
   )
 
