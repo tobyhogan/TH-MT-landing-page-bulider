@@ -2,15 +2,15 @@ export function downloadPageAsHtml() {
     const textContent = getClonedAndFilteredTextContent();
 
     // Create a Blob with the text content
-    const blob = new Blob([textContent], { type: 'text/html' });
+    const blob = new Blob([textContent], { type: "text/html" });
 
     // Create a URL for the Blob
     const url = URL.createObjectURL(blob);
 
     // Create an anchor element to trigger download
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = url;
-    link.download = 'my-landing-page.html';
+    link.download = "my-landing-page.html";
 
     // Trigger the download
     link.click();
@@ -51,11 +51,11 @@ function getClonedAndFilteredDocument() {
     clonedDocument = removeEditElements(clonedDocument);
     clonedDocument = removeEditClickEvents(clonedDocument);
 
-    const scripts = clonedDocument.getElementsByTagName('script');
+    const scripts = clonedDocument.getElementsByTagName("script");
     for (let i = 0; i < scripts.length; i++) {
-      if (scripts[i].getAttribute('src')?.includes("main.ts")) {
-        scripts[i].remove();
-      }
+        if (scripts[i].getAttribute("src")?.includes("main.ts")) {
+            scripts[i].remove();
+        }
     }
 
     return clonedDocument;
@@ -63,13 +63,15 @@ function getClonedAndFilteredDocument() {
 
 function getCssContent() {
     return Array.from(document.styleSheets)
-                .filter(sheet => sheet.href?.includes("assets/") || (sheet.ownerNode instanceof HTMLElement && sheet.ownerNode.dataset.viteDevId)) // Exclude external stylesheets
-                .map(sheet => [...sheet.cssRules].map(rule => rule.cssText).join('\n'))
-                .join('\n');
+        .filter(sheet => sheet.href?.includes("assets/") || (sheet.ownerNode instanceof HTMLElement && sheet.ownerNode.dataset.viteDevId)) // Exclude external stylesheets
+        .map(sheet => [
+            ...sheet.cssRules
+        ].map(rule => rule.cssText).join("\n"))
+        .join("\n");
 }
 
 function removeEditElements(clonedDocument: Document) {
-    const elementsToRemove = clonedDocument.querySelectorAll('[data-dont-export]');
+    const elementsToRemove = clonedDocument.querySelectorAll("[data-dont-export]");
 
     elementsToRemove.forEach((element: Element) => element.remove());
 
@@ -77,16 +79,16 @@ function removeEditElements(clonedDocument: Document) {
 }
 
 function removeEditClickEvents(clonedDocument: Document) {
-    const editElements = clonedDocument.querySelectorAll('[data-remove-before-export]');
+    const editElements = clonedDocument.querySelectorAll("[data-remove-before-export]");
 
     editElements.forEach((element: Element) => {
         const clonedElement: HTMLElement = element.cloneNode(true) as HTMLElement;
 
         if ((clonedElement instanceof HTMLAnchorElement) === false) {
-            clonedElement.classList.remove('cursor-pointer');
+            clonedElement.classList.remove("cursor-pointer");
         }
 
-        clonedElement.removeAttribute('contentEditable');
+        clonedElement.removeAttribute("contentEditable");
 
         element.parentNode?.replaceChild(clonedElement, element);
     });

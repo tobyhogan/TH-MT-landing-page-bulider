@@ -1,15 +1,14 @@
-import './assets/tailwind.css'
-import 'whatwg-fetch'; // polyfill for fetch, needed for unsplash-js
+import "./assets/tailwind.css";
+import "whatwg-fetch"; // polyfill for fetch, needed for unsplash-js
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import { createApp } from "vue";
+import { createPinia } from "pinia";
+import App from "./App.vue";
+import router from "./router";
 
-import App from './App.vue'
-import router from './router'
+const app = createApp(App);
 
-const app = createApp(App)
+app.use(createPinia());
+app.use(router);
 
-app.use(createPinia())
-app.use(router)
-
-app.mount('#app')
+app.mount("#app");

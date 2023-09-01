@@ -6,9 +6,9 @@ document.documentElement.style.setProperty("--color-text", "#f3f4f6");
 </script>
 
 <template>
-  <div class="w-screen h-screen overflow-auto">
+<div class="h-screen w-screen overflow-auto">
     <RouterView />
-  </div>
+</div>
 </template>
 
 <style lang="postcss">

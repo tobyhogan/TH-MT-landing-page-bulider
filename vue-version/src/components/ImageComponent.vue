@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import EditButton from './EditButton.vue';
-import ImageSelectorModal from './modals/ImageSelectorModal.vue';
+import { ref } from "vue";
+import EditButton from "./EditButton.vue";
+import ImageSelectorModal from "./modals/ImageSelectorModal.vue";
 
 const imageSrc = ref("https://picsum.photos/200");
 const isImageSelectorOpen = ref(false);
@@ -17,19 +17,22 @@ function accept(imageUrl: string) {
 </script>
 
 <template>
-    <div class="group relative h-full w-full">
-        <div class="h-full w-full flex justify-center items-center">
-            <EditButton @toggleEditMode="openImageSelector()"></EditButton>
-            <img
-                @click="openImageSelector()"
-                :src="imageSrc"
-                class="object-cover max-h-full max-w-full cursor-pointer"
-                data-remove-before-export>
-        </div>
-        <ImageSelectorModal v-if="isImageSelectorOpen"
-                            @accept="accept"
-                            @close="isImageSelectorOpen = false"></ImageSelectorModal>
+<div class="group relative h-full w-full">
+    <div class="flex h-full w-full items-center justify-center">
+        <EditButton @toggleEditMode="openImageSelector()" />
+        <img
+            :src="imageSrc"
+            class="max-h-full max-w-full cursor-pointer object-cover"
+            data-remove-before-export
+            @click="openImageSelector()"
+        >
     </div>
+    <ImageSelectorModal
+        v-if="isImageSelectorOpen"
+        @accept="accept"
+        @close="isImageSelectorOpen = false"
+    />
+</div>
 </template>
 
 <style scoped lang="postcss">
