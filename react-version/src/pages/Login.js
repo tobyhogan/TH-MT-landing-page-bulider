@@ -26,7 +26,7 @@ function Login({setIsAuth}) {
             localStorage.setItem("isAuth", true);
             setIsAuth(true);
 
-            navigate("/");
+            navigate("/dashboard");
 
             const {isNewUser} = getAdditionalUserInfo(result);
 
@@ -42,10 +42,8 @@ function Login({setIsAuth}) {
 
 
   return (
-    <div className='defaultPage'>
-        <p>
-            Sign in with Google
-        </p>
+    <div className='loginPage'>
+        <h3 class="text-2xl font-bold dark:text-white">Sign In</h3>
         <button className='login-with-google-btn' onClick={signInWithGoogle}>
             Sign in with Google
         </button>

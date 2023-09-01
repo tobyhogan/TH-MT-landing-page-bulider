@@ -10,17 +10,17 @@ function Dashboard({IsAuth}) {
 
   return (
     <div className='dashboardPage'>
-        <h1>
-            This is your dashboard!
-        </h1>
+       <h3 class="text-2xl font-bold dark:text-white">Welcome to your dashboard</h3>
         <h2>
           Your Sites:
         </h2>
-        <p><a href='/editor?site=site1'>YourSite1</a></p>
-        <p><a href='/editor'>YourSite2</a></p>
-        <p><a href='/editor'>YourSite3</a></p>
-        <p><a href='/editor'>Basic site 3</a></p>
-        <button>Create New Site</button>
+        <p><a href='/editor?site=YourSite2'>YourSite2</a> | Up @ www.yoursite.com | Hosting ✅ Mail Lists ❌</p>
+        <p><a href='/editor'>YourSite1</a> | Up @ www.yoursite.com | Hosting ❌ Mail Lists ✅</p>
+        <p><a href='/editor'>YourSite3</a> | Up @ www.yoursite.com | Hosting ❌ Mail Lists ❌ </p>
+        <p><a href='/editor'>YourSite4</a> | Up @ www.yoursite.com | Hosting ✅ Mail Lists ✅</p>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Create New Site
+        </button>
     </div>
   )
 }
