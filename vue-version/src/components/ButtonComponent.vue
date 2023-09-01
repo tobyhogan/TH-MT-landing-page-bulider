@@ -21,26 +21,24 @@ function updateButton({ newButtonText, newButtonUrl }: { newButtonText: string, 
 </script>
 
 <template>
-<div>
-    <div class="group">
-        <a
-            ref="button"
-            class="button relative rounded-md bg-primary px-8 py-4 text-center text-lg font-medium text-font hover:opacity-80"
-            :href="buttonUrl"
-            data-remove-before-export
-            @click="edit($event)"
-        >
-            {{ buttonText }}
-            <EditButton @toggleEditMode="edit()" />
-            <ButtonEditorPopover
-                v-if="isPopoverOpen"
-                :button-text="buttonText"
-                :button-url="buttonUrl"
-                @update="updateButton"
-                @close="isPopoverOpen = false"
-            />
-        </a>
-    </div>
+<div class="group flex flex-row justify-center items-center">
+    <a
+        ref="button"
+        class="button relative rounded-md bg-primary px-8 py-4 text-center text-lg font-medium text-font hover:opacity-80"
+        :href="buttonUrl"
+        data-remove-before-export
+        @click="edit($event)"
+    >
+        {{ buttonText }}
+        <EditButton @toggleEditMode="edit()" />
+        <ButtonEditorPopover
+            v-if="isPopoverOpen"
+            :button-text="buttonText"
+            :button-url="buttonUrl"
+            @update="updateButton"
+            @close="isPopoverOpen = false"
+        />
+    </a>
 </div>
 </template>
 

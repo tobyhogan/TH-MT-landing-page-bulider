@@ -7,6 +7,7 @@ import NavbarComponent from "@/components/NavbarComponent.vue";
 import EditorBar from "@/components/EditorBar.vue";
 import HeroSection from "@/components/sections/HeroSection.vue";
 import AboutSection from "@/components/sections/AboutSection.vue";
+import SubscribeSection from "@/components/sections/SubscribeSection.vue";
 </script>
 
 <template>
@@ -16,6 +17,7 @@ import AboutSection from "@/components/sections/AboutSection.vue";
     <main class="container h-screen my-24 mx-auto md:px-6">
         <HeroSection></HeroSection>
         <AboutSection></AboutSection>
+        <SubscribeSection></SubscribeSection>
         <div class="container mx-auto flex flex-wrap p-8 xl:px-0">
             <div class="flex w-full items-center lg:w-1/2">
                 <div class="mb-8 max-w-2xl">
