@@ -1,17 +1,15 @@
-import React from 'react';
-import { auth, provider} from '../firebase-config'
-import { signInWithPopup } from 'firebase/auth';
-import {useNavigate} from 'react-router-dom';
+import React from "react";
 
-function Editor({IsAuth}) {
-
-  return (
-    <div className='loginPage'>
-        <p>
-            This is the editor
-        </p>
-    </div>
-  )
+function Editor({ IsAuth }) {
+    return (
+        <div className="editorPage">
+            <iframe
+                src="https://validator.m-winkler.at"
+                title="Validator"
+                className="editorIframe"
+            ></iframe>
+        </div>
+    );
 }
 
-export default Editor
+export default Editor;
