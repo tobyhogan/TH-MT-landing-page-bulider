@@ -36,7 +36,19 @@ function addSection() {
 <div class="h-[calc(100vh-48px)] w-full overflow-y-auto">
     <NavbarComponent />
     <main class="container mx-auto h-screen space-y-16 md:px-6">
-        <HeroSection v-if="heroVisible"></HeroSection>
+        <div class="group relative">
+            <button
+                class="absolute left-4 top-0 hidden cursor-pointer group-hover:block"
+                data-dont-export
+            >
+                <img
+                    src="https://api.iconify.design/mdi:minus-box.svg?color=%23ffffff"
+                    alt="delete section button icon"
+                    class="inline-block h-4 w-4"
+                />
+            </button>
+            <HeroSection v-if="heroVisible"></HeroSection>
+        </div>
         <FeaturesSection v-if="aboutVisible"></FeaturesSection>
         <SubscribeSection v-if="subscribeVisible"></SubscribeSection>
         <AboutSection v-if="featuresVisible"></AboutSection>

@@ -2,7 +2,11 @@
 import { nextTick, ref } from "vue";
 import EditButton from "./EditButton.vue";
 
-const text = ref("This is my glorious SaaS product! Please buy it!");
+const { initialText = "Type something here..." } = defineProps<{
+    initialText?: string,
+}>();
+
+const text = ref(initialText);
 const input = ref<HTMLElement | null>(null);
 
 function edit() {

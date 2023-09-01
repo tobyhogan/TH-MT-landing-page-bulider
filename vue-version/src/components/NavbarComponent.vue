@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import ButtonComponent from "./editables/ButtonComponent.vue";
+import ImageComponent from "./editables/ImageComponent.vue";
+
 const menuItems = [
     "Product",
     "Features",
@@ -11,18 +14,8 @@ const menuItems = [
     <div class="flex w-full flex-wrap items-center justify-between lg:w-auto">
         <a href="/">
             <span class="flex items-center space-x-2 text-2xl font-medium text-primary">
-                <span>
-                    <img
-                        alt="N"
-                        loading="lazy"
-                        width="56"
-                        height="56"
-                        decoding="async"
-                        data-nimg="1"
-                        class="w-14"
-                        style="color:transparent"
-                        src="/src/assets/images/logo.jpg"
-                    >
+                <span class="w-14">
+                    <ImageComponent></ImageComponent>
                 </span>
                 <span>Cool Icon</span>
             </span>
@@ -64,9 +57,7 @@ const menuItems = [
         </ul>
     </div>
     <div class="nav__item mr-3 hidden space-x-4 lg:flex">
-        <button class="rounded-md bg-primary px-6 py-2 text-font hover:opacity-80 md:ml-5">
-            Get Started
-        </button>
+        <ButtonComponent></ButtonComponent>
     </div>
 </nav>
 </template>
