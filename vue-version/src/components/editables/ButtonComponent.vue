@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import ButtonEditorPopover from "../modals/ButtonEditorPopover.vue";
 import EditButton from "./EditButton.vue";
-import ButtonEditorPopover from "./modals/ButtonEditorPopover.vue";
 
 const isPopoverOpen = ref(false);
 const buttonText = ref("Header");
@@ -21,7 +21,7 @@ function updateButton({ newButtonText, newButtonUrl }: { newButtonText: string, 
 </script>
 
 <template>
-<div class="group flex flex-row justify-center items-center">
+<div class="group flex flex-row items-center justify-center">
     <a
         ref="button"
         class="button relative rounded-md bg-primary px-8 py-4 text-center text-lg font-medium text-font hover:opacity-80"
@@ -30,7 +30,7 @@ function updateButton({ newButtonText, newButtonUrl }: { newButtonText: string, 
         @click="edit($event)"
     >
         {{ buttonText }}
-        <EditButton @toggleEditMode="edit()" />
+        <EditButton @toggle-edit-mode="edit()" />
         <ButtonEditorPopover
             v-if="isPopoverOpen"
             :button-text="buttonText"

@@ -50,6 +50,7 @@ function onColorChange(event: Event) {
             <img
                 class="h-6 w-6"
                 src="https://api.iconify.design/mdi:palette.svg?color=%23ffffff"
+                alt="palette button icon"
             >
         </button>
     </div>

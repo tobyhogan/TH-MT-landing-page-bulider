@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import ButtonComponent from '../ButtonComponent.vue';
-import HeaderComponent from '../HeaderComponent.vue';
-import ImageComponent from '../ImageComponent.vue';
+import ButtonComponent from '../editables/ButtonComponent.vue';
+import HeaderComponent from '../editables/HeaderComponent.vue';
+import ImageComponent from '../editables/ImageComponent.vue';
 </script>
 
 <template>

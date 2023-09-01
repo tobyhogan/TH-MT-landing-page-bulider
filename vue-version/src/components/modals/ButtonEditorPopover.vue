@@ -25,17 +25,21 @@ const closePopover = () => {
 
 <template>
 <PopoverComponent @close="closePopover">
-    <label class="mb-2 block">Button Text</label>
-    <input
-        v-model="editedText"
-        class="mb-2 w-full rounded-md border p-2"
-    >
+    <label class="mb-2 block">
+        Button Text
+        <input
+            v-model="editedText"
+            class="mb-2 w-full rounded-md border p-2"
+        >
+    </label>
 
-    <label class="mb-2 block">Navigate to URL</label>
-    <input
-        v-model="editedUrl"
-        class="mb-4 w-full rounded-md border p-2"
-    >
+    <label class="mb-2 block">
+        Navigate to URL
+        <input
+            v-model="editedUrl"
+            class="mb-4 w-full rounded-md border p-2"
+        >
+    </label>
 
     <div class=" flex h-full justify-center">
         <button
@@ -47,4 +51,3 @@ const closePopover = () => {
     </div>
 </PopoverComponent>
 </template>
-

@@ -51,6 +51,7 @@ const menuItems = [
         <ul class="flex-1 list-none items-center justify-end pt-6 lg:flex lg:pt-0">
             <li
                 v-for="menuItem in menuItems"
+                :key="menuItem"
                 class="nav__item mr-3"
             >
                 <a
