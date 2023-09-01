@@ -97,7 +97,8 @@ function closeModal() {
                 <!-- Search Unsplash -->
                 <div class="mb-4">
                     <label class="mb-1 block font-medium">
-                        Search Unsplash
+                        Image search coming soon!
+                        <!-- Search Unsplash
                         <div class="flex flex-row space-x-4">
                             <input
                                 v-model="searchQuery"
@@ -111,7 +112,7 @@ function closeModal() {
                             >
                                 Search
                             </button>
-                        </div>
+                        </div> -->
                     </label>
                 </div>
 

@@ -10,7 +10,7 @@ function toggleEditMode() {
 <button
     class="button absolute right-0 top-0 z-10 hidden p-1 text-white group-hover:block"
     data-dont-export
-    @click="toggle - edit - mode()"
+    @click="toggleEditMode()"
 >
     <img
         src="https://api.iconify.design/mdi:pencil.svg?color=%23ffffff"

@@ -19,27 +19,39 @@ import TextComponent from "../editables/TextComponent.vue";
                 <ul class="grid gap-6 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
                     <li class="flex h-40 justify-center">
                         <p class="flex h-full items-center space-x-2">
-                            <img src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff" alt="list bullet icon">
+                            <img
+                                src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff"
+                                alt="list bullet icon"
+                            >
                             <TextComponent></TextComponent>
                         </p>
                     </li>
 
                     <li>
                         <p class="flex h-40 items-center space-x-2">
-                            <img src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff" alt="list bullet icon">
+                            <img
+                                src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff"
+                                alt="list bullet icon"
+                            >
                             <TextComponent></TextComponent>
                         </p>
                     </li>
 
                     <li>
                         <p class="flex h-40 items-center justify-center space-x-2">
-                            <img src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff" alt="list bullet icon">
+                            <img
+                                src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff"
+                                alt="list bullet icon"
+                            >
                             <TextComponent></TextComponent>
                         </p>
                     </li>
                     <li>
                         <p class="flex h-40 items-center space-x-2">
-                            <img src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff" alt="list bullet icon">
+                            <img
+                                src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff"
+                                alt="list bullet icon"
+                            >
                             <TextComponent></TextComponent>
                         </p>
                     </li>

@@ -76,7 +76,7 @@ function selectResult(result: Basic) {
             v-for="result in searchResults"
             :key="result.id"
             class="mb-2 cursor-pointer overflow-hidden rounded-lg border-4 border-transparent p-1 hover:border-white"
-            @click="select - result(result)"
+            @click="selectResult(result)"
         >
             <img
                 :src="result.urls.small"
