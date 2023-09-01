@@ -10,11 +10,11 @@ function Login({setIsAuth}) {
     const sitesCollectionRef = collection(db, "sites");
 
     async function addNewUserToFirestore() {
-        await addDoc(usersCollectionRef, {id: auth.currentUser.uid, displayName: auth.currentUser.displayName, plan: "free"});
+        await addDoc(usersCollectionRef, {uid: auth.currentUser.uid, displayName: auth.currentUser.displayName, plan: "free"});
     }
 
     async function addNewSiteToFirestore(siteName, siteData) {
-        await addDoc(sitesCollectionRef, {owner: auth.currentUser.uid, ownerDisplayName: auth.currentUser.displayName, name: siteName, data: siteData});
+        await addDoc(sitesCollectionRef, {ownerUID: auth.currentUser.uid, ownerDisplayName: auth.currentUser.displayName, name: siteName, data: siteData});
     }
 
 

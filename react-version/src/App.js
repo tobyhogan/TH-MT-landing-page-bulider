@@ -54,7 +54,7 @@ function App() {
           <a href="#" class="font-medium text-white underline dark:white-blue-500 hover:no-underline">Instagram</a>
           <p class="font-medium text-base text-blue-900 dark:text-white">Contact: hello@landingpage.com</p>
         </div>
-          <h3>&copy; Landing Page Builder 2023</h3>
+          <h3 className='watermark'>&copy; Landing Page Builder 2023</h3>
       </footer>
 
     </Router>

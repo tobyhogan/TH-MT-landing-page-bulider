@@ -60,12 +60,17 @@ function Account({IsAuth}) {
 
   //hello new world
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
   async function getData() {
     const q = query(collection(db, "users"), where("uid", "==", auth.currentUser.uid));
     
     // doc.data() is never undefined for query doc snapshots
     const querySnapshot = await getDocs(q);
 
+<<<<<<< Updated upstream
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
       console.log(doc.id, " => ", doc.data());
@@ -73,6 +78,26 @@ function Account({IsAuth}) {
 
   }
 
+=======
+    let data = querySnapshot.forEach((doc) => { (doc.id, " => ", doc.data()) }
+
+    return data;
+
+    
+    
+  }
+
+
+  
+
+  var data = getData()
+
+  const plan = data;
+
+  console.log(plan);
+
+
+>>>>>>> Stashed changes
   return (
     <div className='defaultPage'>
       <p>Welcome to your account</p>
