@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import HeaderComponent from "@/components/HeaderComponent.vue";
-import TextComponent from "@/components/TextComponent.vue";
-import ButtonComponent from "@/components/ButtonComponent.vue";
-import ImageComponent from "@/components/ImageComponent.vue";
 import NavbarComponent from "@/components/NavbarComponent.vue";
 import EditorBar from "@/components/EditorBar.vue";
 import HeroSection from "@/components/sections/HeroSection.vue";

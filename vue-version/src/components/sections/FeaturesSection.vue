@@ -16,34 +16,34 @@ import TextComponent from '../TextComponent.vue';
             <HeaderComponent></HeaderComponent>
             <TextComponent></TextComponent>
 
-            <div class="grid gap-x-6 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
-                <div class="mb-6">
-                <p class="flex items-center">
-                    <img src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff">
-                    <TextComponent></TextComponent>
-                </p>
-                </div>
+            <ul class="grid gap-6 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
+                <li class="h-40 flex justify-center">
+                    <p class="h-full flex items-center space-x-2">
+                        <img src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff">
+                        <TextComponent></TextComponent>
+                    </p>
+                </li>
 
-                <div class="mb-6">
-                <p class="flex items-center">
-                    <img src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff">
-                    <TextComponent></TextComponent>
-                </p>
-                </div>
+                <li>
+                    <p class="h-40 flex items-center space-x-2">
+                        <img src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff">
+                        <TextComponent></TextComponent>
+                    </p>
+                </li>
 
-                <div class="mb-6">
-                <p class="flex items-center">
-                    <img src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff">
-                    <TextComponent></TextComponent>
-                </p>
-                </div>
-                <div class="mb-6">
-                <p class="flex items-center">
-                    <img src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff">
-                    <TextComponent></TextComponent>
-                </p>
-                </div>
-            </div>
+                <li>
+                    <p class="h-40 flex justify-center items-center space-x-2">
+                        <img src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff">
+                        <TextComponent></TextComponent>
+                    </p>
+                </li>
+                <li>
+                    <p class="h-40 flex items-center space-x-2">
+                        <img src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff">
+                        <TextComponent></TextComponent>
+                    </p>
+                </li>
+            </ul>
             </div>
         </div>
     </div>

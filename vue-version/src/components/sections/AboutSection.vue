@@ -8,7 +8,7 @@ import TextComponent from '../TextComponent.vue';
 
 <template>
 <section class="flex flex-wrap h-[500px] min-h-[500px]">
-  <div class="w-full shrink-0 grow-0 basis-auto md:w-2/12 lg:w-3/12">
+  <div class="w-full flex items-start shrink-0 grow-0 basis-auto md:w-2/12 lg:w-3/12">
       <ImageComponent></ImageComponent>
   </div>
 
