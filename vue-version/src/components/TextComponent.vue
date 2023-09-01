@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { nextTick, ref } from 'vue';
-import EditButton from './EditButton.vue';
+import { nextTick, ref } from "vue";
+import EditButton from "./EditButton.vue";
 
 const text = ref("This is my glorious SaaS product! Please buy it!");
 const input = ref<HTMLElement | null>(null);
@@ -20,20 +20,22 @@ function edit() {
 
         sel?.removeAllRanges();
         sel?.addRange(range);
-    })
+    });
 }
 </script>
 
 <template>
-    <div class="group relative py-5 text-xl leading-normal text-gray-400 lg:text-xl xl:text-2xl">
-        <EditButton @toggleEditMode="edit()"></EditButton>
-        <div ref="input"
-             contentEditable="true"
-             class="pr-1"
-             data-remove-before-export>
-            {{ text }}
-        </div>
+<div class="group relative py-5 text-xl leading-normal text-gray-400 lg:text-xl xl:text-2xl">
+    <EditButton @toggleEditMode="edit()" />
+    <div
+        ref="input"
+        contentEditable="true"
+        class="pr-1"
+        data-remove-before-export
+    >
+        {{ text }}
     </div>
+</div>
 </template>
 
 <style scoped lang="postcss">

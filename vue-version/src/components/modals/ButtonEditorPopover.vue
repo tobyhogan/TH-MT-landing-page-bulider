@@ -1,36 +1,50 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import PopoverComponent from './PopoverComponent.vue';
+import { ref } from "vue";
+import PopoverComponent from "./PopoverComponent.vue";
 
 const { buttonText, buttonUrl } = defineProps<{
-  buttonText: String,
-  buttonUrl: String,
+  buttonText: string,
+  buttonUrl: string,
 }>();
-const emits = defineEmits(['update', 'close']);
+const emits = defineEmits(["update", "close"]);
 
 const editedText = ref(buttonText);
 const editedUrl = ref(buttonUrl);
 
 const saveChanges = () => {
-  emits('update', { newButtonText: editedText.value, newButtonUrl: editedUrl.value });
+    emits("update", {
+        newButtonText: editedText.value,
+        newButtonUrl: editedUrl.value
+    });
 };
 
 const closePopover = () => {
-    emits('close');
+    emits("close");
 };
 </script>
 
 <template>
-  <PopoverComponent @close="closePopover">
-    <label class="block mb-2">Button Text</label>
-    <input v-model="editedText" class="border rounded-md p-2 w-full mb-2">
-    
-    <label class="block mb-2">Navigate to URL</label>
-    <input v-model="editedUrl" class="border rounded-md p-2 w-full mb-4">
-    
-    <div class=" h-full flex justify-center">
-      <button @click="saveChanges" class="bg-primary hover:opacity-80 text-font px-4 py-2 rounded-md">Save</button>
+<PopoverComponent @close="closePopover">
+    <label class="mb-2 block">Button Text</label>
+    <input
+        v-model="editedText"
+        class="mb-2 w-full rounded-md border p-2"
+    >
+
+    <label class="mb-2 block">Navigate to URL</label>
+    <input
+        v-model="editedUrl"
+        class="mb-4 w-full rounded-md border p-2"
+    >
+
+    <div class=" flex h-full justify-center">
+        <button
+            class="rounded-md bg-primary px-4 py-2 text-font hover:opacity-80"
+            @click="saveChanges"
+        >
+            Save
+        </button>
     </div>
-  </PopoverComponent>
-  </template>
-  
+</PopoverComponent>
+</template>
+
