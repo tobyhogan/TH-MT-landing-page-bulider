@@ -27,14 +27,14 @@ function edit() {
 <template>
 <div class="group relative py-5 text-xl leading-normal text-gray-400 lg:text-xl xl:text-2xl">
     <EditButton @toggleEditMode="edit()" />
-    <div
+    <p
         ref="input"
         contentEditable="true"
         class="pr-1"
         data-remove-before-export
     >
         {{ text }}
-    </div>
+    </p>
 </div>
 </template>
 

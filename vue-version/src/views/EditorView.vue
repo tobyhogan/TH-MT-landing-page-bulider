@@ -6,14 +6,16 @@ import ImageComponent from "@/components/ImageComponent.vue";
 import NavbarComponent from "@/components/NavbarComponent.vue";
 import EditorBar from "@/components/EditorBar.vue";
 import HeroSection from "@/components/sections/HeroSection.vue";
+import AboutSection from "@/components/sections/AboutSection.vue";
 </script>
 
 <template>
 <EditorBar />
 <div class="h-[calc(100vh-48px)] w-full overflow-y-auto">
     <NavbarComponent />
-    <main class="h-screen">
+    <main class="container h-screen my-24 mx-auto md:px-6">
         <HeroSection></HeroSection>
+        <AboutSection></AboutSection>
         <div class="container mx-auto flex flex-wrap p-8 xl:px-0">
             <div class="flex w-full items-center lg:w-1/2">
                 <div class="mb-8 max-w-2xl">
