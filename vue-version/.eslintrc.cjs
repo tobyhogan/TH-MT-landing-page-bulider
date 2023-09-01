@@ -1,5 +1,8 @@
 require("@rushstack/eslint-patch/modern-module-resolution");
 
+const path = require("node:path");
+const createAliasSetting = require("@vue/eslint-config-airbnb/createAliasSetting");
+
 module.exports = {
     root: true,
     env: {
@@ -10,6 +13,7 @@ module.exports = {
         "plugin:vue/vue3-recommended",
         "plugin:es-beautifier/standard",
         "@vue/typescript/recommended",
+        "@vue/eslint-config-airbnb",
         "plugin:tailwindcss/recommended",
         "plugin:import/recommended",
         "plugin:import/typescript"
@@ -96,15 +100,7 @@ module.exports = {
     settings: {
         "import/resolver": {
             node: true,
-            typescript: true,
-            "import/extensions": [
-                ".js",
-                ".jsx",
-                ".mjs",
-                ".ts",
-                ".tsx",
-                ".vue"
-            ]
+            typescript: true
         }
     }
 };
