@@ -1,8 +1,5 @@
 require("@rushstack/eslint-patch/modern-module-resolution");
 
-const path = require("node:path");
-const createAliasSetting = require("@vue/eslint-config-airbnb/createAliasSetting");
-
 module.exports = {
     root: true,
     env: {
@@ -13,7 +10,6 @@ module.exports = {
         "plugin:vue/vue3-recommended",
         "plugin:es-beautifier/standard",
         "@vue/typescript/recommended",
-        "@vue/eslint-config-airbnb",
         "plugin:tailwindcss/recommended",
         "plugin:import/recommended",
         "plugin:import/typescript"
@@ -29,6 +25,7 @@ module.exports = {
         "**/supabase/**"
     ],
     rules: {
+        "import/no-unresolved": "off",
         "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
         "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
         "comma-dangle": ["error", "only-multiline"],
@@ -46,6 +43,7 @@ module.exports = {
             }
         ],
         "vue/html-self-closing": "off",
+        "vue/no-setup-props-destructure": "off",
         "tailwindcss/no-custom-classname": 0,
         "import/order": [
             "error",
@@ -100,7 +98,7 @@ module.exports = {
     settings: {
         "import/resolver": {
             node: true,
-            typescript: true
-        }
+            typescript: true,
+        },
     }
 };

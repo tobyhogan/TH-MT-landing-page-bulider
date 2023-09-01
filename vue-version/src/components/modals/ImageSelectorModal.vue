@@ -13,33 +13,33 @@ const searchResults = ref<Basic[]>();
 const showSearchResults = computed(() => (searchResults.value?.length ?? 0) > 0);
 
 const handleFileUpload = (event: Event) => {
-    const file = event.currentTarget?.files[0];
+    const files = (event.target as HTMLInputElement)?.files;
 
-    if (file) {
-        selectedImage.value = URL.createObjectURL(file);
+    if (files && files.length > 0 && files[0]) {
+        selectedImage.value = URL.createObjectURL(files[0]);
     }
 };
 
-const search = () => {
+function search() {
     searchPhotos(searchQuery.value).then((result) => {
         if (result.type === "success") {
             searchResults.value = result.response.results;
         }
     });
-};
+}
 
-const selectResult = (selectedResult: Basic) => {
+function selectResult(selectedResult: Basic) {
     selectedImage.value = selectedResult.urls.regular;
     accept();
-};
+}
 
-const accept = () => {
+function accept() {
     emits("accept", selectedImage.value || imageUrl.value);
-};
+}
 
-const closeModal = () => {
+function closeModal() {
     emits("close");
-};
+}
 </script>
 
 <template>
@@ -47,7 +47,7 @@ const closeModal = () => {
     <div
         class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900/50"
         data-dont-export
-        @mousedown="closeModal"
+        @mousedown="closeModal()"
     >
         <div
             class="m-10 rounded-lg bg-gray-400 p-6 text-gray-900 shadow-md"
@@ -103,11 +103,11 @@ const closeModal = () => {
                                 v-model="searchQuery"
                                 type="text"
                                 class="w-full rounded-md border p-2"
-                                @keydown.enter="search"
+                                @keydown.enter="search()"
                             >
                             <button
                                 class="rounded-md bg-primary px-4 py-2 text-font hover:opacity-80"
-                                @click="search"
+                                @click="search()"
                             >
                                 Search
                             </button>
@@ -119,13 +119,13 @@ const closeModal = () => {
                 <div class="flex flex-row justify-between">
                     <button
                         class="mt-4 rounded-md bg-gray-300 px-4 py-2 hover:bg-gray-400"
-                        @click="closeModal"
+                        @click="closeModal()"
                     >
                         Close
                     </button>
                     <button
                         class="mt-4 rounded-md bg-primary px-4 py-2 text-font hover:opacity-80"
-                        @click="accept"
+                        @click="accept()"
                     >
                         Accept
                     </button>
