@@ -26,10 +26,10 @@ function App() {
     <Router>
         <nav>
           <div id='links-container'>
-            <Link to="/" className='nav-link'><p class="text-3xl text-gray-900 dark:text-white"><u>Landing Page Builder</u></p></Link>
+            <Link to="/" className='nav-link'><p class="text-3xl text-gray-900 dark:text-white"><u><i>Landing Page Builder</i></u></p></Link>
             <div className='spacer'></div>
             {!isAuth ? (
-            <Link to="/login" className='nav-link'> Login </Link>
+            <Link to="/login" className='nav-link'> <p class="text-3xl text-gray-900 dark:text-white"><u> Login </u></p> </Link>
             ) : (
               <>
 

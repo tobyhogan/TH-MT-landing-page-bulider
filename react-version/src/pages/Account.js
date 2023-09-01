@@ -61,7 +61,7 @@ function Account({IsAuth}) {
   //hello new world
 
   return (
-    <div className='loginPage'>
+    <div className='defaultPage'>
       <p>Welcome to your account</p>
       <img src={auth.currentUser.photoURL} alt='hello world'/>
       <h4>Your Name : {auth.currentUser.displayName}</h4>
