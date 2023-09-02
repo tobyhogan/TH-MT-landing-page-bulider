@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import ButtonComponent from "./editables/ButtonComponent.vue";
-import ImageComponent from "./editables/ImageComponent.vue";
-import TextComponent from "./editables/TextComponent.vue";
+import ButtonComponent from "../editables/ButtonComponent.vue";
+import ImageComponent from "../editables/ImageComponent.vue";
+import TextComponent from "../editables/TextComponent.vue";
 
 const { sectionVisibility } = defineProps<{
     sectionVisibility: {

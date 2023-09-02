@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import NavbarComponent from "@/components/NavbarComponent.vue";
+import NavbarComponent from "@/components/sections/NavbarComponent.vue";
 import EditorBar from "@/components/EditorBar.vue";
 import HeroSection from "@/components/sections/HeroSection.vue";
 import AboutSection from "@/components/sections/AboutSection.vue";
