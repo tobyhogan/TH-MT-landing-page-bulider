@@ -26,34 +26,54 @@ function onColorChange(event: Event) {
     class="sticky left-0 top-0 z-20 flex h-12 w-full flex-row justify-between bg-gray-700 px-4 py-1 text-sm text-white"
     data-dont-export
 >
-    <div class="flex flex-row items-center justify-between space-x-2">
-        <button
-            class="button p-1.5 hover:bg-gray-400"
-            @click="isPopoverOpen = true"
+    <div class="flex flex-row items-center space-x-2">
+        <a
+            href="https://validator.m-winkler.at"
+            class="button bg-transparent p-1.5 hover:bg-gray-500"
         >
-            <PopoverComponent
-                v-if="isPopoverOpen"
-                @close="isPopoverOpen = false"
-            >
-                <label>
-                    <h4 class="mb-2 text-lg font-semibold">Accent color</h4>
-                    <input
-                        id="colorPicker"
-                        type="color"
-                        name="colorPicker"
-                        :value="currentAccentColor"
-                        class="h-20 w-20 cursor-pointer rounded-lg border-0"
-                        @input="onColorChange($event)"
-                    >
-                </label>
-            </PopoverComponent>
             <img
                 class="h-6 w-6"
-                src="https://api.iconify.design/mdi:palette.svg?color=%23ffffff"
-                alt="palette button icon"
-            >
-        </button>
+                src="https://api.iconify.design/mdi:home.svg?color=%23ffffff"
+                alt="home button icon"
+            />
+        </a>
+        <a
+            href="https://validator.m-winkler.at/profile"
+            class="button bg-transparent p-1.5 hover:bg-gray-500"
+        >
+            <img
+                class="h-6 w-6"
+                src="https://api.iconify.design/mdi:account.svg?color=%23ffffff"
+                alt="home button icon"
+            />
+        </a>
     </div>
+    <button
+        class="button p-1.5 hover:bg-gray-400"
+        @click="isPopoverOpen = true"
+    >
+        <PopoverComponent
+            v-if="isPopoverOpen"
+            @close="isPopoverOpen = false"
+        >
+            <label>
+                <h4 class="mb-2 text-lg font-semibold">Accent color</h4>
+                <input
+                    id="colorPicker"
+                    type="color"
+                    name="colorPicker"
+                    :value="currentAccentColor"
+                    class="h-20 w-20 cursor-pointer rounded-lg border-0"
+                    @input="onColorChange($event)"
+                >
+            </label>
+        </PopoverComponent>
+        <img
+            class="h-6 w-6"
+            src="https://api.iconify.design/mdi:palette.svg?color=%23ffffff"
+            alt="palette button icon"
+        >
+    </button>
     <div class="flex flex-row items-center justify-between space-x-2">
         <button
             class="button hover:bg-gray-400"

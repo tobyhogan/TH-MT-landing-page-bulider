@@ -12,8 +12,8 @@ import TextComponent from "../editables/TextComponent.vue";
     </div>
 
     <div class="w-full shrink-0 grow-0 basis-auto text-center md:w-10/12 md:pl-6 md:text-left lg:w-9/12">
-        <HeaderComponent></HeaderComponent>
-        <TextComponent></TextComponent>
+        <HeaderComponent :initial-text="'Your Name'"></HeaderComponent>
+        <TextComponent :initial-text="'Here you can tell everyone, how awesome you are...'"></TextComponent>
     </div>
 </section>
 </template>

@@ -36,12 +36,12 @@ const menuItems = computed(() => {
 <nav class="container relative mx-auto flex w-full flex-wrap items-center justify-between p-7 lg:justify-between xl:px-0">
     <div class="flex w-full flex-wrap items-center justify-between lg:w-auto">
         <a href="/">
-            <span class="flex items-center space-x-2 text-2xl font-medium text-primary">
+            <span class="flex items-center space-x-6 text-2xl font-medium text-primary">
                 <span class="w-14">
                     <ImageComponent></ImageComponent>
                 </span>
                 <span>
-                    <TextComponent></TextComponent>
+                    <TextComponent :initial-text="'My Cool Idea'"></TextComponent>
                 </span>
             </span>
         </a>
@@ -81,7 +81,7 @@ const menuItems = computed(() => {
         </ul>
     </div>
     <div class="nav__item mr-3 hidden space-x-4 lg:flex">
-        <ButtonComponent></ButtonComponent>
+        <ButtonComponent :initial-text="'Get Started'"></ButtonComponent>
     </div>
 </nav>
 </template>

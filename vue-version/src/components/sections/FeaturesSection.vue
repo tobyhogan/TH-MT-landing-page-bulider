@@ -13,8 +13,8 @@ import TextComponent from "../editables/TextComponent.vue";
         </div>
         <div class="w-full shrink-0 grow-0 basis-auto lg:w-6/12 xl:w-8/12">
             <div class="px-6 py-12 md:px-12">
-                <HeaderComponent></HeaderComponent>
-                <TextComponent></TextComponent>
+                <HeaderComponent :initial-text="'This is why my idea is the best'"></HeaderComponent>
+                <!-- <TextComponent :initial-text="'More description'"></TextComponent> -->
 
                 <ul class="grid gap-6 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
                     <li class="flex h-40 justify-center">
@@ -23,7 +23,7 @@ import TextComponent from "../editables/TextComponent.vue";
                                 src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff"
                                 alt="list bullet icon"
                             >
-                            <TextComponent></TextComponent>
+                            <TextComponent :initial-text="'Looks good'"></TextComponent>
                         </p>
                     </li>
 
@@ -33,7 +33,7 @@ import TextComponent from "../editables/TextComponent.vue";
                                 src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff"
                                 alt="list bullet icon"
                             >
-                            <TextComponent></TextComponent>
+                            <TextComponent :initial-text="'Works well'"></TextComponent>
                         </p>
                     </li>
 
@@ -43,7 +43,7 @@ import TextComponent from "../editables/TextComponent.vue";
                                 src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff"
                                 alt="list bullet icon"
                             >
-                            <TextComponent></TextComponent>
+                            <TextComponent :initial-text="'Reads your mind'"></TextComponent>
                         </p>
                     </li>
                     <li>
@@ -52,7 +52,7 @@ import TextComponent from "../editables/TextComponent.vue";
                                 src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff"
                                 alt="list bullet icon"
                             >
-                            <TextComponent></TextComponent>
+                            <TextComponent :initial-text="'Can predict the future'"></TextComponent>
                         </p>
                     </li>
                 </ul>
