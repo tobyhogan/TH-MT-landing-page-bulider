@@ -13,7 +13,7 @@ function Home( {isAuth} ) {
       <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">"Wheew I never knew I could build landing pages this quickly"</p>
       <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">"I can't believe it! I managed to get validation within 20 minutes having my idea!"</p>
 
-      <div className="dark:bg-slate-950 dark:text-gray-100">
+      <div className="dark:bg-gh-1 dark:text-gray-100">
         <div className="px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-extrabold sm:text-4xl">All the features you want</h2>
@@ -106,7 +106,7 @@ function Home( {isAuth} ) {
 
 
 
-<section class="flex flex-col justify-center antialiased bg-slate-950 text-white min-h-screen p-4">
+<section class="flex flex-col justify-center antialiased bg-gh-1 text-white min-h-screen p-4">
     <div class="h-full">
 
         <div class="max-w-5xl mx-auto" x-data="{ annual: true }">
@@ -128,7 +128,7 @@ function Home( {isAuth} ) {
 
             <div class="grid grid-cols-12 gap-6">
 
-                <div class="relative col-span-full md:col-span-4 bg-slate-900 shadow-md rounded-sm border border-gray-200">
+                <div class="relative col-span-full md:col-span-4 bg-black shadow-md rounded-sm border border-gray-200">
                     <div class="absolute top-0 left-0 right-0 h-0.5 bg-green-500" aria-hidden="true"></div>
                     <div class="px-5 pt-5 pb-6 border-b border-gray-200">
                         <header class="flex items-center mb-2">
@@ -317,7 +317,7 @@ function Home( {isAuth} ) {
 
 
 
-  <section class="bg-white dark:bg-slate-950">
+  <section class="bg-white dark:bg-gh-1">
     <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
         <div class="mx-auto max-w-screen-md sm:text-center">
             <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-white sm:text-4xl dark:text-white">Sign up for our newsletter</h2>

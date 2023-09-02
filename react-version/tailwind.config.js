@@ -4,10 +4,19 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  theme: {
-    extend: {},
-  },
-  plugins: []
-}
 
-//test
+  theme: {
+    extend: {
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        'white': '#ffffff',
+        'gh-1': "#0d1117",
+        'gh-2': "#0d1117",
+      },
+    },
+  plugins: [],
+
+}}
+
+
