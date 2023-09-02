@@ -7,26 +7,28 @@ import AboutSection from "@/components/sections/AboutSection.vue";
 import SubscribeSection from "@/components/sections/SubscribeSection.vue";
 import FeaturesSection from "@/components/sections/FeaturesSection.vue";
 
-const heroVisible = ref(false);
-const aboutVisible = ref(false);
-const subscribeVisible = ref(false);
-const featuresVisible = ref(false);
+const sectionVisibility = ref({
+    heroVisible: false,
+    aboutVisible: false,
+    subscribeVisible: false,
+    featuresVisible: false
+});
 const addSectionVisible = computed(() => (
-    !heroVisible.value ||
-    !aboutVisible.value ||
-    !subscribeVisible.value ||
-    !featuresVisible.value
+    !sectionVisibility.value.heroVisible ||
+    !sectionVisibility.value.aboutVisible ||
+    !sectionVisibility.value.subscribeVisible ||
+    !sectionVisibility.value.featuresVisible
 ));
 
 function addSection() {
-    if (!heroVisible.value) {
-        heroVisible.value = true;
-    } else if (!aboutVisible.value) {
-        aboutVisible.value = true;
-    } else if (!subscribeVisible.value) {
-        subscribeVisible.value = true;
-    } else if (!featuresVisible.value) {
-        featuresVisible.value = true;
+    if (!sectionVisibility.value.heroVisible) {
+        sectionVisibility.value.heroVisible = true;
+    } else if (!sectionVisibility.value.aboutVisible) {
+        sectionVisibility.value.aboutVisible = true;
+    } else if (!sectionVisibility.value.subscribeVisible) {
+        sectionVisibility.value.subscribeVisible = true;
+    } else if (!sectionVisibility.value.featuresVisible) {
+        sectionVisibility.value.featuresVisible = true;
     }
 }
 </script>
@@ -34,7 +36,7 @@ function addSection() {
 <template>
 <EditorBar />
 <div class="h-[calc(100vh-48px)] w-full overflow-y-auto">
-    <NavbarComponent />
+    <NavbarComponent :section-visibility="sectionVisibility" />
     <main class="container mx-auto h-screen space-y-16 md:px-6">
         <div class="group relative">
             <button
@@ -47,11 +49,11 @@ function addSection() {
                     class="inline-block h-4 w-4"
                 />
             </button>
-            <HeroSection v-if="heroVisible"></HeroSection>
+            <HeroSection v-if="sectionVisibility.heroVisible"></HeroSection>
         </div>
-        <FeaturesSection v-if="aboutVisible"></FeaturesSection>
-        <SubscribeSection v-if="subscribeVisible"></SubscribeSection>
-        <AboutSection v-if="featuresVisible"></AboutSection>
+        <FeaturesSection v-if="sectionVisibility.aboutVisible"></FeaturesSection>
+        <SubscribeSection v-if="sectionVisibility.subscribeVisible"></SubscribeSection>
+        <AboutSection v-if="sectionVisibility.featuresVisible"></AboutSection>
         <section
             v-if="addSectionVisible"
             data-dont-export

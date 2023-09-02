@@ -1,27 +1,51 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import ButtonComponent from "./editables/ButtonComponent.vue";
 import ImageComponent from "./editables/ImageComponent.vue";
+import TextComponent from "./editables/TextComponent.vue";
 
-const menuItems = [
-    "Product",
-    "Features",
-    "Pricing",
-];
+const { sectionVisibility } = defineProps<{
+    sectionVisibility: {
+        heroVisible: boolean,
+        aboutVisible: boolean,
+        subscribeVisible: boolean,
+        featuresVisible: boolean
+    },
+}>();
+
+const menuItems = computed(() => {
+    const items: string[] = [];
+
+    if (sectionVisibility.featuresVisible) {
+        items.push("Features");
+    }
+
+    if (sectionVisibility.subscribeVisible) {
+        items.push("Newsletter");
+    }
+
+    if (sectionVisibility.aboutVisible) {
+        items.push("About");
+    }
+
+    return items;
+});
 </script>
 
 <template>
-<nav class="container relative mx-auto flex flex-wrap items-center justify-between p-7 lg:justify-between xl:px-0">
+<nav class="container relative mx-auto flex w-full flex-wrap items-center justify-between p-7 lg:justify-between xl:px-0">
     <div class="flex w-full flex-wrap items-center justify-between lg:w-auto">
         <a href="/">
             <span class="flex items-center space-x-2 text-2xl font-medium text-primary">
                 <span class="w-14">
                     <ImageComponent></ImageComponent>
                 </span>
-                <span>Cool Icon</span>
+                <span>
+                    <TextComponent></TextComponent>
+                </span>
             </span>
         </a>
         <button
-            id="headlessui-disclosure-button-:R956:"
             aria-label="Toggle Menu"
             class="ml-auto rounded-md px-2 py-1 text-gray-500 hover:text-indigo-500 focus:bg-indigo-100 focus:text-indigo-500 focus:outline-none lg:hidden"
             type="button"
