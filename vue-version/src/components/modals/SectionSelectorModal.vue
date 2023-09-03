@@ -11,7 +11,7 @@ const emits = defineEmits(["close", "accept"]);
 const gridCols = computed(() => {
     const cols = 4 - visibleSections.length;
 
-    return `grid-cols-${cols}`;
+    return { "grid-template-columns": `repeat(${cols}, minmax(0, 1fr))` };
 });
 
 function closePopover() {
@@ -32,8 +32,8 @@ function accept(sectionType: SectionType) {
         Add section
     </h3>
     <div
-        class="grid gap-x-4"
-        :class="gridCols"
+        class="grid grid-cols-4 gap-x-4"
+        :style="gridCols"
     >
         <button
             v-if="!visibleSections.includes(SectionType.ABOUT)"
