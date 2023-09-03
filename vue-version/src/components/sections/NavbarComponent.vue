@@ -3,33 +3,41 @@ import { computed } from "vue";
 import ButtonComponent from "../editables/ButtonComponent.vue";
 import ImageComponent from "../editables/ImageComponent.vue";
 import TextComponent from "../editables/TextComponent.vue";
+import { SectionType } from "@/types/types";
 
-const { sectionVisibility } = defineProps<{
-    sectionVisibility: {
-        heroVisible: boolean,
-        aboutVisible: boolean,
-        subscribeVisible: boolean,
-        featuresVisible: boolean
-    },
+const { visibleSections } = defineProps<{
+    visibleSections: SectionType[]
 }>();
 
 const menuItems = computed(() => {
-    const items: string[] = [];
+    const items: {key: number, name: string, href: string}[] = [];
 
-    if (sectionVisibility.featuresVisible) {
-        items.push("Features");
-    }
+    visibleSections.forEach((section, index) => {
+        switch (section) {
+        case SectionType.ABOUT:
+            items.push({ key: index, name: "About", href: "#about" });
+            break;
+        case SectionType.FEATURES:
+            items.push({ key: index, name: "Features", href: "#features" });
+            break;
+        case SectionType.HERO:
+            items.push({ key: index, name: "Hero", href: "#hero" });
+            break;
+        case SectionType.SUBSCRIBE:
+            items.push({ key: index, name: "Subscribe", href: "#subscribe" });
+            break;
 
-    if (sectionVisibility.subscribeVisible) {
-        items.push("Newsletter");
-    }
-
-    if (sectionVisibility.aboutVisible) {
-        items.push("About");
-    }
+        default:
+            break;
+        }
+    });
 
     return items;
 });
+
+function preventDefault(event?: MouseEvent) {
+    event?.preventDefault();
+}
 </script>
 
 <template>
@@ -68,14 +76,16 @@ const menuItems = computed(() => {
         <ul class="flex-1 list-none items-center justify-end pt-6 lg:flex lg:pt-0">
             <li
                 v-for="menuItem in menuItems"
-                :key="menuItem"
+                :key="menuItem.key"
                 class="nav__item mr-3"
             >
                 <a
                     class="inline-block rounded-md px-4 py-2 text-lg font-normal text-gray-200 no-underline hover:text-primary focus:bg-indigo-100 focus:text-indigo-500 focus:outline-none"
-                    href="/"
+                    :href="menuItem.href"
+                    data-remove-before-export
+                    @click="preventDefault($event)"
                 >
-                    {{ menuItem }}
+                    <TextComponent :initial-text="menuItem.name"></TextComponent>
                 </a>
             </li>
         </ul>

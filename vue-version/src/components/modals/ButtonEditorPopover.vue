@@ -11,20 +11,20 @@ const emits = defineEmits(["update", "close"]);
 const editedText = ref(buttonText);
 const editedUrl = ref(buttonUrl);
 
-const saveChanges = () => {
+function saveChanges() {
     emits("update", {
         newButtonText: editedText.value,
         newButtonUrl: editedUrl.value
     });
-};
+}
 
-const closePopover = () => {
+function closePopover() {
     emits("close");
-};
+}
 </script>
 
 <template>
-<PopoverComponent @close="closePopover">
+<PopoverComponent @close="closePopover()">
     <label class="mb-2 block">
         Button Text
         <input
@@ -44,7 +44,7 @@ const closePopover = () => {
     <div class=" flex h-full justify-center">
         <button
             class="rounded-md bg-primary px-4 py-2 text-font hover:opacity-80"
-            @click="saveChanges"
+            @click="saveChanges()"
         >
             Save
         </button>
