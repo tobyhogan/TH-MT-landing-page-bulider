@@ -3,9 +3,9 @@ function Home( {isAuth} ) {
 
   return (
     <div className='homePage'>
-      <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl dark:text-white">Do you ever wish you could spend more time building instead of being distracted by landing pages?</h1>
+      <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-400 md:text-5xl lg:text-5xl dark:text-white">Do you ever wish you could spend more time building instead of being distracted by landing pages?</h1>
       <h2 class="text-4xl font dark:text-white">With Landing Page Builder you can get your site up in <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">5 minutes</span> ready to get user sign ups and validation!</h2>
-      <button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-2xl px-5 py-2.5 text-center mr-2 mb-2">Get Started Now!
+      <button type="button" class="text-white bg-gradient-to-br from-green-500 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-2xl px-5 py-2.5 text-center mr-2 mb-2">Get Started Now!
       </button>
 
       <h4 class="text-2xl font-bold dark:text-white">Testimonials:</h4>
@@ -13,7 +13,7 @@ function Home( {isAuth} ) {
       <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">"Wheew I never knew I could build landing pages this quickly"</p>
       <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">"I can't believe it! I managed to get validation within 20 minutes having my idea!"</p>
 
-      <div className="dark:bg-gh-1 dark:text-gray-100">
+      <div className="dark:bg-gh1 dark:text-gray-100">
         <div className="px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-extrabold sm:text-4xl">All the features you want</h2>
@@ -106,7 +106,7 @@ function Home( {isAuth} ) {
 
 
 
-<section class="flex flex-col justify-center antialiased bg-gh-1 text-white min-h-screen p-4">
+<section class="flex flex-col justify-center antialiased bg-gh1 text-white min-h-screen p-4">
     <div class="h-full">
 
         <div class="max-w-5xl mx-auto" x-data="{ annual: true }">
@@ -128,8 +128,8 @@ function Home( {isAuth} ) {
 
             <div class="grid grid-cols-12 gap-6">
 
-                <div class="relative col-span-full md:col-span-4 bg-black shadow-md rounded-sm border border-gray-200">
-                    <div class="absolute top-0 left-0 right-0 h-0.5 bg-green-500" aria-hidden="true"></div>
+                <div class="relative col-span-full md:col-span-4 bg-gh2 shadow-md rounded-sm border border-gray-200">
+                    <div class="absolute top-0 left-0 right-0 h-0.5 bg-gray-500" aria-hidden="true"></div>
                     <div class="px-5 pt-5 pb-6 border-b border-gray-200">
                         <header class="flex items-center mb-2">
                             <div class="w-6 h-6 rounded-full flex-shrink-0 bg-gradient-to-tr from-green-500 to-green-300 mr-3">
@@ -179,8 +179,8 @@ function Home( {isAuth} ) {
                     </div>
                 </div>
 
-                <div class="relative col-span-full md:col-span-4 bg-slate-900 shadow-md rounded-sm border border-gray-200">
-                    <div class="absolute top-0 left-0 right-0 h-0.5 bg-blue-500" aria-hidden="true"></div>
+                <div class="relative col-span-full md:col-span-4 bg-gh2 shadow-md rounded-sm border border-gray-200">
+                    <div class="absolute top-0 left-0 right-0 h-0.5 bg-gray-500" aria-hidden="true"></div>
                     <div class="px-5 pt-5 pb-6 border-b border-gray-200">
                         <header class="flex items-center mb-2">
                             <div class="w-6 h-6 rounded-full flex-shrink-0 bg-gradient-to-tr from-blue-500 to-blue-300 mr-3">
@@ -241,8 +241,8 @@ function Home( {isAuth} ) {
                     </div>
                 </div>
 
-                <div class="relative col-span-full md:col-span-4 bg-slate-900 shadow-md rounded-sm border border-gray-200">
-                    <div class="absolute top-0 left-0 right-0 h-0.5 bg-indigo-500" aria-hidden="true"></div>
+                <div class="relative col-span-full md:col-span-4 bg-gh2 shadow-md rounded-sm border border-gray-200">
+                    <div class="absolute top-0 left-0 right-0 h-0.5 bg-gray-500" aria-hidden="true"></div>
                     <div class="px-5 pt-5 pb-6 border-b border-gray-200">
                         <header class="flex items-center mb-2">
                             <div class="w-6 h-6 rounded-full flex-shrink-0 bg-gradient-to-tr from-indigo-500 to-indigo-300 mr-3">
@@ -317,7 +317,7 @@ function Home( {isAuth} ) {
 
 
 
-  <section class="bg-white dark:bg-gh-1">
+  <section class="bg-white dark:bg-gh1">
     <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
         <div class="mx-auto max-w-screen-md sm:text-center">
             <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-white sm:text-4xl dark:text-white">Sign up for our newsletter</h2>
@@ -332,7 +332,7 @@ function Home( {isAuth} ) {
                         <input class=" newsLetterSubmit block p-3 pl-10 w-full text-sm text-white bg-gray-50 rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Enter your email" type="email" id="email" required=""></input>
                     </div>
                     <div>
-                        <button type="submit" class="newsLetterSubmit py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Subscribe</button>
+                        <button type="submit" class="newsLetterSubmit py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg border cursor-pointer bg-gh2 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Subscribe</button>
                     </div>
                 </div>
                 
