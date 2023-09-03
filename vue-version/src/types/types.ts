@@ -1,4 +1,4 @@
-export type SectionType = "ABOUT" | "FEATURES" | "HERO" | "SUBSCRIBE";
+export type SectionType = "ABOUT" | "FEATURES" | "HeroSection" | "SUBSCRIBE";
 
 export const SectionType = {
     ABOUT: "ABOUT" as SectionType,

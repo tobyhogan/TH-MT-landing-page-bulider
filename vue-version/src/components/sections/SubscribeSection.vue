@@ -6,7 +6,7 @@ import TextComponent from "../editables/TextComponent.vue";
 </script>
 
 <template>
-<section class="h-[300px] min-h-[300px] text-center lg:text-left">
+<section class="group/section relative h-[300px] min-h-[300px] text-center lg:text-left">
     <div class="flex flex-wrap justify-center">
         <div class="w-full shrink-0 grow-0 basis-auto px-3 md:w-10/12 lg:w-11/12 xl:w-10/12">
             <div class="grid items-center gap-x-6 lg:grid-cols-3">

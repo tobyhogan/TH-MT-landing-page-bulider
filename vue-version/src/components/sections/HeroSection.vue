@@ -5,7 +5,7 @@ import ImageComponent from "../editables/ImageComponent.vue";
 </script>
 
 <template>
-<section class="group relative h-[300px] min-h-[300px] overflow-hidden">
+<section class="group/section relative h-[300px] min-h-[300px] overflow-hidden">
     <ImageComponent class="absolute inset-0 object-cover object-center opacity-40"></ImageComponent>
     <div class="absolute inset-0 h-full w-full overflow-hidden bg-fixed">
         <div class="flex h-full items-center justify-center">

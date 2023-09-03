@@ -11,36 +11,23 @@ import DeleteSectionButton from "@/components/editables/DeleteSectionButton.vue"
 import { SectionType } from "@/types/types";
 
 const isSectionModalOpen = ref(false);
-const sectionVisibility = ref({
-    heroVisible: false,
-    aboutVisible: false,
-    subscribeVisible: false,
-    featuresVisible: false
-});
 const isAddSectionButtonVisible = computed(() => (
-    !sectionVisibility.value.heroVisible ||
-    !sectionVisibility.value.aboutVisible ||
-    !sectionVisibility.value.subscribeVisible ||
-    !sectionVisibility.value.featuresVisible
+    visibleSections.value.length < 4
 ));
 const visibleSections = ref<SectionType[]>([]);
 
 function addSection(sectionType: SectionType) {
     switch (sectionType) {
     case SectionType.ABOUT:
-        sectionVisibility.value.aboutVisible = true;
         visibleSections.value.push(SectionType.ABOUT);
         break;
     case SectionType.FEATURES:
-        sectionVisibility.value.featuresVisible = true;
         visibleSections.value.push(SectionType.FEATURES);
         break;
     case SectionType.HERO:
-        sectionVisibility.value.heroVisible = true;
         visibleSections.value.push(SectionType.HERO);
         break;
     case SectionType.SUBSCRIBE:
-        sectionVisibility.value.subscribeVisible = true;
         visibleSections.value.push(SectionType.SUBSCRIBE);
         break;
     default:
@@ -53,20 +40,16 @@ function addSection(sectionType: SectionType) {
 function deleteSection(sectionType: SectionType) {
     switch (sectionType) {
     case SectionType.ABOUT:
-        sectionVisibility.value.aboutVisible = false;
-        visibleSections.value.filter(section => section !== SectionType.ABOUT);
+        visibleSections.value = visibleSections.value.filter(section => section !== SectionType.ABOUT);
         break;
     case SectionType.FEATURES:
-        sectionVisibility.value.featuresVisible = false;
-        visibleSections.value.filter(section => section !== SectionType.FEATURES);
+        visibleSections.value = visibleSections.value.filter(section => section !== SectionType.FEATURES);
         break;
     case SectionType.HERO:
-        sectionVisibility.value.heroVisible = false;
-        visibleSections.value.filter(section => section !== SectionType.HERO);
+        visibleSections.value = visibleSections.value.filter(section => section !== SectionType.HERO);
         break;
     case SectionType.SUBSCRIBE:
-        sectionVisibility.value.subscribeVisible = false;
-        visibleSections.value.filter(section => section !== SectionType.SUBSCRIBE);
+        visibleSections.value = visibleSections.value.filter(section => section !== SectionType.SUBSCRIBE);
         break;
     default:
         break;
@@ -75,6 +58,21 @@ function deleteSection(sectionType: SectionType) {
 
 function closeSectionModal() {
     isSectionModalOpen.value = false;
+}
+
+function getComponent(section: SectionType) {
+    switch (section) {
+    case SectionType.ABOUT:
+        return AboutSection;
+    case SectionType.FEATURES:
+        return FeaturesSection;
+    case SectionType.HERO:
+        return HeroSection;
+    case SectionType.SUBSCRIBE:
+        return SubscribeSection;
+    default:
+        return "";
+    }
 }
 </script>
 
@@ -85,40 +83,15 @@ function closeSectionModal() {
         :visible-sections="visibleSections"
     />
     <main class="container mx-auto h-screen space-y-16 md:px-6">
-        <div class="group relative">
-            <HeroSection
-                v-if="sectionVisibility.heroVisible"
-                id="hero"
-            >
-                <DeleteSectionButton
-                    @delete-section="deleteSection(SectionType.HERO)"
-                ></DeleteSectionButton>
-            </HeroSection>
-        </div>
-        <FeaturesSection
-            v-if="sectionVisibility.featuresVisible"
-            id="features"
+        <component
+            :is="getComponent(section)"
+            v-for="section in visibleSections"
+            :key="getComponent(section)"
         >
             <DeleteSectionButton
-                @delete-section="deleteSection(SectionType.FEATURES)"
+                @delete-section="deleteSection(section)"
             ></DeleteSectionButton>
-        </FeaturesSection>
-        <SubscribeSection
-            v-if="sectionVisibility.subscribeVisible"
-            id="subscribe"
-        >
-            <DeleteSectionButton
-                @delete-section="deleteSection(SectionType.SUBSCRIBE)"
-            ></DeleteSectionButton>
-        </SubscribeSection>
-        <AboutSection
-            v-if="sectionVisibility.aboutVisible"
-            id="about"
-        >
-            <DeleteSectionButton
-                @delete-section="deleteSection(SectionType.ABOUT)"
-            ></DeleteSectionButton>
-        </AboutSection>
+        </component>
         <section
             v-if="isAddSectionButtonVisible"
             data-dont-export
@@ -135,6 +108,7 @@ function closeSectionModal() {
                 />
                 <SectionSelectorModal
                     v-if="isSectionModalOpen"
+                    :visible-sections="visibleSections"
                     @accept="addSection($event)"
                     @close="closeSectionModal()"
                     @click.stop
