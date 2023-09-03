@@ -59,6 +59,7 @@ import TextComponent from "../editables/TextComponent.vue";
             </div>
         </div>
     </div>
+    <slot />
 </section>
 </template>
 

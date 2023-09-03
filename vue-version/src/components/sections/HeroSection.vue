@@ -15,6 +15,7 @@ import ImageComponent from "../editables/ImageComponent.vue";
             </div>
         </div>
     </div>
+    <slot />
 </section>
 </template>
 

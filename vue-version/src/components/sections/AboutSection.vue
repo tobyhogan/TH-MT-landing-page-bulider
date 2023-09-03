@@ -15,6 +15,7 @@ import TextComponent from "../editables/TextComponent.vue";
         <HeaderComponent :initial-text="'Your Name'"></HeaderComponent>
         <TextComponent :initial-text="'Here you can tell everyone, how awesome you are...'"></TextComponent>
     </div>
+    <slot />
 </section>
 </template>
 
