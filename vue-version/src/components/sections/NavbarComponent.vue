@@ -43,13 +43,20 @@ function preventDefault(event?: MouseEvent) {
 <template>
 <nav class="container relative mx-auto flex w-full flex-wrap items-center justify-between p-7 lg:justify-between xl:px-0">
     <div class="flex w-full flex-wrap items-center justify-between lg:w-auto">
-        <a href="/">
-            <span class="flex items-center space-x-6 text-2xl font-medium text-primary">
+        <a
+            href="/"
+            data-remove-before-export
+            @click="preventDefault"
+        >
+            <span class="flex items-center space-x-6 text-2xl font-medium">
                 <span class="w-14">
                     <ImageComponent></ImageComponent>
                 </span>
                 <span>
-                    <TextComponent :initial-text="'My Cool Idea'"></TextComponent>
+                    <TextComponent
+                        :initial-text="'My Cool Idea'"
+                        class="text-primary"
+                    ></TextComponent>
                 </span>
             </span>
         </a>
@@ -80,12 +87,15 @@ function preventDefault(event?: MouseEvent) {
                 class="nav__item mr-3"
             >
                 <a
-                    class="inline-block rounded-md px-4 py-2 text-lg font-normal text-gray-200 no-underline hover:text-primary focus:bg-indigo-100 focus:text-indigo-500 focus:outline-none"
+                    class="inline-block rounded-md px-4 py-2 text-lg font-normal text-gray-200 no-underline focus:bg-indigo-100 focus:text-indigo-500 focus:outline-none"
                     :href="menuItem.href"
                     data-remove-before-export
                     @click="preventDefault($event)"
                 >
-                    <TextComponent :initial-text="menuItem.name"></TextComponent>
+                    <TextComponent
+                        :initial-text="menuItem.name"
+                        class="hover:text-primary"
+                    ></TextComponent>
                 </a>
             </li>
         </ul>
