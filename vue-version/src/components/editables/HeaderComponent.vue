@@ -2,7 +2,11 @@
 import { nextTick, ref } from "vue";
 import EditButton from "./EditButton.vue";
 
-const headerText = ref("Header");
+const { initialText = "Header" } = defineProps<{
+    initialText?: string,
+}>();
+
+const headerText = ref(initialText);
 const input = ref<HTMLElement | null>(null);
 
 function edit() {
@@ -26,7 +30,7 @@ function edit() {
 
 <template>
 <div class="group relative">
-    <EditButton @toggleEditMode="edit()" />
+    <EditButton @toggle-edit-mode="edit()" />
     <h1
         ref="input"
         class="py-1 text-4xl font-bold leading-snug tracking-tight text-gray-200 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight"

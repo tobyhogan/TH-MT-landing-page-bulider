@@ -25,6 +25,7 @@ module.exports = {
         "**/supabase/**"
     ],
     rules: {
+        "import/no-unresolved": "off",
         "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
         "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
         "comma-dangle": ["error", "only-multiline"],
@@ -42,6 +43,7 @@ module.exports = {
             }
         ],
         "vue/html-self-closing": "off",
+        "vue/no-setup-props-destructure": "off",
         "tailwindcss/no-custom-classname": 0,
         "import/order": [
             "error",
@@ -97,14 +99,6 @@ module.exports = {
         "import/resolver": {
             node: true,
             typescript: true,
-            "import/extensions": [
-                ".js",
-                ".jsx",
-                ".mjs",
-                ".ts",
-                ".tsx",
-                ".vue"
-            ]
-        }
+        },
     }
 };

@@ -12,7 +12,10 @@ function toggleEditMode() {
     data-dont-export
     @click="toggleEditMode()"
 >
-    <img src="https://api.iconify.design/mdi:pencil.svg?color=%23ffffff">
+    <img
+        src="https://api.iconify.design/mdi:pencil.svg?color=%23ffffff"
+        alt="edit button icon"
+    >
 </button>
 </template>
 

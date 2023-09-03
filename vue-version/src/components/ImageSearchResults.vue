@@ -48,21 +48,23 @@ function selectResult(result: Basic) {
 
     <!-- Search Unsplash -->
     <div class="mb-4">
-        <label class="mb-1 block font-medium">Search Unsplash:</label>
-        <div class="flex flex-row space-x-4">
-            <input
-                v-model="searchQuery"
-                type="text"
-                class="w-1/2 rounded-md border p-2"
-                @keydown.enter="search"
-            >
-            <button
-                class="rounded-md bg-primary px-4 py-2 text-font hover:opacity-80"
-                @click="search"
-            >
-                Search
-            </button>
-        </div>
+        <label class="mb-1 block font-medium">
+            Search Unsplash:
+            <div class="flex flex-row space-x-4">
+                <input
+                    v-model="searchQuery"
+                    type="text"
+                    class="w-1/2 rounded-md border p-2"
+                    @keydown.enter="search"
+                >
+                <button
+                    class="rounded-md bg-primary px-4 py-2 text-font hover:opacity-80"
+                    @click="search"
+                >
+                    Search
+                </button>
+            </div>
+        </label>
     </div>
 
     <!-- Display Search Results -->

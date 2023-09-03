@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import ImageSelectorModal from "../modals/ImageSelectorModal.vue";
 import EditButton from "./EditButton.vue";
-import ImageSelectorModal from "./modals/ImageSelectorModal.vue";
 
 const imageSrc = ref("https://picsum.photos/200");
 const isImageSelectorOpen = ref(false);
@@ -19,11 +19,12 @@ function accept(imageUrl: string) {
 <template>
 <div class="group relative h-full w-full">
     <div class="flex h-full w-full items-center justify-center">
-        <EditButton @toggleEditMode="openImageSelector()" />
+        <EditButton @toggle-edit-mode="openImageSelector()" />
         <img
             :src="imageSrc"
             class="max-h-full max-w-full cursor-pointer object-cover"
             data-remove-before-export
+            alt="Image"
             @click="openImageSelector()"
         >
     </div>

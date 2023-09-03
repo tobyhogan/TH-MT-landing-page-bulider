@@ -2,7 +2,11 @@
 import { nextTick, ref } from "vue";
 import EditButton from "./EditButton.vue";
 
-const text = ref("This is my glorious SaaS product! Please buy it!");
+const { initialText = "Type something here..." } = defineProps<{
+    initialText?: string,
+}>();
+
+const text = ref(initialText);
 const input = ref<HTMLElement | null>(null);
 
 function edit() {
@@ -26,15 +30,15 @@ function edit() {
 
 <template>
 <div class="group relative py-5 text-xl leading-normal text-gray-400 lg:text-xl xl:text-2xl">
-    <EditButton @toggleEditMode="edit()" />
-    <div
+    <EditButton @toggle-edit-mode="edit()" />
+    <p
         ref="input"
         contentEditable="true"
         class="pr-1"
         data-remove-before-export
     >
         {{ text }}
-    </div>
+    </p>
 </div>
 </template>
 

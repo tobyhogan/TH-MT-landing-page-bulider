@@ -11,40 +11,43 @@ const emits = defineEmits(["update", "close"]);
 const editedText = ref(buttonText);
 const editedUrl = ref(buttonUrl);
 
-const saveChanges = () => {
+function saveChanges() {
     emits("update", {
         newButtonText: editedText.value,
         newButtonUrl: editedUrl.value
     });
-};
+}
 
-const closePopover = () => {
+function closePopover() {
     emits("close");
-};
+}
 </script>
 
 <template>
-<PopoverComponent @close="closePopover">
-    <label class="mb-2 block">Button Text</label>
-    <input
-        v-model="editedText"
-        class="mb-2 w-full rounded-md border p-2"
-    >
+<PopoverComponent @close="closePopover()">
+    <label class="mb-2 block">
+        Button Text
+        <input
+            v-model="editedText"
+            class="mb-2 w-full rounded-md border p-2"
+        >
+    </label>
 
-    <label class="mb-2 block">Navigate to URL</label>
-    <input
-        v-model="editedUrl"
-        class="mb-4 w-full rounded-md border p-2"
-    >
+    <label class="mb-2 block">
+        Navigate to URL
+        <input
+            v-model="editedUrl"
+            class="mb-4 w-full rounded-md border p-2"
+        >
+    </label>
 
     <div class=" flex h-full justify-center">
         <button
             class="rounded-md bg-primary px-4 py-2 text-font hover:opacity-80"
-            @click="saveChanges"
+            @click="saveChanges()"
         >
             Save
         </button>
     </div>
 </PopoverComponent>
 </template>
-
