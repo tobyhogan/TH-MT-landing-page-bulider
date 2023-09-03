@@ -41,7 +41,7 @@ function preventDefault(event?: MouseEvent) {
 </script>
 
 <template>
-<nav class="container relative mx-auto flex w-full flex-wrap items-center justify-between p-7 lg:justify-between xl:px-0">
+<nav class="relative mx-0 flex w-full flex-wrap items-center justify-between bg-gray-800 px-4 py-2 lg:justify-between xl:px-10">
     <div class="flex w-full flex-wrap items-center justify-between lg:w-auto">
         <a
             href="/"

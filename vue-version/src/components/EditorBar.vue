@@ -23,7 +23,7 @@ function onColorChange(event: Event) {
 
 <template>
 <nav
-    class="sticky left-0 top-0 z-20 flex h-12 w-full flex-row justify-between bg-gray-700 px-4 py-1 text-sm text-white"
+    class="sticky left-0 top-0 z-20 flex h-12 w-full flex-row justify-between border-b-2 border-white bg-black px-4 py-1 text-sm text-white"
     data-dont-export
 >
     <div class="flex flex-row items-center space-x-2">

@@ -95,7 +95,7 @@ function getComponent(section: SectionType) {
         <section
             v-if="isAddSectionButtonVisible"
             data-dont-export
-            class="flex justify-center pb-10"
+            class="flex justify-center py-10"
         >
             <button
                 class="flex items-center justify-center rounded border border-font p-3 font-bold text-font hover:bg-primary"
