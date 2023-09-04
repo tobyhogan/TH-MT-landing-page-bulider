@@ -17,13 +17,13 @@ function triggerBackgroundImageEdit() {
 </script>
 
 <template>
-<section class="group/section relative h-[500px] min-h-[500px] overflow-hidden">
+<section class="group/section relative min-h-[500px]">
     <ImageComponent
         initial-image-url="https://mdbcdn.b-cdn.net/img/new/slides/146.webp"
         class="absolute inset-0 object-cover object-center opacity-40"
         :edit="edit"
     ></ImageComponent>
-    <div class="group absolute inset-0 h-full w-full overflow-hidden bg-fixed">
+    <div class="group absolute inset-0 h-full w-full bg-fixed">
         <div class="flex h-full items-center justify-center">
             <div class="flex flex-col space-y-16 px-6 text-center text-white md:px-12">
                 <HeaderComponent :initial-text="'My Cool Idea'"></HeaderComponent>

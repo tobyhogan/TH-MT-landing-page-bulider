@@ -6,7 +6,7 @@ import TextComponent from "../editables/TextComponent.vue";
 </script>
 
 <template>
-<section class="group/section relative flex h-[500px] min-h-[500px] flex-wrap">
+<section class="group/section relative flex min-h-[500px] flex-wrap">
     <div class="flex w-full shrink-0 grow-0 basis-auto items-start md:w-2/12 lg:w-3/12">
         <ImageComponent alignment="start"></ImageComponent>
     </div>
