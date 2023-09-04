@@ -1,99 +1,146 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref } from "vue";
+import type { Basic } from "unsplash-js/dist/methods/photos/types";
+import ImageSearchResults from "../ImageSearchResults.vue";
 import { searchPhotos } from "@/services/unsplash";
-import type { Basic } from 'unsplash-js/dist/methods/photos/types';
-import ImageSearchResults from '../ImageSearchResults.vue';
 
-const emits = defineEmits(['close', 'accept']);
+const emits = defineEmits(["close", "accept"]);
 
-const imageUrl = ref('');
+const imageUrl = ref("");
 const selectedImage = ref("");
-const searchQuery = ref('');
+const searchQuery = ref("");
 const searchResults = ref<Basic[]>();
-const showSearchResults = computed(() => {
-    return searchResults.value?.length ?? 0 > 0;
-});
+const showSearchResults = computed(() => (searchResults.value?.length ?? 0) > 0);
 
-const handleFileUpload = (event: any) => {
-  const file = event.currentTarget?.files[0];
-  if (file) {
-    selectedImage.value = URL.createObjectURL(file);
-  }
+const handleFileUpload = (event: Event) => {
+    const files = (event.target as HTMLInputElement)?.files;
+
+    if (files && files.length > 0 && files[0]) {
+        selectedImage.value = URL.createObjectURL(files[0]);
+    }
 };
 
-const search = () => {
+function search() {
     searchPhotos(searchQuery.value).then((result) => {
         if (result.type === "success") {
             searchResults.value = result.response.results;
         }
     });
-};
+}
 
-const selectResult = (selectedResult: Basic) => {
-  selectedImage.value = selectedResult.urls.regular;
-  accept();
-};
+function selectResult(selectedResult: Basic) {
+    selectedImage.value = selectedResult.urls.regular;
+    accept();
+}
 
-const accept = () => {
-  emits('accept', selectedImage.value || imageUrl.value);
-};
+function accept() {
+    emits("accept", selectedImage.value || imageUrl.value);
+}
 
-const closeModal = () => {
-  emits('close');
-};
+function closeModal() {
+    emits("close");
+}
 </script>
 
 <template>
-  <Teleport to="#app">
-    <div @mousedown="closeModal"
-         class="fixed inset-0 flex items-center justify-center z-50 bg-opacity-50 bg-gray-900"
-         data-dont-export>
-      <div @mousedown.stop class="bg-gray-400 p-6 rounded-lg shadow-md text-gray-900 m-10"
-           :class="showSearchResults ? 'h-[95%]' : ''">
-        <div v-if="!showSearchResults"
-             class="flex flex-col space-y-4">
-          <h2 class="text-xl font-bold mb-4">Image Uploader</h2>
-          
-          <!-- Enter Image URL -->
-          <div>
-              <label class="block font-medium mb-1">Enter Image URL</label>
-              <input v-model="imageUrl" type="text" class="border rounded-md p-2 w-full">
-          </div>
-          
-          <h3 class="text-xl font-semibold mb-2">OR</h3>
-          
-          <!-- Upload Image from PC -->
-          <div>
-              <label class="block font-medium mb-1">Upload Image</label>
-              <input @change="handleFileUpload" type="file" class="border rounded-md p-2 w-full">
-          </div>
+<Teleport to="#app">
+    <div
+        class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900/50"
+        data-dont-export
+        @mousedown="closeModal()"
+    >
+        <div
+            class="m-10 rounded-lg bg-gray-400 p-6 text-gray-900 shadow-md"
+            :class="showSearchResults ? 'h-[95%]' : ''"
+            @mousedown.stop
+        >
+            <div
+                v-if="!showSearchResults"
+                class="flex flex-col space-y-4"
+            >
+                <h2 class="mb-4 text-xl font-bold">
+                    Image Uploader
+                </h2>
 
-          <h3 class="text-xl font-semibold mb-2">OR</h3>
-          
-          <!-- Search Unsplash -->
-          <div class="mb-4">
-            <label class="block font-medium mb-1">Search Unsplash</label>
-            <div class="flex flex-row space-x-4">
-                <input v-model="searchQuery" type="text" class="border rounded-md p-2 w-full" @keydown.enter="search">
-                <button @click="search" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Search</button>
+                <!-- Enter Image URL -->
+                <div>
+                    <label class="mb-1 block font-medium">
+                        Enter Image URL
+                        <input
+                            v-model="imageUrl"
+                            type="text"
+                            class="w-full rounded-md border p-2"
+                        >
+                    </label>
+                </div>
+
+                <h3 class="mb-2 text-xl font-semibold">
+                    OR
+                </h3>
+
+                <!-- Upload Image from PC -->
+                <div>
+                    <label class="mb-1 block font-medium">
+                        Upload Image
+                        <input
+                            type="file"
+                            class="w-full rounded-md border p-2"
+                            @change="handleFileUpload"
+                        >
+                    </label>
+                </div>
+
+                <h3 class="mb-2 text-xl font-semibold">
+                    OR
+                </h3>
+
+                <!-- Search Unsplash -->
+                <div class="mb-4">
+                    <label class="mb-1 block font-medium">
+                        Image search coming soon!
+                        <!-- Search Unsplash
+                        <div class="flex flex-row space-x-4">
+                            <input
+                                v-model="searchQuery"
+                                type="text"
+                                class="w-full rounded-md border p-2"
+                                @keydown.enter="search()"
+                            >
+                            <button
+                                class="rounded-md bg-primary px-4 py-2 text-font hover:opacity-80"
+                                @click="search()"
+                            >
+                                Search
+                            </button>
+                        </div> -->
+                    </label>
+                </div>
+
+                <!-- Footer -->
+                <div class="flex flex-row justify-between">
+                    <button
+                        class="mt-4 rounded-md bg-gray-300 px-4 py-2 hover:bg-gray-400"
+                        @click="closeModal()"
+                    >
+                        Close
+                    </button>
+                    <button
+                        class="mt-4 rounded-md bg-primary px-4 py-2 text-font hover:opacity-80"
+                        @click="accept()"
+                    >
+                        Accept
+                    </button>
+                </div>
             </div>
+
+            <ImageSearchResults
+                v-else
+                :search-results="searchResults"
+                :search-query="searchQuery"
+                @select-result="selectResult"
+                @back="searchResults = []"
+            />
         </div>
-          
-          <!-- Footer -->
-          <div class="flex flex-row justify-between">
-            <button @click="closeModal" class="mt-4 bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-md">Close</button>
-            <button @click="accept" class="mt-4 bg-indigo-500 text-white px-4 py-2 rounded-md">Accept</button>
-          </div>
-        </div>
-        
-        <ImageSearchResults v-else
-            :searchResults="searchResults"
-            :searchQuery="searchQuery"
-            @selectResult="selectResult"
-            @back="searchResults = []">
-        </ImageSearchResults>
-      </div>
     </div>
-  </Teleport>
+</Teleport>
 </template>
-  

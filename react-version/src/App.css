@@ -387,3 +387,15 @@ textarea {
   margin: 60px auto;
   display: block;
 }
+
+.editorPage {
+  width: 100%;
+  height: calc(100vh - 80px);
+  overflow: hidden;
+}
+
+.editorIframe {
+  height: 100%;
+  width: 100%;
+  border: none;
+}
