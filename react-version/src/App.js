@@ -26,7 +26,7 @@ function App() {
     <Router>
       <nav>
         <Link to="/"> Home </Link>
-        <Link to="/editor"> Editor </Link>
+        <Link to="https://editor.m-winkler.at"> Editor </Link>
         {!isAuth ? (
         <Link to="/login"> Login </Link>
         ) : (
@@ -38,7 +38,6 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={ <Home isAuth={isAuth}/>} />
-        <Route path="/editor" element={ <Editor isAuth={isAuth}/>} />
         <Route path="/createpost" element={ <CreatePost isAuth={isAuth} />} />
         <Route path="/login" element={ <Login setIsAuth={setIsAuth} />} />
       </Routes>
