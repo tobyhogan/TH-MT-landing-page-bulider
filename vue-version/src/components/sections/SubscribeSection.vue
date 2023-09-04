@@ -6,22 +6,22 @@ import TextComponent from "../editables/TextComponent.vue";
 </script>
 
 <template>
-<section class="group/section relative h-[300px] min-h-[300px] text-center lg:text-left">
+<section class="group/section relative flex h-[300px] min-h-[300px] text-center lg:flex-row lg:items-center lg:justify-center lg:text-left">
     <div class="flex flex-wrap justify-center">
-        <div class="w-full shrink-0 grow-0 basis-auto px-3 md:w-10/12 lg:w-11/12 xl:w-10/12">
-            <div class="grid items-center gap-x-6 lg:grid-cols-3">
-                <div class="mb-10 lg:mb-0">
-                    <HeaderComponent :initial-text="'For information when we launch, subscribe now!'"></HeaderComponent>
+        <div class="w-full shrink-0 grow-0 basis-auto px-3 md:w-10/12 lg:w-full">
+            <div class="grid items-center gap-x-6 lg:grid-cols-7">
+                <div class="col-span-4 mb-10 lg:mb-0">
+                    <HeaderComponent :initial-text="'For launch info, subscribe now!'"></HeaderComponent>
                 </div>
 
-                <div class="col-span-2 mb-6 flex-row md:mb-0 md:flex">
+                <div class="col-span-3 mb-6 flex-row md:mb-0 md:flex">
                     <div class="mb-3 w-full md:mb-0 md:mr-3 xl:w-96">
                         <!-- TODO -->
                         <!-- <InputComponent></InputComponent> -->
                         <TextComponent :initial-text="'Enter email here'"></TextComponent>
                     </div>
                     <ButtonComponent
-                        class="shrink-0"
+                        class="mr-7 shrink-0"
                         :initial-text="'Subscribe'"
                     ></ButtonComponent>
                 </div>
