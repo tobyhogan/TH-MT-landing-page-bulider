@@ -1,10 +1,25 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 import ImageSelectorModal from "../modals/ImageSelectorModal.vue";
 import EditButton from "./EditButton.vue";
 
-const imageSrc = ref("https://picsum.photos/200");
+const { initialImageUrl = "https://picsum.photos/200", alignment = "center", edit = false } = defineProps<{
+    initialImageUrl?: string,
+    alignment?: "start" | "center" | "end",
+    edit?: boolean,
+}>();
+
+const imageSrc = ref(initialImageUrl);
 const isImageSelectorOpen = ref(false);
+const imageStyle = ref({
+    "align-items": alignment === "center" ? alignment : "flex-" + alignment,
+});
+
+watchEffect(() => {
+    if (edit === true) {
+        openImageSelector();
+    }
+});
 
 function openImageSelector() {
     isImageSelectorOpen.value = true;
@@ -18,7 +33,10 @@ function accept(imageUrl: string) {
 
 <template>
 <div class="group relative h-full w-full">
-    <div class="flex h-full w-full items-center justify-center">
+    <div
+        class="items flex h-full w-full justify-center"
+        :style="imageStyle"
+    >
         <EditButton @toggle-edit-mode="openImageSelector()" />
         <img
             :src="imageSrc"

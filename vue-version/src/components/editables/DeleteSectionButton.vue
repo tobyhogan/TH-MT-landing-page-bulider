@@ -4,7 +4,7 @@ const emits = defineEmits(["deleteSection"]);
 
 <template>
 <button
-    class="button absolute right-0 top-1/2 z-10 hidden items-center justify-center p-1 text-white hover:bg-red-500 group-hover/section:flex"
+    class="button absolute right-2 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center p-1 text-white hover:bg-red-500 group-hover/section:flex"
     data-dont-export
     @click="emits('deleteSection')"
 >

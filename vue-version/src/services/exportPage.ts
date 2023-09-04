@@ -61,13 +61,28 @@ function getClonedAndFilteredDocument() {
     return clonedDocument;
 }
 
+function getAllCSSVariableNames() {
+    const root: HTMLElement | null = document.querySelector(":root");
+
+    if (!root) {
+        return [];
+    }
+
+    return root.style.cssText;
+}
+
+
 function getCssContent() {
-    return Array.from(document.styleSheets)
+    const customCssVariables = getAllCSSVariableNames();
+
+    const cssContent = Array.from(document.styleSheets)
         .filter(sheet => sheet.href?.includes("assets/") || (sheet.ownerNode instanceof HTMLElement && sheet.ownerNode.dataset.viteDevId)) // Exclude external stylesheets
         .map(sheet => [
             ...sheet.cssRules
         ].map(rule => rule.cssText).join("\n"))
         .join("\n");
+
+    return `${cssContent} *, ::before, ::after { ${customCssVariables} }`;
 }
 
 function removeEditElements(clonedDocument: Document) {

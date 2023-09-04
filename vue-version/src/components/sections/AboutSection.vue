@@ -6,9 +6,9 @@ import TextComponent from "../editables/TextComponent.vue";
 </script>
 
 <template>
-<section class="group/section relative flex h-[500px] min-h-[500px] flex-wrap">
+<section class="group/section relative flex min-h-[500px] flex-wrap">
     <div class="flex w-full shrink-0 grow-0 basis-auto items-start md:w-2/12 lg:w-3/12">
-        <ImageComponent></ImageComponent>
+        <ImageComponent alignment="start"></ImageComponent>
     </div>
 
     <div class="w-full shrink-0 grow-0 basis-auto text-center md:w-10/12 md:pl-6 md:text-left lg:w-9/12">

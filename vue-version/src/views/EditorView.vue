@@ -82,11 +82,12 @@ function getComponent(section: SectionType) {
     <NavbarComponent
         :visible-sections="visibleSections"
     />
-    <main class="container mx-auto h-screen space-y-16 md:px-6">
+    <main class="container mx-auto my-16 space-y-16 md:px-6">
         <component
             :is="getComponent(section)"
             v-for="section in visibleSections"
             :key="getComponent(section)"
+            class="rounded border-2 border-transparent p-1 hover:border-primary"
         >
             <DeleteSectionButton
                 @delete-section="deleteSection(section)"
@@ -95,7 +96,7 @@ function getComponent(section: SectionType) {
         <section
             v-if="isAddSectionButtonVisible"
             data-dont-export
-            class="flex justify-center pb-10"
+            class="flex justify-center py-10"
         >
             <button
                 class="flex items-center justify-center rounded border border-font p-3 font-bold text-font hover:bg-primary"
