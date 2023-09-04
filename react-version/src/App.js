@@ -35,6 +35,7 @@ function App() {
               </>
             )}
             <div className='spacer'></div>
+            <Link to="https://editor.m-winkler.at" className='nav-link'> Editor </Link>
             {!isAuth ? (
             <Link to="/login" className='nav-link'> <p class="text-3xl text-gray-900 dark:text-white"><u> Login </u></p> </Link>
             ) : (
@@ -50,7 +51,6 @@ function App() {
         <hr></hr>
       <Routes>
         <Route path="/" element={ <Home isAuth={isAuth}/>} />
-        <Route path="/editor" element={ <Editor isAuth={isAuth}/>} />
         <Route path="/login" element={ <Login setIsAuth={setIsAuth} />} />
         <Route path="/dashboard" element={ <Dashboard setIsAuth={setIsAuth} />} />
         <Route path="/account" element={ <Account setIsAuth={setIsAuth} />} />
