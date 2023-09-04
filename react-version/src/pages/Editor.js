@@ -14,4 +14,4 @@ function Editor({IsAuth}) {
   )
 }
 
-export default Editor
+export default Editor;
