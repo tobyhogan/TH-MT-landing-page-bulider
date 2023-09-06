@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import type { Basic } from "unsplash-js/dist/methods/photos/types";
+import type { Photos } from "unsplash-js/dist/methods/search/types/response";
 import ImageSearchResults from "../ImageSearchResults.vue";
 import { searchPhotos } from "@/services/unsplash";
 
@@ -21,10 +22,8 @@ const handleFileUpload = (event: Event) => {
 };
 
 function search() {
-    searchPhotos(searchQuery.value).then((result) => {
-        if (result.type === "success") {
-            searchResults.value = result.response.results;
-        }
+    searchPhotos(searchQuery.value).then((result: Photos) => {
+        searchResults.value = result.results;
     });
 }
 
@@ -97,8 +96,7 @@ function closeModal() {
                 <!-- Search Unsplash -->
                 <div class="mb-4">
                     <label class="mb-1 block font-medium">
-                        Image search coming soon!
-                        <!-- Search Unsplash
+                        Search Stock Images
                         <div class="flex flex-row space-x-4">
                             <input
                                 v-model="searchQuery"
@@ -112,7 +110,7 @@ function closeModal() {
                             >
                                 Search
                             </button>
-                        </div> -->
+                        </div>
                     </label>
                 </div>
 
