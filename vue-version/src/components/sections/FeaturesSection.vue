@@ -19,7 +19,7 @@ import TextComponent from "../editables/TextComponent.vue";
                 <li class="flex justify-start">
                     <p class="flex items-center space-x-2">
                         <img
-                            src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff"
+                            src="https://api.iconify.design/mdi:checkbox-marked.svg?color=%23ffffff"
                             alt="list bullet icon"
                         >
                         <TextComponent :initial-text="'Looks good'"></TextComponent>
@@ -28,7 +28,7 @@ import TextComponent from "../editables/TextComponent.vue";
                 <li class="flex justify-start">
                     <p class="flex items-center space-x-2">
                         <img
-                            src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff"
+                            src="https://api.iconify.design/mdi:checkbox-marked.svg?color=%23ffffff"
                             alt="list bullet icon"
                         >
                         <TextComponent :initial-text="'Works well'"></TextComponent>
@@ -37,7 +37,7 @@ import TextComponent from "../editables/TextComponent.vue";
                 <li class="flex justify-start">
                     <p class="flex items-center space-x-2">
                         <img
-                            src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff"
+                            src="https://api.iconify.design/mdi:checkbox-marked.svg?color=%23ffffff"
                             alt="list bullet icon"
                         >
                         <TextComponent :initial-text="'Reads your mind'"></TextComponent>
@@ -46,7 +46,7 @@ import TextComponent from "../editables/TextComponent.vue";
                 <li class="flex justify-start">
                     <p class="flex items-center space-x-2">
                         <img
-                            src="https://api.iconify.design/mdi:check-bold.svg?color=%23ffffff"
+                            src="https://api.iconify.design/mdi:checkbox-marked.svg?color=%23ffffff"
                             alt="list bullet icon"
                         >
                         <TextComponent :initial-text="'Can predict the future'"></TextComponent>
