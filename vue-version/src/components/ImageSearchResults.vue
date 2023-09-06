@@ -68,7 +68,7 @@ function selectResult(result: Basic) {
     <!-- Display Search Results -->
     <div
         v-if="searchResults?.length ?? 0 > 0"
-        class="mt-4 flex h-full flex-row flex-wrap space-x-8 overflow-y-auto"
+        class="mb-6 mt-4 select-none columns-1 space-y-4 overflow-y-auto text-center md:columns-2"
     >
         <div
             v-for="result in searchResults"
