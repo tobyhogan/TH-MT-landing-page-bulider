@@ -22,9 +22,7 @@ watch(() => propSearchQuery, (newValue) => {
 
 const search = () => {
     searchPhotos(searchQuery.value).then((result) => {
-        if (result.type === "success") {
-            searchResults.value = result.response.results;
-        }
+        searchResults.value = result.results;
     });
 };
 
