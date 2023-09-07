@@ -15,12 +15,21 @@ export interface Database {
       [_ in never]: never
     }
     Functions: {
-      search_images: {
-        Args: {
-          filter: string
-        }
-        Returns: Json
-      }
+      search_images:
+        | {
+            Args: {
+              filter: string
+            }
+            Returns: Json
+          }
+        | {
+            Args: {
+              filter: string
+              page?: number
+              orientation?: string
+            }
+            Returns: Json
+          }
     }
     Enums: {
       [_ in never]: never

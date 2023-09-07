@@ -10,8 +10,8 @@ const emits = defineEmits(["close", "accept"]);
 const imageUrl = ref("");
 const selectedImage = ref("");
 const searchQuery = ref("");
-const searchResults = ref<Basic[]>();
-const showSearchResults = computed(() => (searchResults.value?.length ?? 0) > 0);
+const photos = ref<Photos | undefined>();
+const showSearchResults = computed(() => (photos.value?.results.length ?? 0) > 0);
 
 const handleFileUpload = (event: Event) => {
     const files = (event.target as HTMLInputElement)?.files;
@@ -23,7 +23,7 @@ const handleFileUpload = (event: Event) => {
 
 function search() {
     searchPhotos(searchQuery.value).then((result: Photos) => {
-        searchResults.value = result.results;
+        photos.value = result;
     });
 }
 
@@ -133,10 +133,10 @@ function closeModal() {
 
             <ImageSearchResults
                 v-else
-                :search-results="searchResults"
+                :photos="photos"
                 :search-query="searchQuery"
                 @select-result="selectResult"
-                @back="searchResults = []"
+                @back="photos = undefined"
             />
         </div>
     </div>

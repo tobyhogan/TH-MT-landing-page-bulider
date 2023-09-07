@@ -1,33 +1,59 @@
 <script setup lang="ts">
 import type { Basic } from "unsplash-js/dist/methods/photos/types";
-import { ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
+import type { Photos } from "unsplash-js/dist/methods/search/types/response";
+import type { Orientation } from "unsplash-js";
 import { searchPhotos } from "@/services/unsplash";
 
-const { searchResults: propSearchResults, searchQuery: propSearchQuery } = defineProps<{
-    searchResults: Basic[] | undefined;
+const { photos: propPhotos, searchQuery: propSearchQuery, orientation: propOrientation } = defineProps<{
+    photos: Photos | undefined;
     searchQuery: string;
+    orientation?: Orientation;
 }>();
 const emits = defineEmits(["selectResult", "back"]);
 const searchQuery = ref(propSearchQuery);
-const searchResults = ref(propSearchResults);
+const searchResults = ref(propPhotos?.results ?? []);
+const photos = ref<Photos | undefined>(propPhotos);
+const currentPage = ref(1);
+const maxPages = computed(() => photos.value?.total_pages ?? 1);
+const lastSearchTerm = ref(propSearchQuery);
+const lastPage = ref(1);
 
 // Watch for changes in the prop value and update the ref accordingly
-watch(() => propSearchResults, (newValue) => {
-    searchResults.value = newValue;
+watch(() => photos, (newValue) => {
+    searchResults.value = newValue.value?.results ?? [];
 });
 
 watch(() => propSearchQuery, (newValue) => {
     searchQuery.value = newValue;
 });
 
-const search = () => {
-    searchPhotos(searchQuery.value).then((result) => {
-        searchResults.value = result.results;
+function search() {
+    if (lastSearchTerm.value === searchQuery.value && lastPage.value === currentPage.value) {
+        return;
+    }
+
+    searchPhotos(searchQuery.value, currentPage.value, propOrientation).then((result: Photos) => {
+        photos.value = result;
+
+        if (lastSearchTerm.value !== searchQuery.value) {
+            searchResults.value = result.results;
+        } else {
+            searchResults.value = [...searchResults.value, ...result.results];
+        }
+
+        lastSearchTerm.value = searchQuery.value;
+        lastPage.value = currentPage.value;
     });
-};
+}
 
 function selectResult(result: Basic) {
     emits("selectResult", result);
+}
+
+function loadMore() {
+    currentPage.value += 1;
+    search();
 }
 </script>
 
@@ -53,11 +79,11 @@ function selectResult(result: Basic) {
                     v-model="searchQuery"
                     type="text"
                     class="w-1/2 rounded-md border p-2"
-                    @keydown.enter="search"
+                    @keydown.enter="search()"
                 >
                 <button
                     class="rounded-md bg-primary px-4 py-2 text-font hover:opacity-80"
-                    @click="search"
+                    @click="search()"
                 >
                     Search
                 </button>
@@ -68,19 +94,32 @@ function selectResult(result: Basic) {
     <!-- Display Search Results -->
     <div
         v-if="searchResults?.length ?? 0 > 0"
-        class="mb-6 mt-4 select-none columns-1 space-y-4 overflow-y-auto text-center md:columns-2"
+        class="overflow-y-auto"
     >
         <div
-            v-for="result in searchResults"
-            :key="result.id"
-            class="mb-2 cursor-pointer overflow-hidden rounded-lg border-4 border-transparent p-1 hover:border-white"
-            @click="selectResult(result)"
+            class="mb-6 mt-4 grid select-none grid-cols-2 space-y-4 text-center"
         >
-            <img
-                :src="result.urls.small"
-                alt="Unsplash Photo"
-                class="h-auto max-w-full"
+            <div
+                v-for="result in searchResults"
+                :key="result.id"
+                class="mb-2 flex cursor-pointer items-center justify-center overflow-hidden rounded-lg border-4 border-transparent p-1 hover:border-white"
+                @click="selectResult(result)"
             >
+                <img
+                    :src="result.urls.small"
+                    alt="Unsplash Photo"
+                    class="h-auto max-w-full"
+                >
+            </div>
+        </div>
+        <div class="flex w-full flex-col">
+            <button
+                v-if="currentPage < maxPages"
+                class="button !my-6 mx-auto bg-primary px-10 text-font"
+                @click="loadMore()"
+            >
+                Load More
+            </button>
         </div>
     </div>
 </div>
