@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { ref, watchEffect } from "vue";
+import type { Orientation } from "unsplash-js";
 import ImageSelectorModal from "../modals/ImageSelectorModal.vue";
 import EditButton from "./EditButton.vue";
 
-const { initialImageUrl = "https://picsum.photos/200", alignment = "center", edit = false } = defineProps<{
+const { initialImageUrl = "https://picsum.photos/200", alignment = "center", edit = false, orientation } = defineProps<{
     initialImageUrl?: string,
     alignment?: "start" | "center" | "end",
     edit?: boolean,
+    orientation?: Orientation,
 }>();
 
 const imageSrc = ref(initialImageUrl);
@@ -48,6 +50,7 @@ function accept(imageUrl: string) {
     </div>
     <ImageSelectorModal
         v-if="isImageSelectorOpen"
+        :orientation="orientation"
         @accept="accept"
         @close="isImageSelectorOpen = false"
     />

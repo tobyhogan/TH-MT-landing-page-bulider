@@ -22,6 +22,7 @@ function triggerBackgroundImageEdit() {
         initial-image-url="https://mdbcdn.b-cdn.net/img/new/slides/146.webp"
         class="absolute inset-0 object-cover object-center opacity-40"
         :edit="edit"
+        orientation="landscape"
     ></ImageComponent>
     <div class="group absolute inset-0 h-full w-full bg-fixed">
         <div class="flex h-full items-center justify-center">

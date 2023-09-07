@@ -2,9 +2,11 @@
 import { computed, ref } from "vue";
 import type { Basic } from "unsplash-js/dist/methods/photos/types";
 import type { Photos } from "unsplash-js/dist/methods/search/types/response";
+import type { Orientation } from "unsplash-js";
 import ImageSearchResults from "../ImageSearchResults.vue";
 import { searchPhotos } from "@/services/unsplash";
 
+const { orientation } = defineProps<{ orientation?: Orientation }>();
 const emits = defineEmits(["close", "accept"]);
 
 const imageUrl = ref("");
@@ -22,7 +24,7 @@ const handleFileUpload = (event: Event) => {
 };
 
 function search() {
-    searchPhotos(searchQuery.value).then((result: Photos) => {
+    searchPhotos(searchQuery.value, 1, orientation).then((result: Photos) => {
         photos.value = result;
     });
 }
@@ -135,6 +137,7 @@ function closeModal() {
                 v-else
                 :photos="photos"
                 :search-query="searchQuery"
+                :orientation="orientation"
                 @select-result="selectResult"
                 @back="photos = undefined"
             />
