@@ -2,16 +2,18 @@
 import { computed, ref } from "vue";
 import type { Basic } from "unsplash-js/dist/methods/photos/types";
 import type { Photos } from "unsplash-js/dist/methods/search/types/response";
+import type { Orientation } from "unsplash-js";
 import ImageSearchResults from "../ImageSearchResults.vue";
 import { searchPhotos } from "@/services/unsplash";
 
+const { orientation } = defineProps<{ orientation?: Orientation }>();
 const emits = defineEmits(["close", "accept"]);
 
 const imageUrl = ref("");
 const selectedImage = ref("");
 const searchQuery = ref("");
-const searchResults = ref<Basic[]>();
-const showSearchResults = computed(() => (searchResults.value?.length ?? 0) > 0);
+const photos = ref<Photos | undefined>();
+const showSearchResults = computed(() => (photos.value?.results.length ?? 0) > 0);
 
 const handleFileUpload = (event: Event) => {
     const files = (event.target as HTMLInputElement)?.files;
@@ -22,8 +24,8 @@ const handleFileUpload = (event: Event) => {
 };
 
 function search() {
-    searchPhotos(searchQuery.value).then((result: Photos) => {
-        searchResults.value = result.results;
+    searchPhotos(searchQuery.value, 1, orientation).then((result: Photos) => {
+        photos.value = result;
     });
 }
 
@@ -133,10 +135,11 @@ function closeModal() {
 
             <ImageSearchResults
                 v-else
-                :search-results="searchResults"
+                :photos="photos"
                 :search-query="searchQuery"
+                :orientation="orientation"
                 @select-result="selectResult"
-                @back="searchResults = []"
+                @back="photos = undefined"
             />
         </div>
     </div>
