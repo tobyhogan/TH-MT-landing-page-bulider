@@ -15,7 +15,7 @@ import TextComponent from "../editables/TextComponent.vue";
                 </div>
 
                 <div class="col-span-3 mb-6 flex-row md:mb-0 md:flex">
-                    <div class="mb-3 w-full md:mb-0 md:mr-3 xl:w-96">
+                    <div class="mb-3 w-full rounded border border-white px-3 md:mb-0 md:mr-3 xl:w-96">
                         <!-- TODO -->
                         <!-- <InputComponent></InputComponent> -->
                         <TextComponent :initial-text="'Enter email here'"></TextComponent>
