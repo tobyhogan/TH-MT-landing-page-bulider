@@ -14,7 +14,12 @@ const isSectionModalOpen = ref(false);
 const isAddSectionButtonVisible = computed(() => (
     visibleSections.value.length < 4
 ));
-const visibleSections = ref<SectionType[]>([]);
+const visibleSections = ref<SectionType[]>([
+    SectionType.HERO,
+    SectionType.ABOUT,
+    SectionType.FEATURES,
+    SectionType.SUBSCRIBE,
+]);
 
 function addSection(sectionType: SectionType) {
     switch (sectionType) {
