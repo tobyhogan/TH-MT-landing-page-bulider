@@ -122,5 +122,6 @@ function getComponent(section: SectionType) {
             </button>
         </section>
     </main>
+    <a class="button fixed bg-black bottom-2 left-2 rounded-md py-4 px-5 hover:bg-stone-900 border-white border-2" type="button" href="https://forms.gle/ka9oRJy1ZPxEyx7F7" value="facebook" target="_blank">Feedback & <br />Bug Report</a>
 </div>
 </template>
