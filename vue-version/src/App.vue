@@ -1,8 +1,14 @@
 <script setup lang="ts">
+import { onMounted } from "vue";
 import { RouterView } from "vue-router";
+import { addPageView } from "./services/analytics";
 
 document.documentElement.style.setProperty("--color-primary", "#6366f1");
 document.documentElement.style.setProperty("--color-text", "#f3f4f6");
+
+onMounted(() => {
+    addPageView();
+});
 </script>
 
 <template>
