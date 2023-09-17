@@ -43,7 +43,7 @@ function closePopover() {
 
     <div class=" flex h-full justify-center">
         <button
-            class="rounded-md bg-primary px-4 py-2 text-font hover:opacity-80"
+            class="rounded-md bg-accent px-4 py-2 text-font hover:opacity-80"
             @click="saveChanges()"
         >
             Save

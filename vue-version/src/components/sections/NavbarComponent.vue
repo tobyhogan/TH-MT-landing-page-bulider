@@ -55,7 +55,7 @@ function preventDefault(event?: MouseEvent) {
                 <span>
                     <TextComponent
                         :initial-text="'My Cool Idea'"
-                        class="text-primary"
+                        class="text-accent"
                     ></TextComponent>
                 </span>
             </span>
@@ -94,7 +94,7 @@ function preventDefault(event?: MouseEvent) {
                 >
                     <TextComponent
                         :initial-text="menuItem.name"
-                        class="hover:text-primary"
+                        class="hover:text-accent"
                     ></TextComponent>
                 </a>
             </li>

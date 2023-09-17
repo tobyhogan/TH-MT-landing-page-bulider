@@ -46,7 +46,7 @@ function closeModal() {
 <template>
 <Teleport to="#app">
     <div
-        class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900/50"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900/70"
         data-dont-export
         @mousedown="closeModal()"
     >

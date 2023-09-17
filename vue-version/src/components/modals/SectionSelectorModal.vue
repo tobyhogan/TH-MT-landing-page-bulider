@@ -37,28 +37,28 @@ function accept(sectionType: SectionType) {
     >
         <button
             v-if="!visibleSections.includes(SectionType.ABOUT)"
-            class="rounded bg-primary px-4 py-2 text-white focus:outline-none"
+            class="rounded bg-accent px-4 py-2 text-white focus:outline-none"
             @click="accept(SectionType.ABOUT)"
         >
             About
         </button>
         <button
             v-if="!visibleSections.includes(SectionType.FEATURES)"
-            class="rounded bg-primary px-4 py-2 text-white focus:outline-none"
+            class="rounded bg-accent px-4 py-2 text-white focus:outline-none"
             @click="accept(SectionType.FEATURES)"
         >
             Features
         </button>
         <button
             v-if="!visibleSections.includes(SectionType.HERO)"
-            class="rounded bg-primary px-4 py-2 text-white focus:outline-none"
+            class="rounded bg-accent px-4 py-2 text-white focus:outline-none"
             @click="accept(SectionType.HERO)"
         >
             Hero
         </button>
         <button
             v-if="!visibleSections.includes(SectionType.SUBSCRIBE)"
-            class="rounded bg-primary px-4 py-2 text-white focus:outline-none"
+            class="rounded bg-accent px-4 py-2 text-white focus:outline-none"
             @click="accept(SectionType.SUBSCRIBE)"
         >
             Subscribe

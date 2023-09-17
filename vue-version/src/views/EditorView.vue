@@ -92,7 +92,7 @@ function getComponent(section: SectionType) {
             :is="getComponent(section)"
             v-for="section in visibleSections"
             :key="getComponent(section)"
-            class="rounded border-2 border-transparent p-1 hover:border-primary"
+            class="rounded border-2 border-transparent p-1 hover:border-accent"
         >
             <DeleteSectionButton
                 @delete-section="deleteSection(section)"
@@ -104,7 +104,7 @@ function getComponent(section: SectionType) {
             class="flex justify-center py-10"
         >
             <button
-                class="flex items-center justify-center rounded border border-font p-3 font-bold text-font hover:bg-primary"
+                class="flex items-center justify-center rounded border border-font p-3 font-bold text-font hover:bg-accent"
                 @click="isSectionModalOpen = true"
             >
                 <img

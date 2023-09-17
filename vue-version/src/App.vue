@@ -2,6 +2,8 @@
 import { RouterView } from "vue-router";
 
 document.documentElement.style.setProperty("--color-primary", "#6366f1");
+document.documentElement.style.setProperty("--color-accent", "#6366f1");
+document.documentElement.style.setProperty("--color-background", "#111827");
 document.documentElement.style.setProperty("--color-text", "#f3f4f6");
 </script>
 
@@ -18,6 +20,6 @@ document.documentElement.style.setProperty("--color-text", "#f3f4f6");
 
 html,
 body {
-    @apply bg-gray-900 w-screen h-screen overflow-hidden;
+    @apply bg-background w-screen h-screen overflow-hidden;
 }
 </style>
