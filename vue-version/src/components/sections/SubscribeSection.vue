@@ -6,7 +6,10 @@ import TextComponent from "../editables/TextComponent.vue";
 </script>
 
 <template>
-<section class="group/section relative flex min-h-[300px] text-center lg:flex-row lg:items-center lg:justify-center lg:text-left">
+<section
+    id="subscribe"
+    class="group/section relative flex min-h-[300px] text-center lg:flex-row lg:items-center lg:justify-center lg:text-left"
+>
     <div class="flex flex-wrap justify-center">
         <div class="w-full shrink-0 grow-0 basis-auto px-3 md:w-10/12 lg:w-full">
             <div class="grid items-center gap-x-6 lg:grid-cols-7">

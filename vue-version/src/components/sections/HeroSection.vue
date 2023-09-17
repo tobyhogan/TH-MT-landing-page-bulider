@@ -17,7 +17,10 @@ function triggerBackgroundImageEdit() {
 </script>
 
 <template>
-<section class="group/section relative min-h-[500px]">
+<section
+    id="hero"
+    class="group/section relative min-h-[500px]"
+>
     <ImageComponent
         initial-image-url="https://mdbcdn.b-cdn.net/img/new/slides/146.webp"
         class="absolute inset-0 object-cover object-center opacity-40"
