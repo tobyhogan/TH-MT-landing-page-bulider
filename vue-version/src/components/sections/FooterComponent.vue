@@ -54,7 +54,7 @@ function preventDefault(event?: MouseEvent) {
                 </span>
                 <span>
                     <TextComponent
-                        :initial-text="'My Cool Idea'"
+                        :initial-text="'     Footer'"
                         class="text-primary"
                     ></TextComponent>
                 </span>
