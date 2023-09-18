@@ -124,9 +124,21 @@ function getComponent(section: SectionType) {
         </section>
     </main>
     <FooterComponent
-    :visible-sections="visibleSections"
+        :visible-sections="visibleSections"
     />
 
-    <a class="button fixed bg-black bottom-2 left-2 rounded-md py-4 px-5 hover:bg-stone-900 border-white border-2" type="button" href="https://forms.gle/ka9oRJy1ZPxEyx7F7" value="facebook" target="_blank">Feedback & <br />Bug Report</a>
+    <a
+        class="button fixed bottom-5 left-5 rounded-md border-2 border-white bg-black p-1.5 hover:bg-stone-900"
+        type="button"
+        href="https://forms.gle/ka9oRJy1ZPxEyx7F7"
+        value="facebook"
+        target="_blank"
+    >
+        <img
+            class="h-6 w-6"
+            src="https://api.iconify.design/mdi:bug.svg?color=%23ffffff"
+            alt="palette button icon"
+        >
+    </a>
 </div>
 </template>
