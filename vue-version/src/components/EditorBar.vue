@@ -17,7 +17,7 @@ function openPreview() {
     data-dont-export
 >
     <div class="flex flex-row items-center space-x-2">
-        <a
+        <!-- <a
             href="https://validator.m-winkler.at"
             class="button bg-transparent p-1.5 hover:bg-gray-500"
         >
@@ -36,7 +36,7 @@ function openPreview() {
                 src="https://api.iconify.design/mdi:account.svg?color=%23ffffff"
                 alt="home button icon"
             />
-        </a>
+        </a> -->
     </div>
     <div class="flex flex-row space-x-2">
         <ThemeChanger></ThemeChanger>

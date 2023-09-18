@@ -24,4 +24,5 @@ html,
 body {
     @apply bg-background w-screen h-screen overflow-hidden;
 }
+
 </style>
