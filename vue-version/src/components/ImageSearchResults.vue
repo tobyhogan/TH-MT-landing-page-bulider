@@ -1,5 +1,17 @@
 <script setup lang="ts">
 
+import type { Basic } from "unsplash-js/dist/methods/photos/types";
+import { computed, ref, watch } from "vue";
+import type { Photos } from "unsplash-js/dist/methods/search/types/response";
+import type { Orientation } from "unsplash-js";
+import { searchPhotos } from "@/services/unsplash";
+
+const { photos: propPhotos, searchQuery: propSearchQuery, orientation: propOrientation } = defineProps<{
+    photos: Photos | undefined;
+    searchQuery: string;
+    orientation?: Orientation;
+}>();
+
 
 
 const emits = defineEmits(["selectResult", "back"]);

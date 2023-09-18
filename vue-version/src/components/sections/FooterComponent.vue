@@ -4,6 +4,7 @@ import ButtonComponent from "../editables/ButtonComponent.vue";
 import ImageComponent from "../editables/ImageComponent.vue";
 import TextComponent from "../editables/TextComponent.vue";
 import { SectionType } from "@/types/types";
+import { searchPhotos } from "@/services/unsplash";
 
 const { visibleSections } = defineProps<{
     visibleSections: SectionType[]
