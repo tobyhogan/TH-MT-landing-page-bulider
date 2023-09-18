@@ -5,6 +5,8 @@ document.documentElement.style.setProperty("--color-primary", "#6366f1");
 document.documentElement.style.setProperty("--color-accent", "#6366f1");
 document.documentElement.style.setProperty("--color-background", "#111827");
 document.documentElement.style.setProperty("--color-text", "#f3f4f6");
+document.documentElement.style.setProperty("--color-text-accent", "#f3f4f6");
+document.documentElement.style.setProperty("--dark-mode", "true");
 </script>
 
 <template>

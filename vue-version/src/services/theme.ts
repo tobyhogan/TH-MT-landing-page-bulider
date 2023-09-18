@@ -1,15 +1,22 @@
 export function setNewTheme(theme: "dark" | "light") {
     const primaryColor = theme === "dark" ? "#1f2937" : "#f3f4f6";
-    const accentColor = theme === "dark" ? "#60a5fa" : "#3b82f6";
     const backgroundColor = theme === "dark" ? "#111827" : "#f3f4f6";
 
+    document.documentElement.style.setProperty("--dark-mode", theme === "dark" ? "true" : "false");
     document.documentElement.style.setProperty("--color-primary", primaryColor);
-    document.documentElement.style.setProperty("--color-accent", accentColor);
     document.documentElement.style.setProperty("--color-background", backgroundColor);
 
     const colorText = getTextColorBasedOnBackground(theme);
 
     document.documentElement.style.setProperty("--color-text", colorText);
+}
+
+export function setNewAccentColor(color: string) {
+    document.documentElement.style.setProperty("--color-accent", color);
+
+    const colorText = getTextColorBasedOnBackground(color);
+
+    document.documentElement.style.setProperty("--color-text-accent", colorText);
 }
 
 // Get relative luminance of a color

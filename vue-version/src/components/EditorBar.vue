@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AccentColorPicker from "./AccentColorPicker.vue";
 import ThemeChanger from "./ThemeChanger.vue";
 import {
     downloadPageAsHtml,
@@ -37,7 +38,10 @@ function openPreview() {
             />
         </a>
     </div>
-    <ThemeChanger></ThemeChanger>
+    <div class="flex flex-row space-x-2">
+        <ThemeChanger></ThemeChanger>
+        <AccentColorPicker></AccentColorPicker>
+    </div>
     <div class="flex flex-row items-center justify-between space-x-2">
         <button
             class="button hover:bg-gray-400"
@@ -46,7 +50,7 @@ function openPreview() {
             Preview
         </button>
         <button
-            class="button bg-accent text-font hover:opacity-80"
+            class="button bg-accent text-font-accent hover:opacity-80"
             @click="downloadPageAsHtml()"
         >
             Download

@@ -107,7 +107,7 @@ function closeModal() {
                                 @keydown.enter="search()"
                             >
                             <button
-                                class="rounded-md bg-primary px-4 py-2 text-font hover:opacity-80"
+                                class="rounded-md bg-primary px-4 py-2 text-font-accent hover:opacity-80"
                                 @click="search()"
                             >
                                 Search
@@ -125,7 +125,7 @@ function closeModal() {
                         Close
                     </button>
                     <button
-                        class="mt-4 rounded-md bg-primary px-4 py-2 text-font hover:opacity-80"
+                        class="mt-4 rounded-md bg-primary px-4 py-2 text-font-accent hover:opacity-80"
                         @click="accept()"
                     >
                         Accept

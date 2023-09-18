@@ -104,7 +104,7 @@ function getComponent(section: SectionType) {
             class="flex justify-center py-10"
         >
             <button
-                class="flex items-center justify-center rounded border border-font p-3 font-bold text-font hover:bg-accent"
+                class="flex items-center justify-center rounded border border-font p-3 font-bold text-font-accent hover:bg-accent"
                 @click="isSectionModalOpen = true"
             >
                 <img

@@ -82,7 +82,7 @@ function loadMore() {
                     @keydown.enter="search()"
                 >
                 <button
-                    class="rounded-md bg-accent px-4 py-2 text-font hover:opacity-80"
+                    class="rounded-md bg-accent px-4 py-2 text-font-accent hover:opacity-80"
                     @click="search()"
                 >
                     Search
@@ -115,7 +115,7 @@ function loadMore() {
         <div class="flex w-full flex-col">
             <button
                 v-if="currentPage < maxPages"
-                class="button !my-6 mx-auto bg-accent px-10 text-font"
+                class="button !my-6 mx-auto bg-accent px-10 text-font-accent"
                 @click="loadMore()"
             >
                 Load More
