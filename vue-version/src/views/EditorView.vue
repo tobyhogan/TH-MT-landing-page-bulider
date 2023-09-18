@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import NavbarComponent from "@/components/sections/NavbarComponent.vue";
+import FooterComponent from "@/components/sections/FooterComponent.vue";
 import EditorBar from "@/components/EditorBar.vue";
 import HeroSection from "@/components/sections/HeroSection.vue";
 import AboutSection from "@/components/sections/AboutSection.vue";
@@ -122,5 +123,10 @@ function getComponent(section: SectionType) {
             </button>
         </section>
     </main>
+    <FooterComponent
+    :visible-sections="visibleSections"
+    />
+
+    <a class="button fixed bg-black bottom-2 left-2 rounded-md py-4 px-5 hover:bg-stone-900 border-white border-2" type="button" href="https://forms.gle/ka9oRJy1ZPxEyx7F7" value="facebook" target="_blank">Feedback & <br />Bug Report</a>
 </div>
 </template>

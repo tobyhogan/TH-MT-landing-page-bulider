@@ -20,4 +20,5 @@ html,
 body {
     @apply bg-gray-900 w-screen h-screen overflow-hidden;
 }
+
 </style>
