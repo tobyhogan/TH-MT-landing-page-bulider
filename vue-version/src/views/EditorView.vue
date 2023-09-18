@@ -93,7 +93,7 @@ function getComponent(section: SectionType) {
             :is="getComponent(section)"
             v-for="section in visibleSections"
             :key="getComponent(section)"
-            class="rounded border-2 border-transparent p-1 hover:border-primary"
+            class="rounded border-2 border-transparent p-1 hover:border-accent"
         >
             <DeleteSectionButton
                 @delete-section="deleteSection(section)"
@@ -105,7 +105,7 @@ function getComponent(section: SectionType) {
             class="flex justify-center py-10"
         >
             <button
-                class="flex items-center justify-center rounded border border-font p-3 font-bold text-font hover:bg-primary"
+                class="flex items-center justify-center rounded border border-font p-3 font-bold text-font-accent hover:bg-accent"
                 @click="isSectionModalOpen = true"
             >
                 <img
@@ -124,9 +124,21 @@ function getComponent(section: SectionType) {
         </section>
     </main>
     <FooterComponent
-    :visible-sections="visibleSections"
+        :visible-sections="visibleSections"
     />
 
-    <a class="button fixed bg-black bottom-2 left-2 rounded-md py-4 px-5 hover:bg-stone-900 border-white border-2" type="button" href="https://forms.gle/ka9oRJy1ZPxEyx7F7" value="facebook" target="_blank">Feedback & <br />Bug Report</a>
+    <a
+        class="button fixed bottom-5 left-5 rounded-md border-2 border-white bg-black p-1.5 hover:bg-stone-900"
+        type="button"
+        href="https://forms.gle/ka9oRJy1ZPxEyx7F7"
+        value="facebook"
+        target="_blank"
+    >
+        <img
+            class="h-6 w-6"
+            src="https://api.iconify.design/mdi:bug.svg?color=%23ffffff"
+            alt="palette button icon"
+        >
+    </a>
 </div>
 </template>

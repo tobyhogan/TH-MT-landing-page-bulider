@@ -5,7 +5,10 @@ module.exports = {
         extend: {
             colors: {
                 primary: "var(--color-primary)",
-                font: "var(--color-text)"
+                accent: "var(--color-accent)",
+                background: "var(--color-background)",
+                font: "var(--color-text)",
+                "font-accent": "var(--color-text-accent)"
             }
         }
     },

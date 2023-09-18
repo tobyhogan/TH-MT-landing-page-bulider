@@ -41,7 +41,7 @@ function preventDefault(event?: MouseEvent) {
 </script>
 
 <template>
-<nav class="relative mx-0 flex w-full flex-wrap items-center justify-between bg-gray-800 px-4 py-2 lg:justify-between xl:px-10">
+<nav class="relative mx-0 flex w-full flex-wrap items-center justify-between bg-primary px-4 py-2 lg:justify-between xl:px-10">
     <div class="flex w-full flex-wrap items-center justify-between lg:w-auto">
         <a
             href="/"
@@ -55,7 +55,7 @@ function preventDefault(event?: MouseEvent) {
                 <span>
                     <TextComponent
                         :initial-text="'My Cool Idea'"
-                        class="text-primary"
+                        class="text-accent"
                     ></TextComponent>
                 </span>
             </span>
@@ -94,7 +94,7 @@ function preventDefault(event?: MouseEvent) {
                 >
                     <TextComponent
                         :initial-text="menuItem.name"
-                        class="hover:text-primary"
+                        class="hover:text-accent"
                     ></TextComponent>
                 </a>
             </li>
