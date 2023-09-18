@@ -4,7 +4,6 @@ import ButtonComponent from "../editables/ButtonComponent.vue";
 import ImageComponent from "../editables/ImageComponent.vue";
 import TextComponent from "../editables/TextComponent.vue";
 import { SectionType } from "@/types/types";
-import { searchPhotos } from "@/services/unsplash";
 
 const { visibleSections } = defineProps<{
     visibleSections: SectionType[]
@@ -42,7 +41,7 @@ function preventDefault(event?: MouseEvent) {
 </script>
 
 <template>
-<nav class="relative mx-0 flex w-full flex-wrap items-center justify-between bg-gray-800 px-4 py-2 lg:justify-between xl:px-10">
+<nav class="relative mx-0 flex w-full flex-wrap items-center justify-between bg-primary px-4 py-2 lg:justify-between xl:px-10">
     <div class="flex w-full flex-wrap items-center justify-between lg:w-auto">
         <a
             href="/"

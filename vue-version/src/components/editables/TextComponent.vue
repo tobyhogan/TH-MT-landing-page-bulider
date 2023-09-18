@@ -29,7 +29,7 @@ function edit() {
 </script>
 
 <template>
-<div class="group relative py-5 text-xl leading-normal text-gray-400 lg:text-xl xl:text-2xl">
+<div class="group relative py-5 text-xl leading-normal text-font lg:text-xl xl:text-2xl">
     <EditButton @toggle-edit-mode="edit()" />
     <p
         ref="input"

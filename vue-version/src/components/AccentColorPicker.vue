@@ -6,7 +6,7 @@ import { setNewAccentColor } from "@/services/theme";
 const isPopoverOpen = ref(false);
 const currentAccentColor = ref(getComputedStyle(document.documentElement).getPropertyValue("--color-accent"));
 const currentFontAccentColor = ref(getComputedStyle(document.documentElement).getPropertyValue("--color-text-accent"));
-const debounceTimer = ref<NodeJS.Timeout>();
+const debounceTimer = ref();
 
 function onColorChange(event: Event) {
     const newColor = (event.target as HTMLInputElement).value;
