@@ -14,6 +14,7 @@
     "ut": "pnpm supabase gen types typescript --project-id jxzmgbjoxbquvmutwfeq > ./src/types/supabase.ts"
   },
   "dependencies": {
+    "@huggingface/inference": "^2.6.1",
     "@supabase/supabase-js": "^2.33.2",
     "pinia": "^2.1.6",
     "unsplash-js": "^7.0.18",

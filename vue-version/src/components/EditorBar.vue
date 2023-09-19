@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AccentColorPicker from "./AccentColorPicker.vue";
 import ThemeChanger from "./ThemeChanger.vue";
+import { generateText } from "@/services/huggingface";
 import {
     downloadPageAsHtml,
     openPreviewInNewTab
@@ -8,6 +9,11 @@ import {
 
 function openPreview() {
     openPreviewInNewTab();
+}
+
+function generateTextWithAi() {
+    generateText("my name is matthias and i had my wedding last year, that's why i created an app to help other people structure their wedding planning.")
+        .then(result => console.log(result));
 }
 </script>
 
@@ -44,6 +50,12 @@ function openPreview() {
         <AccentColorPicker></AccentColorPicker>
     </div>
     <div class="flex flex-row items-center justify-between space-x-2">
+        <button
+            class="button hover:bg-gray-400"
+            @click="generateTextWithAi()"
+        >
+            Text
+        </button>
         <button
             class="button hover:bg-gray-400"
             @click="openPreview()"
