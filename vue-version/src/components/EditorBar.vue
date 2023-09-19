@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AccentColorPicker from "./AccentColorPicker.vue";
 import ThemeChanger from "./ThemeChanger.vue";
+import PopoverComponent from "./modals/PopoverComponent.vue";
 import {
     downloadPageAsHtml,
     openPreviewInNewTab
@@ -19,10 +20,11 @@ function openPreview() {
 >
     <button
             class="button hover:bg-gray-400"
-            @click="openPreview()"
+            @click=""
         >
             Edit Site Details
     </button>
+
     <div class="flex flex-row items-center space-x-2">
         <!-- <a
             href="https://validator.m-winkler.at"
