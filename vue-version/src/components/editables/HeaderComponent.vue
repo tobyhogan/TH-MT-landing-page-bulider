@@ -33,7 +33,7 @@ function edit() {
     <EditButton @toggle-edit-mode="edit()" />
     <h1
         ref="input"
-        class="py-1 text-3xl font-bold leading-snug tracking-tight text-gray-200 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight"
+        class="py-1 text-3xl font-bold leading-snug tracking-tight text-title lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight"
         contentEditable="true"
         data-remove-before-export
     >
