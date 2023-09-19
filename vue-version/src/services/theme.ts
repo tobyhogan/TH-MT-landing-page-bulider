@@ -1,14 +1,19 @@
 export function setNewTheme(theme: "dark" | "light") {
-    const primaryColor = theme === "dark" ? "#1f2937" : "#f3f4f6";
-    const backgroundColor = theme === "dark" ? "#111827" : "#f3f4f6";
+    const primaryColor = theme === "dark" ? "#23272f" : "#e6e6e1"; //previous: "#1f2937" : "#f3f4f6"
+    const backgroundColor = theme === "dark" ? "#1c1f25" : "#secece9"; //previous: "#111827" : "#f3f4f6"
+    const textColor = theme === "dark" ? "#ffffff" : "#00000";
+    const colorTitleText = theme === "dark" ? "#ffffff" : "#2A2A2A";
 
     document.documentElement.style.setProperty("--dark-mode", theme === "dark" ? "true" : "false");
     document.documentElement.style.setProperty("--color-primary", primaryColor);
     document.documentElement.style.setProperty("--color-background", backgroundColor);
+    document.documentElement.style.setProperty("--color-title-text", colorTitleText);
 
-    const colorText = getTextColorBasedOnBackground(theme);
 
-    document.documentElement.style.setProperty("--color-text", colorText);
+
+    //const colorText = getTextColorBasedOnBackground(theme);
+
+    document.documentElement.style.setProperty("--color-text", textColor);
 }
 
 export function setNewAccentColor(color: string) {

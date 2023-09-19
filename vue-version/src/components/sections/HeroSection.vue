@@ -29,7 +29,7 @@ function triggerBackgroundImageEdit() {
     ></ImageComponent>
     <div class="group absolute inset-0 h-full w-full bg-fixed">
         <div class="flex h-full items-center justify-center">
-            <div class="flex flex-col space-y-16 px-6 text-center text-white md:px-12">
+            <div class="flex flex-col space-y-16 px-6 text-center md:px-12">
                 <HeaderComponent :initial-text="'My Cool Idea'"></HeaderComponent>
                 <ButtonComponent :initial-text="'Get Started'"></ButtonComponent>
                 <EditButton @toggle-edit-mode="triggerBackgroundImageEdit()"></EditButton>
