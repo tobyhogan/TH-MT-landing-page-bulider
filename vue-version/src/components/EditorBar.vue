@@ -17,6 +17,12 @@ function openPreview() {
     style="background-color: rgb(27, 27, 27);"
     data-dont-export
 >
+    <button
+            class="button hover:bg-gray-400"
+            @click="openPreview()"
+        >
+            Edit Site Details
+    </button>
     <div class="flex flex-row items-center space-x-2">
         <!-- <a
             href="https://validator.m-winkler.at"

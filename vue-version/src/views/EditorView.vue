@@ -131,7 +131,7 @@ function getComponent(section: SectionType) {
         class="button fixed bottom-5 left-5 rounded-md border-2 border-white bg-black p-1.5 hover:bg-stone-900"
         type="button"
         href="https://forms.gle/ka9oRJy1ZPxEyx7F7"
-        value="facebook"
+        value="forms"
         target="_blank"
     >
         <img

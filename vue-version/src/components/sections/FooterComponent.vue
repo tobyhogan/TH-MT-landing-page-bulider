@@ -45,8 +45,8 @@ function preventDefault(event?: MouseEvent) {
     <div class="flex justify-center">
 
         <TextComponent
-            :initial-text="'Instagram: instagram.com Facebook: facebook.com'"
-            class="text-white flex"
+            :initial-text="'Github: https://github.io'"
+            class="text-accent flex"
         ></TextComponent>
 
     </div>
