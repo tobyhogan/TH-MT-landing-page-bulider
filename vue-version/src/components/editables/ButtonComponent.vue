@@ -5,6 +5,7 @@ import EditButton from "./EditButton.vue";
 
 const { initialText = "Click me" } = defineProps<{
     initialText?: string,
+    initialText1?: string,
 }>();
 
 const isPopoverOpen = ref(false);

@@ -11,6 +11,10 @@ const emits = defineEmits(["update", "close"]);
 const editedText = ref(buttonText);
 const editedUrl = ref(buttonUrl);
 
+//  const buttonText = ref(initialText);
+// const buttonUrl = ref("https://www.google.com");
+
+
 function saveChanges() {
     emits("update", {
         newButtonText: editedText.value,
