@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import PopoverComponent from "./modals/PopoverComponent.vue";
+import ImageComponent from "./editables/ImageComponent.vue";
 
 const isPopoverOpen = ref(false);
 
@@ -16,7 +17,11 @@ function updateSiteDetails() {
     isPopoverOpen.value = false;
 }
 
-function handleFileUpload() {}
+function updateFavicon(imageUrl: string) {
+    const faviconLink = document.getElementById("favicon") as HTMLLinkElement;
+
+    faviconLink.href = imageUrl;
+}
 </script>
 
 <template>
@@ -25,9 +30,10 @@ function handleFileUpload() {}
     data-dont-export
     @click.self="isPopoverOpen = true"
 >
-    Edit Site Details
+    Site Settings
     <PopoverComponent
         v-if="isPopoverOpen"
+        class="ml-28"
         @close="isPopoverOpen = false"
     >
         <label class="mb-2 block">
@@ -44,11 +50,7 @@ function handleFileUpload() {}
                     Upload Image (recommended 240x240px)
 
                 </label>
-                <input
-                    type="file"
-                    class="rounded-md border p-2"
-                    @change="handleFileUpload()"
-                >
+                <ImageComponent @image-selected="updateFavicon"></ImageComponent>
             </div>
         </label>
 

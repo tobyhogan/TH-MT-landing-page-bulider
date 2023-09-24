@@ -4,6 +4,9 @@ import type { Orientation } from "unsplash-js";
 import ImageSelectorModal from "../modals/ImageSelectorModal.vue";
 import EditButton from "./EditButton.vue";
 
+const emits = defineEmits(["imageSelected"]);
+
+
 const { initialImageUrl = "https://picsum.photos/200", alignment = "center", edit = false, orientation } = defineProps<{
     initialImageUrl?: string,
     alignment?: "start" | "center" | "end",
@@ -30,6 +33,8 @@ function openImageSelector() {
 function accept(imageUrl: string) {
     imageSrc.value = imageUrl;
     isImageSelectorOpen.value = false;
+
+    emits("imageSelected", imageUrl);
 }
 </script>
 

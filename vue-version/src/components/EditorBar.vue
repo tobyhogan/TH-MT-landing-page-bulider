@@ -20,7 +20,6 @@ function openPreview() {
 >
     <EditSiteDetails
         :initial-text="'Get Started'"
-        class="ml-36"
     >
     </EditSiteDetails>
     <div class="flex flex-row items-center space-x-2">
