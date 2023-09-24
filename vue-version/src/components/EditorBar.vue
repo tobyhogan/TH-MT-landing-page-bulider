@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import AccentColorPicker from "./AccentColorPicker.vue";
-import ButtonComponent from "./editables/ButtonComponent.vue";
 import ThemeChanger from "./ThemeChanger.vue";
-import PopoverComponent from "./modals/PopoverComponent.vue";
 import EditSiteDetails from "./EditSiteDetails.vue";
 import {
     downloadPageAsHtml,
@@ -12,8 +10,6 @@ import {
 function openPreview() {
     openPreviewInNewTab();
 }
-
-//    <EditSiteDetails class="ml-36"></EditSiteDetails>
 </script>
 
 <template>
@@ -22,8 +18,10 @@ function openPreview() {
     style="background-color: rgb(27, 27, 27);"
     data-dont-export
 >
-
-    <EditSiteDetails :initial-text="'Get Started'" class="ml-36">
+    <EditSiteDetails
+        :initial-text="'Get Started'"
+        class="ml-36"
+    >
     </EditSiteDetails>
     <div class="flex flex-row items-center space-x-2">
         <!-- <a

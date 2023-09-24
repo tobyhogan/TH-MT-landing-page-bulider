@@ -4,130 +4,68 @@ import PopoverComponent from "./modals/PopoverComponent.vue";
 
 const isPopoverOpen = ref(false);
 
-const { buttonText, buttonUrl } = defineProps<{
-  buttonText: string,
-  buttonUrl: string,
+const { initialText } = defineProps<{
+  initialText: string,
 }>();
 
-
-const emits = defineEmits(["update", "close"]);
-
-const editedText = ref(buttonText);
-const editedUrl = ref(buttonUrl);
-
-function updateButton({ newButtonText, newButtonUrl }: { newButtonText: string, newButtonUrl: string }) {
-
-}
-
-
-//const buttonText = ref(initialText);
-//const buttonUrl = ref("https://www.google.com");
-
-
-const button = ref<HTMLButtonElement | null>(null);
-
-function edit(event?: MouseEvent) {
-    event?.preventDefault();
-    isPopoverOpen.value = true;
-}
-
+const editedText = ref(initialText);
 
 function closePopover() {
-    emits("close");
-}
-
-
-
-function saveChanges() {
-
-
-
-    emits("update", {
-        newButtonText: editedText.value,
-        newButtonUrl: editedUrl.value
-    });
-
     isPopoverOpen.value = false;
-
-
-    closePopover();
-
-
-
 }
 
-function updateSiteDetails(newTitle) {
-
-
+function updateSiteDetails() {
     document.title = editedText.value;
 
-    emits("close");
-
-
+    closePopover();
 }
 
-
-
-
-
+function handleFileUpload() {}
 </script>
 
 <template>
-    <button
-        class="button bg-grey p-1.5 text-font-accent"
-        @click="isPopoverOpen = true"
-    >Edit Site Details
-    
-        <PopoverComponent 
-        
+<button
+    class="button bg-grey p-1.5 text-font-accent"
+    data-dont-export
+    @click="isPopoverOpen = true"
+>
+    Edit Site Details
+    <PopoverComponent
         v-if="isPopoverOpen"
-            :button-text="buttonText"
-            :button-url="buttonUrl"
-            @update="updateButton"
-            @close="isPopoverOpen = false"
+        @close="isPopoverOpen = false"
+    >
+        <label class="mb-2 block">
+            Site Name
+            <input
+                v-model="editedText"
+                class="mb-2 w-full rounded-md border p-2"
+            >
+        </label>
+        <label class="mb-2 block">
+            Favicon
+            <div>
+                <label class="mb-1 block font-medium">
+                    Upload Image (recommended 240x240px)
 
-        >
-        
-            <label class="mb-2 block">
-                Site Name
+                </label>
                 <input
-                    v-model="editedText"
-                    class="mb-2 w-full rounded-md border p-2"
+                    type="file"
+                    class="rounded-md border p-2"
+                    @change="handleFileUpload()"
                 >
-            </label>
-
-            <label class="mb-2 block">
-                Favicon
-
-                <div>
-                    <label class="mb-1 block font-medium">
-                        Upload Image (recommended 240x240px)
-                        
-                    </label>
-                    <input
-                            type="file"
-                            class="rounded-md border p-2"
-                            @change="handleFileUpload"
-                    >
-                </div>
-            </label>
-
-            <div class=" flex h-full justify-center">
-
-
-
-                <button
-                    class="rounded-md bg-accent px-4 py-2 text-font-accent hover:opacity-80"
-                    @click="updateSiteDetails('my title');"
-                >
-                    Save
-                </button>
-
-
-
             </div>
-        </PopoverComponent>
-    </button>
+        </label>
+
+        <div class=" flex h-full justify-center">
+            <button
+                class="rounded-md bg-accent px-4 py-2 text-font-accent hover:opacity-80"
+                @click="updateSiteDetails()"
+            >
+                Save
+            </button>
+        </div>
+    </PopoverComponent>
+</button>
 </template>
 
 <style scoped lang="postcss">
