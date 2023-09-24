@@ -10,14 +10,10 @@ const { initialText } = defineProps<{
 
 const editedText = ref(initialText);
 
-function closePopover() {
-    isPopoverOpen.value = false;
-}
-
 function updateSiteDetails() {
     document.title = editedText.value;
 
-    closePopover();
+    isPopoverOpen.value = false;
 }
 
 function handleFileUpload() {}
@@ -27,7 +23,7 @@ function handleFileUpload() {}
 <button
     class="button bg-grey p-1.5 text-font-accent"
     data-dont-export
-    @click="isPopoverOpen = true"
+    @click.self="isPopoverOpen = true"
 >
     Edit Site Details
     <PopoverComponent
