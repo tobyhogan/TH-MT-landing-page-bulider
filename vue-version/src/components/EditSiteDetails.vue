@@ -47,6 +47,8 @@ function saveChanges() {
         newButtonUrl: editedUrl.value
     });
 
+    isPopoverOpen.value = false;
+
 
     closePopover();
 
