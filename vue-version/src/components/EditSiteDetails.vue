@@ -99,13 +99,14 @@ function updateSiteDetails(newTitle) {
 
                 <div>
                     <label class="mb-1 block font-medium">
-                        Upload Image (recommended 240x240)
-                        <input
-                            type="file"
-                            class="w-full rounded-md border p-2"
-                            @change="handleFileUpload"
-                        >
+                        Upload Image (recommended 240x240px)
+                        
                     </label>
+                    <input
+                            type="file"
+                            class="rounded-md border p-2"
+                            @change="handleFileUpload"
+                    >
                 </div>
             </label>
 
