@@ -32,17 +32,38 @@ function edit(event?: MouseEvent) {
 }
 
 
+function closePopover() {
+    emits("close");
+}
+
+
 
 function saveChanges() {
+
+
+
     emits("update", {
         newButtonText: editedText.value,
         newButtonUrl: editedUrl.value
     });
+
+
+    closePopover();
+
+
+
 }
 
-function closePopover() {
+function updateSiteDetails(newTitle) {
+
+
+    document.title = editedText.value;
+
     emits("close");
+
+
 }
+
 
 
 
@@ -75,19 +96,32 @@ function closePopover() {
 
             <label class="mb-2 block">
                 Favicon
-                <input
-                    v-model="editedUrl"
-                    class="mb-4 w-full rounded-md border p-2"
-                >
+
+                <div>
+                    <label class="mb-1 block font-medium">
+                        Upload Image (recommended 240x240)
+                        <input
+                            type="file"
+                            class="w-full rounded-md border p-2"
+                            @change="handleFileUpload"
+                        >
+                    </label>
+                </div>
             </label>
 
             <div class=" flex h-full justify-center">
+
+
+
                 <button
                     class="rounded-md bg-accent px-4 py-2 text-font-accent hover:opacity-80"
-                    @click="saveChanges()"
+                    @click="updateSiteDetails('my title');"
                 >
                     Save
                 </button>
+
+
+
             </div>
         </PopoverComponent>
     </button>
