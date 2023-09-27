@@ -4,6 +4,7 @@ import type { Basic } from "unsplash-js/dist/methods/photos/types";
 import type { Photos } from "unsplash-js/dist/methods/search/types/response";
 import type { Orientation } from "unsplash-js";
 import ImageSearchResults from "../ImageSearchResults.vue";
+import { searchPhotos } from "@/services/unsplash";
 
 
 const { orientation } = defineProps<{ orientation?: Orientation }>();
