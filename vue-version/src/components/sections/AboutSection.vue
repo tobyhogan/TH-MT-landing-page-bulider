@@ -2,6 +2,7 @@
 import HeaderComponent from "../editables/HeaderComponent.vue";
 import ImageComponent from "../editables/ImageComponent.vue";
 import TextComponent from "../editables/TextComponent.vue";
+import ExtendedTextComponent from "../editables/ExtendedTextComponent.vue";
 
 </script>
 

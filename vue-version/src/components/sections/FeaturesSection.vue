@@ -2,6 +2,7 @@
 import HeaderComponent from "../editables/HeaderComponent.vue";
 import ImageComponent from "../editables/ImageComponent.vue";
 import TextComponent from "../editables/TextComponent.vue";
+import ExtendedTextComponent from "../editables/ExtendedTextComponent.vue";
 
 </script>
 
@@ -18,44 +19,7 @@ import TextComponent from "../editables/TextComponent.vue";
             <HeaderComponent :initial-text="'Why my idea is the best'"></HeaderComponent>
             <!-- <TextComponent :initial-text="'More description'"></TextComponent> -->
 
-            <ul class="mt-6 flex flex-col flex-wrap">
-                <li class="flex justify-start">
-                    <p class="flex items-center space-x-2">
-                        <img
-                            src="https://api.iconify.design/mdi:checkbox-marked.svg?color=%23ffffff"
-                            alt="list bullet icon"
-                        >
-                        <TextComponent :initial-text="'Looks good'"></TextComponent>
-                    </p>
-                </li>
-                <li class="flex justify-start">
-                    <p class="flex items-center space-x-2">
-                        <img
-                            src="https://api.iconify.design/mdi:checkbox-marked.svg?color=%23ffffff"
-                            alt="list bullet icon"
-                        >
-                        <TextComponent :initial-text="'Works well'"></TextComponent>
-                    </p>
-                </li>
-                <li class="flex justify-start">
-                    <p class="flex items-center space-x-2">
-                        <img
-                            src="https://api.iconify.design/mdi:checkbox-marked.svg?color=%23ffffff"
-                            alt="list bullet icon"
-                        >
-                        <TextComponent :initial-text="'Reads your mind'"></TextComponent>
-                    </p>
-                </li>
-                <li class="flex justify-start">
-                    <p class="flex items-center space-x-2">
-                        <img
-                            src="https://api.iconify.design/mdi:checkbox-marked.svg?color=%23ffffff"
-                            alt="list bullet icon"
-                        >
-                        <TextComponent :initial-text="'Can predict the future'"></TextComponent>
-                    </p>
-                </li>
-            </ul>
+            <ExtendedTextComponent :initial-text="'&bull; It\'s the best;'"></ExtendedTextComponent>
         </div>
     </div>
     <slot />
