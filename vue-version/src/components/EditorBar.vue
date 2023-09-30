@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AccentColorPicker from "./AccentColorPicker.vue";
 import ThemeChanger from "./ThemeChanger.vue";
+import EditSiteDetails from "./EditSiteDetails.vue";
 import {
     downloadPageAsHtml,
     openPreviewInNewTab
@@ -17,12 +18,10 @@ function openPreview() {
     style="background-color: rgb(27, 27, 27);"
     data-dont-export
 >
-    <button
-            class="button hover:bg-gray-400"
-            @click="openPreview()"
-        >
-            Edit Site Details
-    </button>
+    <EditSiteDetails
+        :initial-text="'Get Started'"
+    >
+    </EditSiteDetails>
     <div class="flex flex-row items-center space-x-2">
         <!-- <a
             href="https://validator.m-winkler.at"

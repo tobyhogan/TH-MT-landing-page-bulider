@@ -5,6 +5,7 @@ import EditButton from "./EditButton.vue";
 
 const { initialText = "Click me" } = defineProps<{
     initialText?: string,
+    initialText1?: string,
 }>();
 
 const isPopoverOpen = ref(false);
@@ -28,7 +29,7 @@ function updateButton({ newButtonText, newButtonUrl }: { newButtonText: string, 
 <div class="group flex flex-row items-center justify-center">
     <a
         ref="button"
-        class="button relative rounded-md bg-accent px-8 py-3 text-center text-lg font-medium text-font-accent bg-gradient-to-tr from-gradient1 from-0% via-gradient2 via-50% to-gradient3 to-90% hover:bg-gradient-to-bl from-gradient1 from-0% via-gradient2 via-50% to-gradient3 to-90%"
+        class="button relative rounded-md bg-accent bg-gradient-to-tr from-gradient1 from-0% via-gradient2 via-50% to-gradient3 to-90% px-8 py-3 text-center text-lg font-medium text-font-accent hover:bg-gradient-to-bl"
         :href="buttonUrl"
         data-remove-before-export
         @click="edit($event)"
