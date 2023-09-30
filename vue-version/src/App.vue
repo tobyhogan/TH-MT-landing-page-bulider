@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { RouterView } from "vue-router";
 import { setNewTheme } from "@/services/theme";
+import { auth, provider, db } from './firebase-config.ts';
 
 document.documentElement.style.setProperty("--color-primary", "#1a6070"); //color that compliments bg e.g. header
 document.documentElement.style.setProperty("--color-accent", "#6366f1"); // //color for highilghted buttons

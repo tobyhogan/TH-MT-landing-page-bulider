@@ -64,7 +64,7 @@ function openPreview() {
         </button>
         <button
             class="button bg-accent text-font-accent hover:opacity-80"
-            @click=""
+            @click="launch()"
         >
             Launch
         </button>
