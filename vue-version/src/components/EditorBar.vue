@@ -2,6 +2,7 @@
 import AccentColorPicker from "./AccentColorPicker.vue";
 import ThemeChanger from "./ThemeChanger.vue";
 import EditSiteDetails from "./EditSiteDetails.vue";
+import launch from '@/functions/hosting-auth.ts';
 import {
     downloadPageAsHtml,
     openPreviewInNewTab
@@ -60,6 +61,12 @@ function openPreview() {
             @click="downloadPageAsHtml()"
         >
             Download
+        </button>
+        <button
+            class="button bg-accent text-font-accent hover:opacity-80"
+            @click=""
+        >
+            Launch
         </button>
     </div>
 </nav>
