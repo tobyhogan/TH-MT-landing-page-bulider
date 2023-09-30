@@ -28,12 +28,17 @@ function updateFavicon(imageUrl: string) {
 <button
     class="button bg-grey p-1.5 text-font-accent"
     data-dont-export
-    @click.self="isPopoverOpen = true"
+    @click.self="isPopoverOpen = !isPopoverOpen"
 >
-    Site Settings
+    <img
+        src="https://api.iconify.design/mdi:settings.svg?color=%23ffffff"
+        alt="settings icon"
+        class="h-6 w-6"
+        @click.self="isPopoverOpen = !isPopoverOpen"
+    >
     <PopoverComponent
         v-if="isPopoverOpen"
-        class="ml-28"
+        class="ml-36"
         @close="isPopoverOpen = false"
     >
         <label class="mb-2 block">
