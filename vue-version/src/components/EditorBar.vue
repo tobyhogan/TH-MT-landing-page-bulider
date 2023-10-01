@@ -1,14 +1,26 @@
 <script setup lang="ts">
+import { ref } from "vue";
+import { useToast } from "vue-toastification";
 import AccentColorPicker from "./AccentColorPicker.vue";
 import ThemeChanger from "./ThemeChanger.vue";
 import EditSiteDetails from "./EditSiteDetails.vue";
 import {
     downloadPageAsHtml,
-    openPreviewInNewTab
+    openPreviewInNewTab,
+    uploadPageToSupabase
 } from "@/services/exportPage";
 
-function openPreview() {
-    openPreviewInNewTab();
+const pageName = ref(document.title);
+const toast = useToast();
+
+async function uploadPage() {
+    const uploadSuccessful = await uploadPageToSupabase(pageName.value);
+
+    if (uploadSuccessful === true) {
+        toast.success("Page uploaded successfully!");
+    } else {
+        toast.success("Page upload failed!");
+    }
 }
 </script>
 
@@ -18,40 +30,15 @@ function openPreview() {
     style="background-color: rgb(27, 27, 27);"
     data-dont-export
 >
-    <EditSiteDetails
-        :initial-text="'Get Started'"
-    >
-    </EditSiteDetails>
-    <div class="flex flex-row items-center space-x-2">
-        <!-- <a
-            href="https://validator.m-winkler.at"
-            class="button bg-transparent p-1.5 hover:bg-gray-500"
-        >
-            <img
-                class="h-6 w-6"
-                src="https://api.iconify.design/mdi:home.svg?color=%23ffffff"
-                alt="home button icon"
-            />
-        </a>
-        <a
-            href="https://validator.m-winkler.at/profile"
-            class="button bg-transparent p-1.5 hover:bg-gray-500"
-        >
-            <img
-                class="h-6 w-6"
-                src="https://api.iconify.design/mdi:account.svg?color=%23ffffff"
-                alt="home button icon"
-            />
-        </a> -->
-    </div>
     <div class="flex flex-row space-x-2">
+        <EditSiteDetails></EditSiteDetails>
         <ThemeChanger></ThemeChanger>
         <AccentColorPicker></AccentColorPicker>
     </div>
     <div class="flex flex-row items-center justify-between space-x-2">
         <button
             class="button hover:bg-gray-400"
-            @click="openPreview()"
+            @click="openPreviewInNewTab()"
         >
             Preview
         </button>
@@ -60,6 +47,12 @@ function openPreview() {
             @click="downloadPageAsHtml()"
         >
             Download
+        </button>
+        <button
+            class="button bg-accent text-font-accent hover:opacity-80"
+            @click="uploadPage()"
+        >
+            Publish
         </button>
     </div>
 </nav>

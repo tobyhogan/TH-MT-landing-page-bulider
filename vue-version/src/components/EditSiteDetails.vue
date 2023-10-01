@@ -4,12 +4,7 @@ import PopoverComponent from "./modals/PopoverComponent.vue";
 import ImageComponent from "./editables/ImageComponent.vue";
 
 const isPopoverOpen = ref(false);
-
-const { initialText } = defineProps<{
-  initialText: string,
-}>();
-
-const editedText = ref(initialText);
+const editedText = ref(document.title);
 
 function updateSiteDetails() {
     document.title = editedText.value;
@@ -26,7 +21,7 @@ function updateFavicon(imageUrl: string) {
 
 <template>
 <button
-    class="button bg-grey p-1.5 text-font-accent"
+    class="button bg-gray-700 p-1.5 text-font-accent"
     data-dont-export
     @click.self="isPopoverOpen = !isPopoverOpen"
 >

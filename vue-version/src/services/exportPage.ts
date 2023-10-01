@@ -1,10 +1,8 @@
+import supabase from "@/supabaseClient";
+
 export function downloadPageAsHtml() {
     const textContent = getClonedAndFilteredTextContent();
-
-    // Create a Blob with the text content
     const blob = new Blob([textContent], { type: "text/html" });
-
-    // Create a URL for the Blob
     const url = URL.createObjectURL(blob);
 
     // Create an anchor element to trigger download
@@ -12,7 +10,6 @@ export function downloadPageAsHtml() {
     link.href = url;
     link.download = "my-landing-page.html";
 
-    // Trigger the download
     link.click();
 
     // Clean up: release the Blob URL
@@ -30,6 +27,24 @@ export function openPreviewInNewTab() {
     newTab.document.open();
     newTab.document.write(textContent);
     newTab.document.close();
+}
+
+export async function uploadPageToSupabase(pageName: string) {
+    const textContent = getClonedAndFilteredTextContent();
+    const blob = new Blob([textContent], { type: "text/html" });
+    const escapedPageName = pageName.toLowerCase().replace(/[^a-zA-Z0-9]/g, "-");
+
+    const { error } = await supabase.storage.from("landing-pages").upload(`${escapedPageName}.html`, blob);
+
+    if (error) {
+        const { error: updateError } = await supabase.storage.from("landing-pages").update(`${escapedPageName}.html`, blob);
+
+        if (updateError) {
+            throw error;
+        }
+    }
+
+    return true;
 }
 
 function getClonedAndFilteredTextContent() {
