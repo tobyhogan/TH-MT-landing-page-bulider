@@ -22,7 +22,7 @@
     "whatwg-fetch": "^3.6.19"
   },
   "devDependencies": {
-    "@rushstack/eslint-patch": "^1.5.0",
+    "@rushstack/eslint-patch": "^1.5.1",
     "@tsconfig/node18": "^18.2.2",
     "@types/node": "^20.8.0",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
