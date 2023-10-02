@@ -93,7 +93,7 @@ function getComponent(section: SectionType) {
             :is="getComponent(section)"
             v-for="section in visibleSections"
             :key="getComponent(section)"
-            class="rounded border-2 border-transparent p-1 hover:border-accent"
+            class="rounded border-2 border-transparent p-1 hover:border-gray-400"
         >
             <DeleteSectionButton
                 @delete-section="deleteSection(section)"

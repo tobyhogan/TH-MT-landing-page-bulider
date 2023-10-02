@@ -61,7 +61,7 @@ function updateFavicon(imageUrl: string) {
 
         <div class=" flex h-full justify-center">
             <button
-                class="rounded-md bg-accent px-4 py-2 text-font-accent hover:opacity-80"
+                class="rounded-md bg-blue-500 px-4 py-2 text-white hover:opacity-80"
                 @click="updateSiteDetails()"
             >
                 Save
