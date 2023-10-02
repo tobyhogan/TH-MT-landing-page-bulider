@@ -26,7 +26,7 @@ function setTextColorFromCssVariable() {
 
 <template>
 <button
-    class="button bg-accent p-1.5 text-font-accent"
+    class="button bg-blue-500 p-1.5 text-font-accent"
     @click="isPopoverOpen = true"
 >
     <PopoverComponent
@@ -47,7 +47,7 @@ function setTextColorFromCssVariable() {
     </PopoverComponent>
     <img
         class="h-6 w-6"
-        :src="'https://api.iconify.design/mdi:palette.svg?color=%23' + currentFontAccentColor.slice(1)"
+        :src="'https://api.iconify.design/mdi:palette.svg?color=%23ffffff'"
         alt="palette button icon"
     >
 </button>

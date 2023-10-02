@@ -56,7 +56,7 @@ function openPreview() {
             Preview
         </button>
         <button
-            class="button bg-accent text-font-accent hover:opacity-80"
+            class="button bg-blue-500 text-white hover:opacity-80"
             @click="downloadPageAsHtml()"
         >
             Download
