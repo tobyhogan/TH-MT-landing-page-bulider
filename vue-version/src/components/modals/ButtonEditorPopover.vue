@@ -24,6 +24,13 @@ function saveChanges() {
 function closePopover() {
     emits("close");
 }
+
+function updateButtonStyle() {
+    console.log("hello world")
+}
+
+
+
 </script>
 
 <template>
@@ -43,6 +50,18 @@ function closePopover() {
             class="mb-4 w-full rounded-md border p-2"
         >
     </label>
+
+    <div class="flex mb-5">
+
+        <label class="mr-3">
+        Gradient Effect
+        </label>
+
+        <input type="checkbox" id="gradient-checkbox" @input="console.log('hello world')"/>
+
+    </div>
+
+    
 
     <div class=" flex h-full justify-center">
         <button
